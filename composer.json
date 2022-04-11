@@ -1,0 +1,14 @@
+{
+  "name": "sabbir2001/ajax-cart",
+  "description": "A complete Ajax Cart Plugin",
+  "type": "wordpress-plugin",
+  "license": "GPLv2",
+  "minimum-stability": "dev",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "ajax\\cart\\": "includes/"
+    },
+    "files": []
+  }
+}
