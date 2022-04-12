@@ -1,6 +1,8 @@
 jQuery(document).ready(function ($) {
+
     $('.single_add_to_cart_button').on('click', function (e) {
         e.preventDefault();
+
         $thisbutton = $(this),
             $form = $thisbutton.closest('form.cart'),
             id = $thisbutton.val(),
@@ -16,7 +18,7 @@ jQuery(document).ready(function ($) {
         };
         $.ajax({
             type: 'post',
-            url: pw_script_vars.ajax_url,
+            url: script_vars.ajax_url,
             data: data,
             beforeSend: function (response) {
                 $thisbutton.removeClass('added').addClass('loading');
