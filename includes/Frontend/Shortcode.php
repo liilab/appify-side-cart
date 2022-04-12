@@ -1,17 +1,18 @@
 <?php
-
 namespace ajax\cart\Frontend;
 
 /**
  * Shortcode handler class
  */
-class Shortcode {
+class Shortcode
+{
 
     /**
      * Initializes the class
      */
-    function __construct() {
-        add_shortcode( 'lii-ajaxcart', [ $this, 'render_shortcode' ] );
+    public function __construct()
+    {
+        add_shortcode( 'lii-ajaxcart', [$this, 'render_shortcode'] );
     }
 
     /**
@@ -22,7 +23,8 @@ class Shortcode {
      *
      * @return string
      */
-    public function render_shortcode( $atts, $content = '' ) {
+    public function render_shortcode( $atts, $content = '' )
+    {
         return 'Hello from Shortcode';
     }
 }

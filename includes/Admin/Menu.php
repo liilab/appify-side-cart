@@ -1,17 +1,18 @@
 <?php
-
 namespace ajax\cart\Admin;
 
 /**
  * The Menu handler class
  */
-class Menu {
+class Menu
+{
 
     /**
      * Initialize the class
      */
-    function __construct() {
-        add_action( 'admin_menu', [ $this, 'admin_menu' ] );
+    public function __construct()
+    {
+        add_action( 'admin_menu', [$this, 'admin_menu'] );
     }
 
     /**
@@ -19,8 +20,9 @@ class Menu {
      *
      * @return void
      */
-    public function admin_menu() {
-        add_menu_page( __( 'Ajax Cart', 'lii-ajaxcart' ), __( 'Ajax Cart', 'lii-ajaxcart' ), 'manage_options', 'lii-ajaxcart', [ $this, 'plugin_page' ], 'dashicons-cart' );
+    public function admin_menu()
+    {
+        add_menu_page( __( 'Ajax Cart', 'lii-ajaxcart' ), __( 'Ajax Cart', 'lii-ajaxcart' ), 'manage_options', 'lii-ajaxcart', [$this, 'plugin_page'], 'dashicons-cart' );
     }
 
     /**
@@ -28,7 +30,8 @@ class Menu {
      *
      * @return void
      */
-    public function plugin_page() {
+    public function plugin_page()
+    {
         echo 'Hello Check';
     }
 }
