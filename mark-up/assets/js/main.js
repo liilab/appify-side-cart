@@ -24,3 +24,10 @@ jQuery(document).ready(function ($) {
     });
 
 });
+
+$(document).mouseup(function(e){
+    var container = $("#ajax-cart");
+    if(!container.is(e.target) && container.has(e.target).length === 0){
+        $(".content-start").removeClass("show-cart");
+    }
+});
