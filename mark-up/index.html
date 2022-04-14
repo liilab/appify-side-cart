@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ajax Cart</title>
+
+    <!--==Custom CSS==-->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!--==Bootsrap CSS==-->
+    <link
+      rel="stylesheet"
+      href="assets/vendor/bootstrap-icons/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <!--==Ajax Cart==-->
+
+    <section id="ajax-cart">
+      <div class="content-start">
+        <!--Cart Icon-->
+        <div class="cart-icon">
+          <span>5</span>
+          <i class="bi bi-cart"></i>
+        </div>
+
+        <!--Header-->
+        <div class="header">
+          <div class="d-flex justify-content-center">
+            <i class="bi bi-cart me-2"></i><span>5</span>
+            <p class="title">Your Cart</p>
+            <i class="bi bi-x cross"></i>
+          </div>
+        </div>
+
+        <!--Cart Products-->
+        <div class="cart-products mt-4">
+          <div class="single-product">
+            <div class="main-content d-flex">
+              <img src="/assets/img/product-1.jpg" alt="" />
+              <div class="details">
+                <div class="title d-flex justify-content-between">
+                  <p>Sample Product</p>
+                  <i class="bi bi-trash trash"></i>
+                </div>
+                <div class="per-price">
+                  <p>Price: $10.00</p>
+                </div>
+                <div class="quantity d-flex">
+                  <div class="qty buttons_added me-3">
+                    <input type="button" value="-" class="minus" /><input
+                      type="number"
+                      step="1"
+                      min="1"
+                      max=""
+                      name="quantity"
+                      value="1"
+                      title="Qty"
+                      class="input-text qty text"
+                      size="4"
+                      pattern=""
+                      inputmode=""
+                    /><input type="button" value="+" class="plus" />
+                  </div>
+                  <div class="total-price">
+                    <p>$30.00</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr />
+          </div>
+        </div>
+
+        <div class="cart-products mt-4">
+          <div class="single-product">
+            <div class="main-content d-flex">
+              <img src="/assets/img/product-1.jpg" alt="" />
+              <div class="details">
+                <div class="title d-flex justify-content-between">
+                  <p>Sample Product</p>
+                  <i class="bi bi-trash trash"></i>
+                </div>
+                <div class="per-price">
+                  <p>Price: $10.00</p>
+                </div>
+                <div class="quantity d-flex">
+                  <div class="qty buttons_added me-3">
+                    <input type="button" value="-" class="minus" /><input
+                      type="number"
+                      step="1"
+                      min="1"
+                      max=""
+                      name="quantity"
+                      value="1"
+                      title="Qty"
+                      class="input-text qty text"
+                      size="4"
+                      pattern=""
+                      inputmode=""
+                    /><input type="button" value="+" class="plus" />
+                  </div>
+                  <div class="total-price">
+                    <p>$30.00</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr />
+          </div>
+        </div>
+
+        <!--Suggested Items-->
+        <div class="suggested-items">
+          <p class="text-center fw-bold">Products you might like</p>
+          <div class="products">
+            <div class="single-product">
+              <div class="main-content d-flex">
+                <img src="/assets/img/product-2.jpg" alt="" />
+                <div class="details">
+                  <p class="title">Variable Product- XXL, RED</p>
+                  <div class="lower-data d-flex">
+                    <p>$15.00</p>
+                    <button>+ ADD</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--Footer-->
+        <div class="footer fixed-bottom">
+          <div class="promo-code d-flex">
+            <a href="#" class="d-flex">
+              <i class="bi bi-pen me-2"></i>
+              <p>Have you any coupon?</p>
+            </a>
+          </div>
+          <div class="price-summery">
+            <div class="subtotal d-flex justify-content-between">
+              <p class="title">Subtotal</p>
+              <p class="price">$20.00</p>
+            </div>
+            <div class="shipping d-flex justify-content-between">
+              <a href="#">
+                <p id="shipping" class="title">
+                  Shipping <i class="bi bi-pen"></i>
+                </p>
+              </a>
+              <p class="price">$50.00</p>
+            </div>
+            <hr />
+            <div class="total d-flex justify-content-between">
+              <p class="title">Total</p>
+              <p class="price">$70.00</p>
+            </div>
+          </div>
+          <div class="checkout d-flex justify-content-between">
+            <button>Keep Shopping</button>
+            <button>Checkout</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--==jQuery JS==-->
+    <script src="assets/vendor/jquery/jquery.js"></script>
+
+    <!--==Custom JS==-->
+    <script src="assets/js/main.js"></script>
+
+    <!--==Bootsrap JS==-->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
