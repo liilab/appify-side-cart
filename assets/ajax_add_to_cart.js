@@ -31,6 +31,7 @@ jQuery(document).ready(function ($) {
                     
                 } else {
                     $(document.body).trigger('added_to_cart', [response.fragments, response.cart_hash, $thisbutton]);
+                    
                 }
             },
         });
