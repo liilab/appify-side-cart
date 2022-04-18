@@ -7,16 +7,18 @@ $footer-bg: #f8f8f8;
 //==Main Section==//
 
 #lii-ajax-cart {
+
     //Common Style
     .lii-show-cart {
         transform: translate(0%) !important;
     }
 
-    a{
+    a {
         color: black;
         text-decoration: none;
     }
-    .lii-content-start{
+
+    .lii-content-start {
         .lii-cart-icon {
             cursor: pointer;
             position: absolute;
@@ -28,10 +30,12 @@ $footer-bg: #f8f8f8;
             height: 70px;
             width: 70px;
             z-index: 9999999999;
+
             i {
                 position: relative;
                 font-size: 40px;
             }
+
             span {
                 position: absolute;
                 background-color: black;
@@ -43,6 +47,7 @@ $footer-bg: #f8f8f8;
                 font-size: 12px;
             }
         }
+
         //initial style
         transform: translate(100%);
         transition: all 0.3s linear;
@@ -58,10 +63,12 @@ $footer-bg: #f8f8f8;
         .header {
             padding: 10px 20px;
             background-color: #f6f6f6;
+
             i {
                 cursor: pointer;
                 font-size: 50px;
             }
+
             span {
                 cursor: pointer;
                 position: absolute;
@@ -73,10 +80,12 @@ $footer-bg: #f8f8f8;
                 font-weight: 600;
                 font-size: 15px;
             }
+
             .title {
                 margin-top: 25px;
                 font-size: 20px;
             }
+
             .lii-cross {
                 right: 0;
                 position: fixed;
@@ -95,12 +104,15 @@ $footer-bg: #f8f8f8;
                         width: 30%;
                         //border-radius: 5px;
                     }
+
                     .details {
                         padding: 0px 14px;
+
                         .title {
                             p {
                                 font-weight: 500;
                             }
+
                             .trash {
                                 cursor: pointer;
                                 right: 0;
@@ -109,10 +121,13 @@ $footer-bg: #f8f8f8;
                                 padding: 0px 14px;
                             }
                         }
+
                         .quantity {
+
                             //quantity box
                             .lii-qty {
                                 display: inline-block;
+
                                 .input-text.lii-qty {
                                     width: 40px;
                                     height: 41px;
@@ -121,12 +136,14 @@ $footer-bg: #f8f8f8;
                                     background-color: transparent;
                                     border: 1px solid $primary-color;
                                 }
+
                                 input {
                                     &::-webkit-outer-spin-button {
                                         -webkit-appearance: none;
                                         -moz-appearance: none;
                                         margin: 0;
                                     }
+
                                     &::-webkit-inner-spin-button {
                                         -webkit-appearance: none;
                                         -moz-appearance: none;
@@ -134,17 +151,20 @@ $footer-bg: #f8f8f8;
                                     }
                                 }
                             }
+
                             .lii-qty.buttons_added {
                                 text-align: left;
                                 position: relative;
                                 white-space: nowrap;
                                 vertical-align: top;
+
                                 input {
                                     display: inline-block;
                                     margin: 0;
                                     vertical-align: top;
                                     box-shadow: none;
                                 }
+
                                 .lii-minus {
                                     padding: 7px 10px 8px;
                                     height: 41px;
@@ -153,10 +173,12 @@ $footer-bg: #f8f8f8;
                                     //border-radius: 5px 0px 0px 5px;
                                     cursor: pointer;
                                     border-right: 0;
+
                                     &:focus {
                                         outline: none;
                                     }
                                 }
+
                                 .lii-plus {
                                     padding: 7px 10px 8px;
                                     height: 41px;
@@ -166,12 +188,14 @@ $footer-bg: #f8f8f8;
                                     //border-radius: 0px 5px 5px 0px;
                                     cursor: pointer;
                                     border-left: 0;
+
                                     &:focus {
                                         outline: none;
                                     }
                                 }
                             }
                         }
+
                         .total-price {
                             right: 0;
                             position: fixed;
@@ -188,6 +212,7 @@ $footer-bg: #f8f8f8;
         .suggested-items {
             background-color: $footer-bg;
             padding: 10px 20px;
+
             .products {
                 .single-product {
                     .main-content {
@@ -195,8 +220,10 @@ $footer-bg: #f8f8f8;
                             height: auto;
                             width: 25%;
                         }
+
                         .details {
                             padding: 5px 20px;
+
                             .lower-data {
                                 button {
                                     right: 0;
@@ -255,4 +282,47 @@ $footer-bg: #f8f8f8;
             }
         }
     }
+}
+
+#lii-shipping-area {
+    display: none;
+
+    .lii-cart-icon {
+        cursor: pointer;
+        position: absolute;
+        text-align: center;
+        bottom: 10px;
+        right: 420px;
+        background-color: $footer-bg;
+        border-radius: 100%;
+        height: 70px;
+        width: 70px;
+        z-index: 9999999999;
+
+        i {
+            position: relative;
+            font-size: 40px;
+        }
+
+        span {
+            position: absolute;
+            background-color: black;
+            color: white;
+            height: 20px;
+            width: 20px;
+            border-radius: 100%;
+            left: 0;
+            font-size: 12px;
+        }
+    }
+
+    transform: translate(100%);
+    transition: all 0.3s linear;
+    position: fixed;
+    z-index: 9999999999;
+    top: 0;
+    right: 0;
+    width: 100%;
+    max-width: 390px;
+    height: 100%;
 }
