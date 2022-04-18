@@ -25,9 +25,9 @@ jQuery(document).ready(function ($) {
 
 });
 
-$(document).mouseup(function(e){
-    var container = $("#lii-ajax-cart");
+jQuery(document).mouseup(function(e){
+    var container = jQuery("#lii-ajax-cart");
     if(!container.is(e.target) && container.has(e.target).length === 0){
-        $(".lii-content-start").removeClass("lii-show-cart");
+        jQuery(".lii-content-start").removeClass("lii-show-cart");
     }
 });
