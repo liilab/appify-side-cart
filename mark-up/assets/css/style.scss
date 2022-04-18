@@ -6,9 +6,9 @@ $footer-bg: #f8f8f8;
 
 //==Main Section==//
 
-#ajax-cart {
+#lii-ajax-cart {
     //Common Style
-    .show-cart {
+    .lii-show-cart {
         transform: translate(0%) !important;
     }
 
@@ -16,8 +16,8 @@ $footer-bg: #f8f8f8;
         color: black;
         text-decoration: none;
     }
-    .content-start{
-        .cart-icon {
+    .lii-content-start{
+        .lii-cart-icon {
             cursor: pointer;
             position: absolute;
             text-align: center;
@@ -77,7 +77,7 @@ $footer-bg: #f8f8f8;
                 margin-top: 25px;
                 font-size: 20px;
             }
-            .cross {
+            .lii-cross {
                 right: 0;
                 position: fixed;
                 font-size: 24px;
@@ -111,9 +111,9 @@ $footer-bg: #f8f8f8;
                         }
                         .quantity {
                             //quantity box
-                            .qty {
+                            .lii-qty {
                                 display: inline-block;
-                                .input-text.qty {
+                                .input-text.lii-qty {
                                     width: 40px;
                                     height: 41px;
                                     padding: 0 5px;
@@ -134,7 +134,7 @@ $footer-bg: #f8f8f8;
                                     }
                                 }
                             }
-                            .qty.buttons_added {
+                            .lii-qty.buttons_added {
                                 text-align: left;
                                 position: relative;
                                 white-space: nowrap;
@@ -145,7 +145,7 @@ $footer-bg: #f8f8f8;
                                     vertical-align: top;
                                     box-shadow: none;
                                 }
-                                .minus {
+                                .lii-minus {
                                     padding: 7px 10px 8px;
                                     height: 41px;
                                     background-color: #ffffff;
@@ -157,7 +157,7 @@ $footer-bg: #f8f8f8;
                                         outline: none;
                                     }
                                 }
-                                .plus {
+                                .lii-plus {
                                     padding: 7px 10px 8px;
                                     height: 41px;
                                     width: 28px;
