@@ -29,8 +29,11 @@ class CartMarkup
     function iconic_cart_count_fragments( $fragments ) {
         
         $fragments['span.lii-cart-count'] = '<span class="lii-cart-count">' . WC()->cart->get_cart_contents_count() . '</span>';
+        $fragments['span.lii-shipping-price'] = '<span class="lii-shipping-price">' . WC()->cart->get_shipping_total() . '</span>';
+        $fragments['span.lii-subtotal-price'] = '<span class="lii-subtotal-price">' . WC()->cart->get_cart_subtotal() . '</span>';
+        $fragments['span.lii-total-price'] = '<span class="lii-total-price">' . WC()->cart->get_cart_total() . '</span>';
         
-        return $fragments;
+        return  $fragments;
         
     }
 
