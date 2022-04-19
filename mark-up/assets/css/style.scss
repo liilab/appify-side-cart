@@ -287,42 +287,106 @@ $footer-bg: #f8f8f8;
 #lii-shipping-area {
     display: none;
 
-    .lii-cart-icon {
-        cursor: pointer;
-        position: absolute;
-        text-align: center;
-        bottom: 10px;
-        right: 420px;
-        background-color: $footer-bg;
-        border-radius: 100%;
-        height: 70px;
-        width: 70px;
-        z-index: 9999999999;
-
-        i {
-            position: relative;
-            font-size: 40px;
-        }
-
-        span {
-            position: absolute;
-            background-color: black;
-            color: white;
-            height: 20px;
-            width: 20px;
-            border-radius: 100%;
-            left: 0;
-            font-size: 12px;
-        }
+    .lii-show-cart {
+        transform: translate(0%) !important;
     }
 
-    transform: translate(100%);
-    transition: all 0.3s linear;
-    position: fixed;
-    z-index: 9999999999;
-    top: 0;
-    right: 0;
-    width: 100%;
-    max-width: 390px;
-    height: 100%;
+    .lii-content-start {
+
+        .lii-cart-icon {
+            cursor: pointer;
+            position: absolute;
+            text-align: center;
+            bottom: 10px;
+            right: 420px;
+            background-color: $footer-bg;
+            border-radius: 100%;
+            height: 70px;
+            width: 70px;
+            z-index: 9999999999;
+
+            i {
+                position: relative;
+                font-size: 40px;
+            }
+
+            span {
+                position: absolute;
+                background-color: black;
+                color: white;
+                height: 20px;
+                width: 20px;
+                border-radius: 100%;
+                left: 0;
+                font-size: 12px;
+            }
+        }
+
+        .lii-ship-header {
+            .ship-heading {
+                color: #6D6D6D;
+                font-size: 20px;
+                font-weight: 600;
+                padding: 20px;
+            }
+        }
+
+        .lii-ship-body {
+            padding: 10px 20px;
+
+            .shipping-destination {
+                color: #6D6D6D;
+                padding: 20px;
+            }
+
+            .ship-form {
+                text-align: center;
+                .form-input {
+                    padding: 0.6180469716em;
+                    background-color: #f2f2f2;
+                    color: #43454b;
+                    border: 0;
+                    -webkit-appearance: none;
+                    box-sizing: border-box;
+                    font-weight: normal;
+                    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.13);
+                    width: 100%;
+                    text-align: left;
+                    margin-top: 30px;
+                }
+
+                .ship-btn {
+                    cursor: pointer;
+                    padding: 0.6180469716em 1.41575em;
+                    text-decoration: none;
+                    font-weight: 600;
+                    text-shadow: none;
+                    -webkit-appearance: none;
+                    border: 0;
+                    border-radius: 0;
+                    background: none;
+                    background-color: #000000;
+                    border-color: #eeeeee;
+                    color: #ffffff;
+                    font-family: monospace;
+                    margin-top: 30px;
+                    display: inline-block;
+                }
+                .ship-btn:hover{
+                    color: black;
+                    background-color: #d5d5d5;
+                }
+            }
+        }
+
+        //transform: translate(100%);
+        transition: all 0.3s linear;
+        position: fixed;
+        z-index: 9999999999;
+        top: 0;
+        right: 0;
+        width: 100%;
+        max-width: 390px;
+        height: 100%;
+    }
 }
