@@ -13,7 +13,7 @@ class CartMarkup
     public function __construct()
     {
         add_action( 'wp_ajax_frontend_cart', [$this, 'frontend_cart'] );
-        add_action( 'wp_ajax_nopriv_frontend_cart', [$this, 'frontend_cart'] );
+        add_action( 'wp_ajax_nopriv_frontend_cart', [$this, 'single_product_page_ajax_add'] );
         add_action( 'wp_enqueue_scripts', [$this, 'ajax_add_to_cart_js'] );
         add_action( 'wp_footer', [$this, 'frontend_markup'] );
         add_filter( 'woocommerce_add_to_cart_fragments', [$this, 'iconic_cart_count_fragments'], 10, 1 );
@@ -25,21 +25,48 @@ class CartMarkup
      * @return void
      */
 
+    public function iconic_cart_count_fragments( $fragments )
+    {
+        //Side Cart non LOOP Fragment Update By Ajax
 
-    function iconic_cart_count_fragments( $fragments ) {
-        
-        $fragments['span.lii-cart-count'] = '<span class="lii-cart-count">' . WC()->cart->get_cart_contents_count() . '</span>';
+        $fragments['span.lii-cart-count']     = '<span class="lii-cart-count">' . WC()->cart->get_cart_contents_count() . '</span>';
         $fragments['span.lii-shipping-price'] = '<span class="lii-shipping-price">' . WC()->cart->get_shipping_total() . '</span>';
         $fragments['span.lii-subtotal-price'] = '<span class="lii-subtotal-price">' . WC()->cart->get_cart_subtotal() . '</span>';
-        $fragments['span.lii-total-price'] = '<span class="lii-total-price">' . WC()->cart->get_cart_total() . '</span>';
-        
-        return  $fragments;
-        
+        $fragments['span.lii-total-price']    = '<span class="lii-total-price">' . WC()->cart->get_total() . '</span>';
+
+        //Mini Cart Content LOOP Fragment Update By Ajax
+
+        ob_start();
+        ?>
+
+        <div class="mini-cart">
+            <?php woocommerce_mini_cart();?>
+        </div>
+
+        <?php $fragments['div.mini-cart'] = ob_get_clean();
+
+        return $fragments;
     }
+
+    /**
+     * Frontend Markup
+     */
 
     public function frontend_markup()
     {
-      require_once LII_AJAXCART_DIR_PATH . 'assets/front.php';
+        ?>
+        <section id="lii-ajax-cart">
+            <div class="lii-content-start">
+                <div class="lii-cart-icon">
+                    <span class="lii-cart-count"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
+                    <i class="bi bi-cart"></i>
+                </div>
+                <?php
+                  require_once LII_AJAXCART_DIR_PATH . 'assets/frontend-markup.php';
+                ?>
+            </div>
+        </section>
+      <?php
     }
 
     /**
@@ -48,12 +75,12 @@ class CartMarkup
 
     public function ajax_add_to_cart_js()
     {
-        wp_enqueue_style( 'bootstrap-css','//cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' );
+        wp_enqueue_style( 'bootstrap-css', '//cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' );
         wp_enqueue_style( 'main-css', LII_AJAXCART_ASSETS . '/css/style.css' );
         wp_enqueue_style( 'bootstrap-icon-css', '//cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css' );
-        wp_enqueue_script( 'main-js', LII_AJAXCART_ASSETS . '/js/main.js', array( 'jquery' ));
+        wp_enqueue_script( 'main-js', LII_AJAXCART_ASSETS . '/js/main.js', array( 'jquery' ) );
         wp_enqueue_script( 'bootstrap-js', '//cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js', true );
-        
+
         if ( function_exists( 'is_product' ) && is_product() ) {
             wp_enqueue_script( 'ajax_custom_script', LII_AJAXCART_ASSETS . '/ajax_add_to_cart.js', array( 'jquery' ) );
             wp_localize_script(
@@ -72,7 +99,7 @@ class CartMarkup
      * @return void
      */
 
-    public function frontend_cart()
+    public function single_product_page_ajax_add()
     {
         ob_start();
 
@@ -104,7 +131,6 @@ class CartMarkup
             }
 
             self::get_refreshed_fragments();
-
         } else {
 
             // If there was an error adding to the cart, redirect to the product page to show any errors.

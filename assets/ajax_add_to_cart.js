@@ -10,7 +10,7 @@ jQuery(document).ready(function ($) {
             product_id = $form.find('input[name=product_id]').val() || id,
             variation_id = $form.find('input[name=variation_id]').val() || 0;
         var data = {
-            action: 'frontend_cart',
+            action: 'single_product_page_ajax_add',
             product_id: product_id,
             product_sku: '',
             quantity: product_qty,
