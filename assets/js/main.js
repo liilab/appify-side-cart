@@ -9,6 +9,10 @@ jQuery(document).ready(function ($) {
     $(".lii-cross").click(function () {
         $(".lii-content-start").removeClass("lii-show-cart");
     });
+    
+    $(".ajax_add_to_cart, .single_add_to_cart_button").click(function () {
+        $(".lii-content-start").addClass("lii-show-cart");
+    });
 
     //Product Number Increment & Decrement
 

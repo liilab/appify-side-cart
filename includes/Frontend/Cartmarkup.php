@@ -62,7 +62,7 @@ class CartMarkup
                     <i class="bi bi-cart"></i>
                 </div>
                 <?php
-                  require_once LII_AJAXCART_DIR_PATH . 'assets/frontend-markup.php';
+                  require_once LII_AJAXCART_DIR_PATH . 'templates/frontend-markup.php';
                 ?>
             </div>
         </section>
