@@ -240,16 +240,14 @@
   font-weight: 600;
 }
 
-#lii-shipping-area {
-  display: none;
-}
-
-#lii-shipping-area .lii-show-cart {
+#lii-shipping-area .lii-ship-show-cart {
   -webkit-transform: translate(0%) !important;
           transform: translate(0%) !important;
 }
 
-#lii-shipping-area .lii-content-start {
+#lii-shipping-area .lii-ship-content-start {
+  -webkit-transform: translate(100%);
+          transform: translate(100%);
   -webkit-transition: all 0.3s linear;
   transition: all 0.3s linear;
   position: fixed;
@@ -261,7 +259,7 @@
   height: 100%;
 }
 
-#lii-shipping-area .lii-content-start .lii-cart-icon {
+#lii-shipping-area .lii-ship-content-start .lii-ship-cart-icon {
   cursor: pointer;
   position: absolute;
   text-align: center;
@@ -274,12 +272,12 @@
   z-index: 9999999999;
 }
 
-#lii-shipping-area .lii-content-start .lii-cart-icon i {
+#lii-shipping-area .lii-ship-content-start .lii-ship-cart-icon i {
   position: relative;
   font-size: 40px;
 }
 
-#lii-shipping-area .lii-content-start .lii-cart-icon span {
+#lii-shipping-area .lii-ship-content-start .lii-ship-cart-icon span {
   position: absolute;
   background-color: black;
   color: white;
@@ -290,27 +288,27 @@
   font-size: 12px;
 }
 
-#lii-shipping-area .lii-content-start .lii-ship-header .ship-heading {
+#lii-shipping-area .lii-ship-content-start .lii-ship-header .ship-heading {
   color: #6D6D6D;
   font-size: 20px;
   font-weight: 600;
   padding: 20px;
 }
 
-#lii-shipping-area .lii-content-start .lii-ship-body {
+#lii-shipping-area .lii-ship-content-start .lii-ship-body {
   padding: 10px 20px;
 }
 
-#lii-shipping-area .lii-content-start .lii-ship-body .shipping-destination {
+#lii-shipping-area .lii-ship-content-start .lii-ship-body .shipping-destination {
   color: #6D6D6D;
   padding: 20px;
 }
 
-#lii-shipping-area .lii-content-start .lii-ship-body .ship-form {
+#lii-shipping-area .lii-ship-content-start .lii-ship-body .ship-form {
   text-align: center;
 }
 
-#lii-shipping-area .lii-content-start .lii-ship-body .ship-form .form-input {
+#lii-shipping-area .lii-ship-content-start .lii-ship-body .ship-form .form-input {
   padding: 0.6180469716em;
   background-color: #f2f2f2;
   color: #43454b;
@@ -326,7 +324,7 @@
   margin-top: 30px;
 }
 
-#lii-shipping-area .lii-content-start .lii-ship-body .ship-form .ship-btn {
+#lii-shipping-area .lii-ship-content-start .lii-ship-body .ship-form .ship-btn {
   cursor: pointer;
   padding: 0.6180469716em 1.41575em;
   text-decoration: none;
@@ -344,7 +342,7 @@
   display: inline-block;
 }
 
-#lii-shipping-area .lii-content-start .lii-ship-body .ship-form .ship-btn:hover {
+#lii-shipping-area .lii-ship-content-start .lii-ship-body .ship-form .ship-btn:hover {
   color: black;
   background-color: #d5d5d5;
 }

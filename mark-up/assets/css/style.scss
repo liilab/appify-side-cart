@@ -285,15 +285,15 @@ $footer-bg: #f8f8f8;
 }
 
 #lii-shipping-area {
-    display: none;
+   // display: none;
 
-    .lii-show-cart {
+    .lii-ship-show-cart {
         transform: translate(0%) !important;
     }
 
-    .lii-content-start {
+    .lii-ship-content-start {
 
-        .lii-cart-icon {
+        .lii-ship-cart-icon {
             cursor: pointer;
             position: absolute;
             text-align: center;
@@ -379,7 +379,7 @@ $footer-bg: #f8f8f8;
             }
         }
 
-        //transform: translate(100%);
+        transform: translate(100%);
         transition: all 0.3s linear;
         position: fixed;
         z-index: 9999999999;
