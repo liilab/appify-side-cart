@@ -6,20 +6,18 @@ $footer-bg: #f8f8f8;
 
 //==Main Section==//
 
-#lii-ajax-cart {
-
+#ajax-cart {
     //Common Style
-    .lii-show-cart {
+    .show-cart {
         transform: translate(0%) !important;
     }
 
-    a {
+    a{
         color: black;
         text-decoration: none;
     }
-
-    .lii-content-start {
-        .lii-cart-icon {
+    .content-start{
+        .cart-icon {
             cursor: pointer;
             position: absolute;
             text-align: center;
@@ -30,12 +28,10 @@ $footer-bg: #f8f8f8;
             height: 70px;
             width: 70px;
             z-index: 9999999999;
-
             i {
                 position: relative;
                 font-size: 40px;
             }
-
             span {
                 position: absolute;
                 background-color: black;
@@ -47,7 +43,6 @@ $footer-bg: #f8f8f8;
                 font-size: 12px;
             }
         }
-
         //initial style
         transform: translate(100%);
         transition: all 0.3s linear;
@@ -63,12 +58,10 @@ $footer-bg: #f8f8f8;
         .header {
             padding: 10px 20px;
             background-color: #f6f6f6;
-
             i {
                 cursor: pointer;
                 font-size: 50px;
             }
-
             span {
                 cursor: pointer;
                 position: absolute;
@@ -80,13 +73,11 @@ $footer-bg: #f8f8f8;
                 font-weight: 600;
                 font-size: 15px;
             }
-
             .title {
                 margin-top: 25px;
                 font-size: 20px;
             }
-
-            .lii-cross {
+            .cross {
                 right: 0;
                 position: fixed;
                 font-size: 24px;
@@ -104,15 +95,12 @@ $footer-bg: #f8f8f8;
                         width: 30%;
                         //border-radius: 5px;
                     }
-
                     .details {
                         padding: 0px 14px;
-
                         .title {
                             p {
                                 font-weight: 500;
                             }
-
                             .trash {
                                 cursor: pointer;
                                 right: 0;
@@ -121,14 +109,11 @@ $footer-bg: #f8f8f8;
                                 padding: 0px 14px;
                             }
                         }
-
                         .quantity {
-
                             //quantity box
-                            .lii-qty {
+                            .qty {
                                 display: inline-block;
-
-                                .input-text.lii-qty {
+                                .input-text.qty {
                                     width: 40px;
                                     height: 41px;
                                     padding: 0 5px;
@@ -136,14 +121,12 @@ $footer-bg: #f8f8f8;
                                     background-color: transparent;
                                     border: 1px solid $primary-color;
                                 }
-
                                 input {
                                     &::-webkit-outer-spin-button {
                                         -webkit-appearance: none;
                                         -moz-appearance: none;
                                         margin: 0;
                                     }
-
                                     &::-webkit-inner-spin-button {
                                         -webkit-appearance: none;
                                         -moz-appearance: none;
@@ -151,21 +134,18 @@ $footer-bg: #f8f8f8;
                                     }
                                 }
                             }
-
-                            .lii-qty.buttons_added {
+                            .qty.buttons_added {
                                 text-align: left;
                                 position: relative;
                                 white-space: nowrap;
                                 vertical-align: top;
-
                                 input {
                                     display: inline-block;
                                     margin: 0;
                                     vertical-align: top;
                                     box-shadow: none;
                                 }
-
-                                .lii-minus {
+                                .minus {
                                     padding: 7px 10px 8px;
                                     height: 41px;
                                     background-color: #ffffff;
@@ -173,13 +153,11 @@ $footer-bg: #f8f8f8;
                                     //border-radius: 5px 0px 0px 5px;
                                     cursor: pointer;
                                     border-right: 0;
-
                                     &:focus {
                                         outline: none;
                                     }
                                 }
-
-                                .lii-plus {
+                                .plus {
                                     padding: 7px 10px 8px;
                                     height: 41px;
                                     width: 28px;
@@ -188,14 +166,12 @@ $footer-bg: #f8f8f8;
                                     //border-radius: 0px 5px 5px 0px;
                                     cursor: pointer;
                                     border-left: 0;
-
                                     &:focus {
                                         outline: none;
                                     }
                                 }
                             }
                         }
-
                         .total-price {
                             right: 0;
                             position: fixed;
@@ -212,7 +188,6 @@ $footer-bg: #f8f8f8;
         .suggested-items {
             background-color: $footer-bg;
             padding: 10px 20px;
-
             .products {
                 .single-product {
                     .main-content {
@@ -220,10 +195,8 @@ $footer-bg: #f8f8f8;
                             height: auto;
                             width: 25%;
                         }
-
                         .details {
                             padding: 5px 20px;
-
                             .lower-data {
                                 button {
                                     right: 0;
@@ -281,112 +254,5 @@ $footer-bg: #f8f8f8;
                 }
             }
         }
-    }
-}
-
-#lii-shipping-area {
-   // display: none;
-
-    .lii-ship-show-cart {
-        transform: translate(0%) !important;
-    }
-
-    .lii-ship-content-start {
-
-        .lii-ship-cart-icon {
-            cursor: pointer;
-            position: absolute;
-            text-align: center;
-            bottom: 10px;
-            right: 420px;
-            background-color: $footer-bg;
-            border-radius: 100%;
-            height: 70px;
-            width: 70px;
-            z-index: 9999999999;
-
-            i {
-                position: relative;
-                font-size: 40px;
-            }
-
-            span {
-                position: absolute;
-                background-color: black;
-                color: white;
-                height: 20px;
-                width: 20px;
-                border-radius: 100%;
-                left: 0;
-                font-size: 12px;
-            }
-        }
-
-        .lii-ship-header {
-            .ship-heading {
-                color: #6D6D6D;
-                font-size: 20px;
-                font-weight: 600;
-                padding: 20px;
-            }
-        }
-
-        .lii-ship-body {
-            padding: 10px 20px;
-
-            .shipping-destination {
-                color: #6D6D6D;
-                padding: 20px;
-            }
-
-            .ship-form {
-                text-align: center;
-                .form-input {
-                    padding: 0.6180469716em;
-                    background-color: #f2f2f2;
-                    color: #43454b;
-                    border: 0;
-                    -webkit-appearance: none;
-                    box-sizing: border-box;
-                    font-weight: normal;
-                    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.13);
-                    width: 100%;
-                    text-align: left;
-                    margin-top: 30px;
-                }
-
-                .ship-btn {
-                    cursor: pointer;
-                    padding: 0.6180469716em 1.41575em;
-                    text-decoration: none;
-                    font-weight: 600;
-                    text-shadow: none;
-                    -webkit-appearance: none;
-                    border: 0;
-                    border-radius: 0;
-                    background: none;
-                    background-color: #000000;
-                    border-color: #eeeeee;
-                    color: #ffffff;
-                    font-family: monospace;
-                    margin-top: 30px;
-                    display: inline-block;
-                }
-                .ship-btn:hover{
-                    color: black;
-                    background-color: #d5d5d5;
-                }
-            }
-        }
-
-        transform: translate(100%);
-        transition: all 0.3s linear;
-        position: fixed;
-        z-index: 9999999999;
-        top: 0;
-        right: 0;
-        width: 100%;
-        max-width: 390px;
-        height: 100%;
     }
 }

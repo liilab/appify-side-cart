@@ -1,5 +1,4 @@
 jQuery(document).ready(function ($) {
-    $("#lii-shipping-area").style.display="none";
     $(".lii-cart-icon").click(function () {
         $(".lii-content-start").toggleClass("lii-show-cart");
     });

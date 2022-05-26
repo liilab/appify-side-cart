@@ -4,12 +4,12 @@
 }
 
 #lii-ajax-cart a {
-  color: black;
   text-decoration: none;
 }
 
 #lii-ajax-cart .lii-content-start {
   background-color: white;
+  border-left: 2px solid black;
   -webkit-transform: translate(100%);
           transform: translate(100%);
   -webkit-transition: all 0.3s linear;
@@ -213,7 +213,6 @@
 #lii-ajax-cart .lii-content-start .lii-footer {
   -webkit-box-shadow: -4px 2px 20px rgba(0, 0, 0, 0.25);
           box-shadow: -4px 2px 20px rgba(0, 0, 0, 0.25);
-  z-index: 1;
   background-color: #f8f8f8;
   color: black;
   padding: 10px 20px;
@@ -242,5 +241,88 @@
   padding: 10px 42px;
   border: none;
   font-weight: 600;
+}
+
+.hello {
+  -webkit-filter: blur(1px);
+  -moz-filter: blur(1px);
+  -o-filter: blur(1px);
+  -ms-filter: blur(1px);
+  filter: blur(1px);
+}
+
+.mini-cart ul {
+  margin: 0 15px 0 0;
+  list-style: none;
+}
+
+.mini-cart ul li {
+  padding-bottom: 10px;
+  border-bottom: 1px solid black;
+}
+
+.mini-cart ul a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.mini-cart p.woocommerce-mini-cart__empty-message {
+  padding: 15px 20px;
+}
+
+.mini-cart a.remove.remove_from_cart_button {
+  text-align: end;
+  margin-left: 340px;
+}
+
+.mini-cart svg,
+.mini-cart img,
+.mini-cart embed,
+.mini-cart object {
+  display: block;
+  height: auto;
+  max-width: 25%;
+  padding-right: 20px;
+}
+
+.mini-cart span.quantity {
+  margin-left: 260px;
+  border: none !important;
+  font-weight: 600;
+}
+
+.mini-cart p.woocommerce-mini-cart__total.total {
+  border-top: 1px dotted black;
+  position: fixed;
+  bottom: 70px;
+  left: 0;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0px 20px;
+  padding-top: 15px;
+}
+
+.mini-cart .woocommerce-Price-amount {
+  font-weight: 600;
+}
+
+.mini-cart p.woocommerce-mini-cart__buttons.buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0px 20px;
+  position: fixed;
+  bottom: 0px;
+  left: 0;
+  right: 0;
 }
 /*# sourceMappingURL=style.css.map */
