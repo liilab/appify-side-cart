@@ -42,6 +42,7 @@ class Frontend_Cart
     {
         add_action( 'wp_enqueue_scripts', [$this, 'enqueue_styles'] );
         add_action( 'wp_enqueue_scripts', [$this, 'enqueue_scripts'] );
+        add_action( 'wp_footer', [$this, 'frontend_markup'] );
     }
 
     /**
@@ -74,6 +75,11 @@ class Frontend_Cart
                 'wc_ajax_url' => \WC_AJAX::get_endpoint( 'endpoint_variable' ),
             ]
         );
+    }
+
+    public function frontend_markup()
+    {
+      require_once LII_AJAXCART_DIR_PATH . 'templates/frontend-markup.php';
     }
 }
 

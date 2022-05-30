@@ -46,7 +46,43 @@ class Side_Cart
 
     public function update_item_quantity()
     {
-$hi = $_POST['product_id'];
+        // GLOBAL $woocommerce;
+        // $id = $_POST['product_id'];
+        // $product = wc_get_product($id);
+
+        // $carts= $woocommerce->cart;
+        // //$hi = $carts['cart_contents'];
+        // //print("<pre>".print_r( $carts,true)."</pre>");
+        // //echo $hi;
+        // //var_dump($carts[0]);
+        // foreach ( $carts as $cart_item_keys => $cart_items ) {
+        // 	//$products  		= apply_filters( 'woocommerce_cart_item_product', $cart_items['data'], $cart_items, $cart_item_keys );
+        //     $name = $cart_items;
+        //     break;
+        // }
+        // foreach($name as $nm){
+        //     echo $nm["key"];
+        // }
+        $id = $_POST['product_id'];
+        $new_qty = $_POST['quantity'];
+        global $woocommerce;
+        $items = $woocommerce->cart->get_cart();
+    
+            // foreach($items as $item => $values) { 
+            //     $c_id= $values['product_id'];
+            //     if($c_id==$id):
+            //     $_product =  wc_get_product( $values['data']->get_id()); 
+               
+            //     WC()->cart->set_quantity( $item, $new_qty );
+            //     echo "<b>".$_product->get_title().'</b>  <br> Quantity: '.$values['quantity'].'<br>'; 
+            //     $price = get_post_meta($values['product_id'] , '_price', true);
+            //     echo "  Price: ".$price."<br>";
+            //     endif;
+            // } 
+            echo '';
+
+            //\WC_AJAX::get_refreshed_fragments();
+        
 //$hi=123;
         // $cart_key = sanitize_text_field( $_POST['cart_key'] );
         // $new_qty  = (float) $_POST['qty'];
@@ -79,7 +115,7 @@ $hi = $_POST['product_id'];
         // }
 
         //$this->get_refreshed_fragments();
-        echo $hi;
+       
 
         die();
     }
