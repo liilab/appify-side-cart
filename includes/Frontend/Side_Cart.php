@@ -47,7 +47,8 @@ class Side_Cart
     public function update_item_quantity()
     {
         // GLOBAL $woocommerce;
-        // $id = $_POST['product_id'];
+        $id = $_POST['product_id'];
+        echo $id;
         // $product = wc_get_product($id);
 
         // $carts= $woocommerce->cart;
@@ -63,10 +64,10 @@ class Side_Cart
         // foreach($name as $nm){
         //     echo $nm["key"];
         // }
-        $id = $_POST['product_id'];
-        $new_qty = $_POST['quantity'];
-        global $woocommerce;
-        $items = $woocommerce->cart->get_cart();
+        // $id = $_POST['product_id'];
+        // $new_qty = $_POST['quantity'];
+        // global $woocommerce;
+        // $items = $woocommerce->cart->get_cart();
     
             // foreach($items as $item => $values) { 
             //     $c_id= $values['product_id'];
@@ -79,7 +80,7 @@ class Side_Cart
             //     echo "  Price: ".$price."<br>";
             //     endif;
             // } 
-            echo '';
+            //echo '';
 
             //\WC_AJAX::get_refreshed_fragments();
         

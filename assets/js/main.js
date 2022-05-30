@@ -1,3 +1,4 @@
+$=jQuery;
 jQuery(document).ready(function ($) {
     $(".lii-cart-icon").click(function () {
         $(".lii-content-start").toggleClass("lii-show-cart");
@@ -38,6 +39,24 @@ var get_wcurl = function (endpoint_var) {
     return script_handle.wc_ajax_url.toString().replace('endpoint_variable', endpoint_var);
 };
 
+function update_data($thisbutton, data){
+    $.ajax({
+        type: 'POST',
+        url: get_wcurl('lii_ajaxcart_update_item_quantity'),
+        //url: get_wcurl('add_to_cart'),
+        data: data,
+        beforeSend: function (response) {
+            $thisbutton.removeClass('added').addClass('loading');
+        },
+        complete: function (response) {
+            $thisbutton.addClass('added').removeClass('loading');
+        },
+        success: function (response) {
+            $("footer").html(response);
+        },
+    });
+}
+
 
 jQuery(document).ready(function ($) {
 
@@ -57,23 +76,11 @@ jQuery(document).ready(function ($) {
             quantity: product_qty,
             variation_id: variation_id,
         };
-        $.ajax({
-            type: 'POST',
-            url: get_wcurl('lii_ajaxcart_update_item_quantity'),
-            //url: get_wcurl('add_to_cart'),
-            data: data,
-            beforeSend: function (response) {
-                $thisbutton.removeClass('added').addClass('loading');
-            },
-            complete: function (response) {
-                $thisbutton.addClass('added').removeClass('loading');
-            },
-            success: function (response) {
-                $("footer").html(response);
-            },
-        });
+        update_data($thisbutton, data);
     });
 });
+
+
 
 
 
