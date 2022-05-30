@@ -118,7 +118,7 @@ class Side_Cart
         //$this->get_refreshed_fragments();
        
 
-        die();
+        //die();
     }
 }
 
