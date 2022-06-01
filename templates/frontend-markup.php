@@ -17,6 +17,7 @@
 
     <?php global $woocommerce;
     $items = $woocommerce->cart->get_cart(); 
+    
     ?>
 
     <div class="lii-main-contents">
@@ -30,7 +31,7 @@
               <div class="lii-details">
                 <div class="lii-title d-flex justify-content-between">
                   <p><?php echo $item['data']->get_name(); ?></p>
-                  <i class="bi bi-trash lii-trash"></i>
+                  <a href="<?php echo esc_url( wc_get_cart_remove_url($item['key']) );?>" class="bi bi-trash lii-trash"></a>
                 </div>
                 <div class="lii-per-price">
                   <p>Price: $<?php echo get_post_meta($item['product_id'] , '_price', true);?></p>
