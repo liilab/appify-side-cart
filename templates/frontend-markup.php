@@ -161,6 +161,3 @@
     </div>
   </div>
 </section>
-<pre>
-<?php var_dump($items);?>
-</pre>
