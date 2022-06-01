@@ -9,8 +9,8 @@
 }
 
 #lii-ajax-cart .lii-content-start {
-  -webkit-transform: translate(0%);
-          transform: translate(0%);
+  -webkit-transform: translate(100%);
+          transform: translate(100%);
   -webkit-transition: all 0.3s linear;
   transition: all 0.3s linear;
   position: fixed;
