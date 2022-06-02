@@ -51,9 +51,9 @@ class Side_Cart
 
         ob_start();
         get_template('templates/products.php');
-        $container = ob_get_clean();
+        // $container = ob_get_clean();
 
-        $fragments['div.lii-cart-products'] = $container;
+        // $fragments['div.lii-cart-products'] = $container;
 
         return $fragments;
     }
