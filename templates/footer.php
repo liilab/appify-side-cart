@@ -9,7 +9,7 @@
     <div class="lii-price-summery">
         <div class="lii-subtotal d-flex justify-content-between">
             <p class="lii-title">Subtotal</p>
-            <p class="lii-price">$20.00</p>
+            <p class="lii-price"><span class="lii-subtotal-price"><?php WC()->cart->get_cart_subtotal(); ?></span></p>
         </div>
         <div class="lii-shipping d-flex justify-content-between">
             <a href="#">
@@ -17,12 +17,12 @@
                     Shipping <i class="bi bi-pen"></i>
                 </p>
             </a>
-            <p class="lii-price">$50.00</p>
+            <p class="lii-price"><span class="lii-shipping-price"><?php WC()->cart->get_shipping_total(); ?></span></p>
         </div>
         <hr />
         <div class="lii-total d-flex justify-content-between">
             <p class="lii-title">Total</p>
-            <p class="lii-price">$70.00</p>
+            <p class="lii-price"><span class="lii-total-price"><?php WC()->cart->get_total(); ?></span></p>
         </div>
     </div>
     <div class="lii-checkout d-flex justify-content-between">
