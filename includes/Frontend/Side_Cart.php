@@ -42,7 +42,7 @@ class Side_Cart
     public function hooks()
     {
         add_action('wc_ajax_lii_ajaxcart_add_to_cart', [$this, 'add_to_cart']);
-        add_filter( 'woocommerce_add_to_cart_fragments', [$this, 'set_ajax_fragments' ] );
+        add_filter('woocommerce_add_to_cart_fragments', [$this, 'set_ajax_fragments']);
     }
     public function set_ajax_fragments($fragments)
     {
@@ -50,24 +50,24 @@ class Side_Cart
         WC()->cart->calculate_totals();
 
         ob_start();
-        get_template('templates/products.php');
+        require LII_AJAXCART_DIR_PATH . 'templates/main-contents.php';
         $container = ob_get_clean();
-
-        $fragments['div.lii-cart-products'] = $container;
+        $fragments['hlww']=$container;
 
         return $fragments;
+
     }
 
 
     public function add_to_cart()
     {
 
-        if (!isset($_POST['product_id'])) return;
+        // if (!isset($_POST['product_id'])) return;
 
-        if (empty(wc_get_notices('error'))) {
-            // trigger action for added to cart in ajax
-            do_action('woocommerce_ajax_added_to_cart', intval($_POST['product_id']));
-        }
+        // if (empty(wc_get_notices('error'))) {
+        //     // trigger action for added to cart in ajax
+        //     do_action('woocommerce_ajax_added_to_cart', intval($_POST['product_id']));
+        // }
         \WC_AJAX::get_refreshed_fragments();
         // $hi=$_POST['product_id'];
         // echo $hi;

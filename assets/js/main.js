@@ -63,6 +63,22 @@ $.fn.serializeArrayAll = function () {
     }).get();
 };
 
+var updateFragments = function(response){
+
+    console.log('updated111');
+
+    if (response.fragments) {
+        //Set fragments
+        $.each(response.fragments, function (key, value) {
+            $(key).replaceWith(value);
+        });
+
+        $(document.body).trigger('wc_fragments_refreshed');
+
+    }
+
+}
+
 
 
 jQuery(document).ready(function ($) {
@@ -96,15 +112,8 @@ jQuery(document).ready(function ($) {
                 $thisbutton.addClass('added').removeClass('loading');
             },
             success: function (response) {
-
-                if (response.error && response.product_url) {
-                    window.location = response.product_url;
-                    return;
-                }
-                $.each( response.fragments, function( key, value ) {
-					$( key ).replaceWith( value );
-				});
-                $(document.body).trigger('added_to_cart', [response.fragments, response.cart_hash, $thisbutton]);
+                updateFragments(response);
+                console.log(response.fragments.hlww);
             },
         });
 
