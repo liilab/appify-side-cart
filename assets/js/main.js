@@ -1,8 +1,10 @@
 $ = jQuery;
 jQuery(document).ready(function ($) {
+
     $(".lii-cart-icon").click(function () {
         $(".lii-content-start").toggleClass("lii-show-cart");
     });
+
     $(".lii-cross").click(function () {
         $(".lii-content-start").removeClass("lii-show-cart");
     });
@@ -63,52 +65,40 @@ $.fn.serializeArrayAll = function () {
     }).get();
 };
 
+var updateFragments = function (response) {
+
+    console.log('lii-updated');
+
+    if (response.fragments) {
+
+        //Set fragments
+
+        $.each(response.fragments, function (key, value) {
+            $(key).replaceWith(value);
+        });
+
+        $(document.body).trigger('wc_fragments_refreshed');
+    }
+
+    $(document.body).trigger('wc_fragment_refresh');
+}
+
 
 
 jQuery(document).ready(function ($) {
 
-    $('.single_add_to_cart_button').on('click', function (e) {
-        var $thisbutton = $(this),
-            $form = $thisbutton.closest('form.cart'),
-            //quantity = $form.find('input[name=quantity]').val() || 1,
-            //product_id = $form.find('input[name=variation_id]').val() || $thisbutton.val(),
-            data = $form.find('input:not([name="product_id"]), select, button, textarea').serializeArrayAll() || 0;
-
-        $.each(data, function (i, item) {
-            if (item.name == 'add-to-cart') {
-                item.name = 'product_id';
-                item.value = $form.find('input[name=variation_id]').val() || $thisbutton.val();
-            }
-        });
-
+    $('.lii-cart-icon').on('click', function (e) {
         e.preventDefault();
-
-        $(document.body).trigger('adding_to_cart', [$thisbutton, data]);
+        $thisbutton = $(this);
 
         $.ajax({
             type: 'POST',
             url: get_wcurl('lii_ajaxcart_add_to_cart'),
-            data: data,
-            beforeSend: function (response) {
-                $thisbutton.removeClass('added').addClass('loading');
-            },
-            complete: function (response) {
-                $thisbutton.addClass('added').removeClass('loading');
-            },
+            data: '',
             success: function (response) {
-
-                if (response.error && response.product_url) {
-                    window.location = response.product_url;
-                    return;
-                }
-                $.each( response.fragments, function( key, value ) {
-					$( key ).replaceWith( value );
-				});
-                $(document.body).trigger('added_to_cart', [response.fragments, response.cart_hash, $thisbutton]);
+                updateFragments(response);
             },
         });
-
-        return false;
 
     });
 });

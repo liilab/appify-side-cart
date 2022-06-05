@@ -42,38 +42,37 @@ class Side_Cart
     public function hooks()
     {
         add_action('wc_ajax_lii_ajaxcart_add_to_cart', [$this, 'add_to_cart']);
-        add_filter( 'woocommerce_add_to_cart_fragments', [$this, 'set_ajax_fragments' ] );
+        add_filter('woocommerce_add_to_cart_fragments', [$this, 'set_ajax_fragments']);
     }
+
+    /**
+     * Create Fragment
+     *
+     */
+
     public function set_ajax_fragments($fragments)
     {
-
-        WC()->cart->calculate_totals();
+        $fragments['span.lii-cart-count']     = '<span class="lii-cart-count">' . count( WC()->cart->get_cart()) . '</span>';
+        $fragments['span.lii-subtotal-price'] = '<span class="lii-subtotal-price">' . WC()->cart->get_cart_subtotal() . '</span>';
+        $fragments['span.lii-shipping-price'] = '<span class="lii-shipping-price">' . WC()->cart->get_shipping_total() . '</span>';
+        $fragments['span.lii-total-price']    = '<span class="lii-total-price">' . WC()->cart->get_total() . '</span>';
 
         ob_start();
-        get_template('templates/products.php');
-        // $container = ob_get_clean();
-
-        // $fragments['div.lii-cart-products'] = $container;
+        require LII_AJAXCART_DIR_PATH . 'templates/main-contents.php';
+        $fragments['div.lii-main-contents'] = ob_get_clean();
 
         return $fragments;
     }
 
+    /**
+     * Add to Cart Action
+     */
 
     public function add_to_cart()
     {
 
-        if (!isset($_POST['product_id'])) return;
-
-        if (empty(wc_get_notices('error'))) {
-            // trigger action for added to cart in ajax
-            do_action('woocommerce_ajax_added_to_cart', intval($_POST['product_id']));
-        }
         \WC_AJAX::get_refreshed_fragments();
-        // $hi=$_POST['product_id'];
-        // echo $hi;
-
-
-        //die();
+        die();
     }
 }
 
@@ -82,6 +81,7 @@ class Side_Cart
  *
  * @return \Side_Cart
  */
+
 function lii_ajaxcart_side_cart()
 {
     return Side_Cart::init();
