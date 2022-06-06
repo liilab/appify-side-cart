@@ -34,6 +34,15 @@
                         <option value="2">Two</option>
                         <option value="3">Three</option>
                     </select>
+                    <select class="form-select form-select-sm lii-form-select" aria-label=".form-select-sm example">
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                    <input type="text" class="lii-input-text" value="" placeholder="City" name="calc_shipping_city" id="calc_shipping_city">
+                    <input type="text" class="lii-input-text" value="" placeholder="Postcode / ZIP" name="calc_shipping_postcode" id="calc_shipping_postcode">
+                    <div class="lii-btn-area"><button type="submit" name="calc_shipping" value="1" class="lii-button">Update</button></div>
                 </form>
             </div>
         </div>

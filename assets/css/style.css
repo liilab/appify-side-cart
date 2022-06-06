@@ -299,5 +299,40 @@
 
 #lii-ajax-cart .lii-content-start #lii-shipping-area .lii-ship-body .lii-ship-form .lii-form-select {
   overflow: hidden;
+  margin-top: 30px;
+}
+
+#lii-ajax-cart .lii-content-start #lii-shipping-area .lii-ship-body .lii-ship-form .lii-input-text {
+  padding: 0.6180469716em;
+  background-color: #f2f2f2;
+  color: #43454b;
+  border: 0;
+  -webkit-appearance: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-weight: normal;
+  line-height: 1.618;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.13);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.13);
+  margin-top: 30px;
+  width: 100%;
+}
+
+#lii-ajax-cart .lii-content-start #lii-shipping-area .lii-ship-body .lii-ship-form .lii-btn-area {
+  margin-top: 30px;
+}
+
+#lii-ajax-cart .lii-content-start #lii-shipping-area .lii-ship-body .lii-ship-form .lii-btn-area .lii-button {
+  background-color: #000000;
+  border: 0;
+  color: #ffffff;
+  font-family: monospace;
+  cursor: pointer;
+  padding: 0.6180469716em 1.41575em;
+  text-decoration: none;
+  font-weight: 600;
+  text-shadow: none;
+  margin: 0 auto 0 auto;
+  display: block;
 }
 /*# sourceMappingURL=style.css.map */
