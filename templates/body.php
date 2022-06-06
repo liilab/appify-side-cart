@@ -19,7 +19,15 @@
         <?php require_once LII_AJAXCART_DIR_PATH . 'templates/main-contents.php'; ?>
         <?php require_once LII_AJAXCART_DIR_PATH . 'templates/footer.php'; ?>
         <div id="lii-shipping-area" class="lii-shipping-area">
-            ok
+            <div class="lii-ship-header">
+                <i class="bx bx-arrow-back lii-left-icon"></i>
+                <div class="lii-ship-title">Calculate Shipping</div>
+            </div>
+            <div class="lii-ship-body">
+                <div class="lii-ship-destination">
+                    <span>Shipping to:</span><span>Bangladesh</span>
+                </div>
+            </div>
         </div>
 
     </div>

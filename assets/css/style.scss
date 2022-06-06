@@ -7,6 +7,7 @@ $footer-bg: #f8f8f8;
 //==Main Section==//
 
 #lii-ajax-cart {
+
     //Common Style
     .lii-show-cart {
         transform: translate(0%) !important;
@@ -16,8 +17,10 @@ $footer-bg: #f8f8f8;
         color: black;
         text-decoration: none;
     }
+
     .lii-content-start {
         background-color: $footer-bg;
+
         .lii-cart-icon {
             cursor: pointer;
             position: absolute;
@@ -29,10 +32,12 @@ $footer-bg: #f8f8f8;
             height: 70px;
             width: 70px;
             z-index: 9999999999;
+
             i {
                 position: relative;
                 font-size: 40px;
             }
+
             span {
                 position: absolute;
                 background-color: black;
@@ -44,6 +49,7 @@ $footer-bg: #f8f8f8;
                 font-size: 12px;
             }
         }
+
         //initial style
         transform: translate(100%);
         transition: all 0.3s linear;
@@ -59,10 +65,12 @@ $footer-bg: #f8f8f8;
         .lii-header {
             padding: 10px 20px;
             background-color: #f6f6f6;
+
             i {
                 cursor: pointer;
                 font-size: 50px;
             }
+
             span {
                 cursor: pointer;
                 position: absolute;
@@ -74,10 +82,12 @@ $footer-bg: #f8f8f8;
                 font-weight: 600;
                 font-size: 15px;
             }
+
             .lii-title {
                 margin-top: 25px;
                 font-size: 20px;
             }
+
             .lii-cross {
                 right: 0;
                 position: fixed;
@@ -91,6 +101,7 @@ $footer-bg: #f8f8f8;
             height: calc(100% - 350px);
             overflow-y: scroll;
             background: white;
+
             &::-webkit-scrollbar {
                 display: none;
             }
@@ -103,12 +114,15 @@ $footer-bg: #f8f8f8;
                             width: 30%;
                             //border-radius: 5px;
                         }
+
                         .lii-details {
                             padding: 0px 14px;
+
                             .lii-title {
                                 p {
                                     font-weight: 500;
                                 }
+
                                 .lii-trash {
                                     cursor: pointer;
                                     //right: 0;
@@ -118,10 +132,13 @@ $footer-bg: #f8f8f8;
                                     padding: 0px 14px;
                                 }
                             }
+
                             .lii-quantity {
+
                                 //quantity box
                                 .lii-qty {
                                     display: inline-block;
+
                                     .lii-input-text.lii-qty {
                                         width: 40px;
                                         min-height: 41px !important;
@@ -130,12 +147,14 @@ $footer-bg: #f8f8f8;
                                         background-color: transparent;
                                         border: 1px solid $primary-color;
                                     }
+
                                     input {
                                         &::-webkit-outer-spin-button {
                                             -webkit-appearance: none;
                                             -moz-appearance: none;
                                             margin: 0;
                                         }
+
                                         &::-webkit-inner-spin-button {
                                             -webkit-appearance: none;
                                             -moz-appearance: none;
@@ -143,17 +162,20 @@ $footer-bg: #f8f8f8;
                                         }
                                     }
                                 }
+
                                 .lii-qty.lii-buttons-added {
                                     text-align: left;
                                     position: relative;
                                     white-space: nowrap;
                                     vertical-align: top;
+
                                     input {
                                         display: inline-block;
                                         margin: 0;
                                         vertical-align: top;
                                         box-shadow: none;
                                     }
+
                                     .lii-minus {
                                         padding: 7px 10px 8px;
                                         height: 41px;
@@ -163,10 +185,12 @@ $footer-bg: #f8f8f8;
                                         //border-radius: 5px 0px 0px 5px;
                                         cursor: pointer;
                                         border-right: 0;
+
                                         &:focus {
                                             outline: none;
                                         }
                                     }
+
                                     .lii-plus {
                                         padding: 7px 10px 8px;
                                         height: 41px;
@@ -177,12 +201,14 @@ $footer-bg: #f8f8f8;
                                         //border-radius: 0px 5px 5px 0px;
                                         cursor: pointer;
                                         border-left: 0;
+
                                         &:focus {
                                             outline: none;
                                         }
                                     }
                                 }
                             }
+
                             .lii-total-price {
                                 // right: 0;
                                 // position: fixed;
@@ -201,6 +227,7 @@ $footer-bg: #f8f8f8;
         .lii-suggested-items {
             background-color: $footer-bg;
             padding: 10px 0px;
+
             .lii-products {
                 .lii-single-product {
                     .lii-main-content {
@@ -208,18 +235,20 @@ $footer-bg: #f8f8f8;
                             height: auto;
                             width: 25%;
                         }
+
                         .lii-details {
+
                             //padding: 5px 20px;
                             .lii-lower-data {
                                 button {
                                     // right: 0;
                                     // position: fixed;
                                     margin-left: 170px;
-                                   // padding: 5px 15px;
+                                    // padding: 5px 15px;
                                     background-color: $primary-color;
                                     color: white;
                                     border: none;
-                                   // margin-right: 18px;
+                                    // margin-right: 18px;
                                 }
                             }
                         }
@@ -265,6 +294,49 @@ $footer-bg: #f8f8f8;
                     padding: 10px 42px;
                     border: none;
                     font-weight: 600;
+                }
+            }
+        }
+
+        //lii-shipping-area
+        #lii-shipping-area {
+            color: #6d6d6d;
+            //shipping area header
+            .lii-ship-header {
+                display: flex;
+                font-size: 20px;
+                font-weight: 600;
+                padding: 20px;
+                align-items: center;
+
+                .lii-left-icon {
+                    margin: 0 10px;
+                    cursor: pointer;
+                    font-size: larger;
+                }
+
+                .lii-ship-title {
+                    font-family: Arial, Helvetica, sans-serif;
+                }
+            }
+
+            .lii-ship-body {
+                padding: 10px 20px;
+                flex-grow: 1;
+                overflow: auto;
+
+                .lii-ship-destination {
+                    display: table;
+                    margin: 0 auto;
+                    margin-bottom: 20px;
+                    font-size: 17px;
+                }
+
+                .lii-ship-destination span:nth-child(1) {
+                    color: #777;
+                    font-weight: 600;
+                    margin-right: 8px;
+                    font-size: 16px;
                 }
             }
         }

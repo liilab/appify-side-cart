@@ -69,6 +69,7 @@ public function quantity_inputs_for_woocommerce_loop_add_to_cart_link( $html, $p
         wp_enqueue_style( 'bootstrap-css', '//cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' );
         wp_enqueue_style( 'main-css', LII_AJAXCART_ASSETS . '/css/style.css' );
         wp_enqueue_style( 'bootstrap-icon-css', '//cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css' );
+        wp_enqueue_style( 'boxicon-css','//unpkg.com/boxicons@2.1.2/css/boxicons.min.css');
     }
 
     /**
