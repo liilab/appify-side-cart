@@ -90,7 +90,7 @@ class Side_Cart
             //$this->set_notice( __( 'Something went wrong', 'side-cart-woocommerce' ) );
         }
 
-        $validated = apply_filters('xoo_wsc_update_quantity', true, $cart_key, $new_qty);
+        $validated = apply_filters('lii_ajaxcart_update_quantity', true, $cart_key, $new_qty);
 
         if ($validated && !empty(WC()->cart->get_cart_item($cart_key))) {
 
