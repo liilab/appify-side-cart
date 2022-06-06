@@ -9,6 +9,14 @@ jQuery(document).ready(function ($) {
         $(".lii-content-start").removeClass("lii-show-cart");
     });
 
+    $("#lii-shipping").click(function(){
+        $(".lii-header").css("display","none");
+        $(".lii-main-contents").css("display","none");
+        $(".lii-footer").css("display","none");
+        $(".lii-shipping-area").css("display","block");
+
+    });
+
 });
 
 

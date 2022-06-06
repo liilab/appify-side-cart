@@ -9,6 +9,7 @@
 }
 
 #lii-ajax-cart .lii-content-start {
+  background-color: #f8f8f8;
   -webkit-transform: translate(100%);
           transform: translate(100%);
   -webkit-transition: all 0.3s linear;
