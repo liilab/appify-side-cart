@@ -9,23 +9,49 @@ jQuery(document).ready(function ($) {
         $(".lii-content-start").removeClass("lii-show-cart");
     });
 
-    $(".lii-plus").click(function () {
-        $('.lii-qty').val(function (i, oldval) {
-            return ++oldval;
-        });
+});
+
+
+jQuery(document).ready(function ($) {
+    // Attach event on plus
+    // We delegate the event to document
+    // So that even if there are 100 of plus buttons
+    // It would not slow down the page
+    $(document).on('click', '.lii-plus', function (e) {
+        // Get the right element
+        var elem = $(this).prev('.lii-qty'),
+            // and its value
+            val = parseInt(elem.val());
+        // Sanitize the value
+        if (isNaN(val)) {
+            val = 0;
+        }
+        if (val < 0) {
+            val = 0;
+        }
+        // Now increase it
+        elem.val(++val).trigger('change');
     });
 
-    $(".lii-minus").click(function () {
-        $('.lii-qty').val(function (i, oldval) {
-            if (oldval > 0) {
-                return --oldval;
-            }
-            else {
-                return oldval;
-            }
-        });
-    });
+    // Similar appraoch for the minus button
+    $(document).on('click', '.lii-minus', function (e) {
 
+        // Get the right element
+        var elem = $(this).next('.lii-qty'),
+            val = parseInt(elem.val());
+        // Sanitize the value
+        if (isNaN(val)) {
+            val = 0;
+        }
+        // decrease the value
+        val = val - 1;
+        // but not a negative
+        if (val < 0) {
+            val = 0;
+        }
+        // Set it
+        elem.val(val).trigger('change');
+    });
 });
 
 jQuery(document).mouseup(function (e) {
@@ -78,6 +104,18 @@ var updateFragments = function (response) {
             //console.log(value);
         });
 
+        if (typeof wc_cart_fragments_params !== 'undefined' && ('sessionStorage' in window && window.sessionStorage !== null)) {
+
+            sessionStorage.setItem(wc_cart_fragments_params.fragment_name, JSON.stringify(response.fragments));
+            localStorage.setItem(wc_cart_fragments_params.cart_hash_key, response.cart_hash);
+            sessionStorage.setItem(wc_cart_fragments_params.cart_hash_key, response.cart_hash);
+
+            if (response.cart_hash) {
+                sessionStorage.setItem('wc_cart_created', (new Date()).getTime());
+            }
+
+        }
+
         $(document.body).trigger('wc_fragments_refreshed');
     }
 
@@ -88,14 +126,82 @@ var updateFragments = function (response) {
 
 jQuery(document).ready(function ($) {
 
-    $('.lii-cart-icon').on('click', function (e) {
+    $(document).on('click', '.lii-minus', function (e) {
         e.preventDefault();
-        $thisbutton = $(this);
+
+        var ele = $(this).next('.lii-qty'),
+        
+        quantity = parseInt(ele.val());
+
+        var el = $(this).prev('input.hhh'),
+        // and its value
+        product_key = el.val();
+        
+        console.log( product_key);
+        var data = {
+            action: 'update_item_quantity',
+            cart_key: product_key,
+            qty: quantity,
+        };
 
         $.ajax({
             type: 'POST',
             url: get_wcurl('lii_ajaxcart_add_to_cart'),
-            data: '',
+            data: data,
+            success: function (response) {
+                updateFragments(response);
+            },
+        });
+
+    });
+    $(document).on('click', '.lii-plus', function (e) {
+        e.preventDefault();
+
+        var ele = $(this).prev('.lii-qty'),
+        
+        quantity = parseInt(ele.val());
+
+        var el = $(this).next('input.hhh'),
+        // and its value
+        product_key = el.val();
+        
+        console.log( product_key);
+        var data = {
+            action: 'update_item_quantity',
+            cart_key: product_key,
+            qty: quantity,
+        };
+
+        $.ajax({
+            type: 'POST',
+            url: get_wcurl('lii_ajaxcart_add_to_cart'),
+            data: data,
+            success: function (response) {
+                updateFragments(response);
+            },
+        });
+
+    });
+    $(document).on('click', '.lii-trash', function (e) {
+        e.preventDefault();
+        
+        quantity = 0;
+
+        var el = $(this).prev('input.hhh'),
+        // and its value
+        product_key = el.val();
+        
+        console.log( product_key);
+        var data = {
+            action: 'update_item_quantity',
+            cart_key: product_key,
+            qty: quantity,
+        };
+
+        $.ajax({
+            type: 'POST',
+            url: get_wcurl('lii_ajaxcart_add_to_cart'),
+            data: data,
             success: function (response) {
                 updateFragments(response);
                 //console.log(response);
