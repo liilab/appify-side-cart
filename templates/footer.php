@@ -1,5 +1,5 @@
 <!--Footer-->
-<div class="lii-footer lii-fixed-bottom">
+<div class="lii-footer fixed-bottom">
     <div class="lii-promo-code d-flex">
         <a href="#" class="d-flex">
             <i class="bi bi-pen me-2"></i>

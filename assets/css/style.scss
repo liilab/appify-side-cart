@@ -98,7 +98,7 @@ $footer-bg: #f8f8f8;
         }
 
         .lii-main-contents {
-            height: calc(100% - 350px);
+            height: calc(100% - 511px);
             overflow-y: scroll;
             background: white;
 
@@ -107,11 +107,13 @@ $footer-bg: #f8f8f8;
             }
 
             .lii-cart-products {
+                overflow-x: hidden;
+                padding: 10px 20px 0 0;
                 .lii-single-product {
                     .lii-main-content {
                         img {
-                            height: auto;
-                            width: 30%;
+                            height: 32%;
+                            width: 32%;
                             //border-radius: 5px;
                         }
 
@@ -289,6 +291,7 @@ $footer-bg: #f8f8f8;
 
             .lii-checkout {
                 button {
+                    margin-left: 5px;
                     background-color: black;
                     color: white;
                     padding: 10px 42px;
