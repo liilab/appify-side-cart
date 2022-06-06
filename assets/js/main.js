@@ -75,6 +75,7 @@ var updateFragments = function (response) {
 
         $.each(response.fragments, function (key, value) {
             $(key).replaceWith(value);
+            //console.log(value);
         });
 
         $(document.body).trigger('wc_fragments_refreshed');
@@ -97,6 +98,7 @@ jQuery(document).ready(function ($) {
             data: '',
             success: function (response) {
                 updateFragments(response);
+                //console.log(response);
             },
         });
 
