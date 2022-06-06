@@ -20,13 +20,21 @@
         <?php require_once LII_AJAXCART_DIR_PATH . 'templates/footer.php'; ?>
         <div id="lii-shipping-area" class="lii-shipping-area">
             <div class="lii-ship-header">
-                <i class="bx bx-arrow-back lii-left-icon"></i>
+                <i class="bx bx-arrow-back lii-left-arrow"></i>
                 <div class="lii-ship-title">Calculate Shipping</div>
             </div>
             <div class="lii-ship-body">
                 <div class="lii-ship-destination">
                     <span>Shipping to:</span><span>Bangladesh</span>
                 </div>
+                <form action="" class="lii-ship-form">
+                    <select class="form-select form-select-sm lii-form-select" aria-label=".form-select-sm example">
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </form>
             </div>
         </div>
 

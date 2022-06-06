@@ -16,6 +16,12 @@ jQuery(document).ready(function ($) {
         $(".lii-shipping-area").css("display","block");
 
     });
+    $(".lii-left-arrow").click(function(){
+        $(".lii-header").css("display","block");
+        $(".lii-main-contents").css("display","block");
+        $(".lii-footer").css("display","block");
+        $(".lii-shipping-area").css("display","none");
+    });
 
 });
 

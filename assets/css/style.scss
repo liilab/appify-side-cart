@@ -301,6 +301,7 @@ $footer-bg: #f8f8f8;
         //lii-shipping-area
         #lii-shipping-area {
             color: #6d6d6d;
+
             //shipping area header
             .lii-ship-header {
                 display: flex;
@@ -309,7 +310,7 @@ $footer-bg: #f8f8f8;
                 padding: 20px;
                 align-items: center;
 
-                .lii-left-icon {
+                .lii-left-arrow {
                     margin: 0 10px;
                     cursor: pointer;
                     font-size: larger;
@@ -337,6 +338,12 @@ $footer-bg: #f8f8f8;
                     font-weight: 600;
                     margin-right: 8px;
                     font-size: 16px;
+                }
+
+                .lii-ship-form {
+                    .lii-form-select {
+                        overflow: hidden;
+                    }
                 }
             }
         }

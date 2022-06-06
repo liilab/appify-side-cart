@@ -259,7 +259,7 @@
           align-items: center;
 }
 
-#lii-ajax-cart .lii-content-start #lii-shipping-area .lii-ship-header .lii-left-icon {
+#lii-ajax-cart .lii-content-start #lii-shipping-area .lii-ship-header .lii-left-arrow {
   margin: 0 10px;
   cursor: pointer;
   font-size: larger;
@@ -289,5 +289,9 @@
   font-weight: 600;
   margin-right: 8px;
   font-size: 16px;
+}
+
+#lii-ajax-cart .lii-content-start #lii-shipping-area .lii-ship-body .lii-ship-form .lii-form-select {
+  overflow: hidden;
 }
 /*# sourceMappingURL=style.css.map */
