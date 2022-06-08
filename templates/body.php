@@ -28,18 +28,25 @@
                     <span>Shipping to:</span><span>Bangladesh</span>
                 </div>
                 <form action="" class="lii-ship-form">
+                    <!-- <select class="form-select form-select-sm lii-form-select" aria-label=".form-select-sm example">
+                        <option selected>Bangladesh</option>
+                        <option value="1">India</option>
+                        <option value="2">Pakistan</option>
+                        <option value="3">England</option>
+                    </select> -->
+                    <?php global $woocommerce;    
+                    woocommerce_form_field( 'billing_country', array( 
+                        'type' => 'country',
+                        'input_class'=>array('form-select form-select-sm lii-form-select')
+                         ) 
+                    );?>
                     <select class="form-select form-select-sm lii-form-select" aria-label=".form-select-sm example">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option selected>State/County</option>
+                        <option value="1">Sylhet</option>
+                        <option value="2">Comilla</option>
+                        <option value="3">Khulna</option>
                     </select>
-                    <select class="form-select form-select-sm lii-form-select" aria-label=".form-select-sm example">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
+                   
                     <input type="text" class="lii-input-text" value="" placeholder="City" name="calc_shipping_city" id="calc_shipping_city">
                     <input type="text" class="lii-input-text" value="" placeholder="Postcode / ZIP" name="calc_shipping_postcode" id="calc_shipping_postcode">
                     <div class="lii-btn-area"><button type="submit" name="calc_shipping" value="1" class="lii-button">Update</button></div>
