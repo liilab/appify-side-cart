@@ -37,15 +37,17 @@
                     <?php global $woocommerce;    
                     woocommerce_form_field( 'billing_country', array( 
                         'type' => 'country',
-                        'input_class'=>array('form-select form-select-sm lii-form-select')
+                        'input_class'=>array('form-select form-select-sm lii-form-select example')
                          ) 
-                    );?>
-                    <select class="form-select form-select-sm lii-form-select" aria-label=".form-select-sm example">
-                        <option selected>State/County</option>
-                        <option value="1">Sylhet</option>
-                        <option value="2">Comilla</option>
-                        <option value="3">Khulna</option>
-                    </select>
+                    );
+                    woocommerce_form_field( 'billing_state', array( 
+                        'type' => 'state',
+                        'placeholder'=>'State/County',
+                        'input_class'=>array('form-select form-select-sm lii-form-select example')
+                         ) 
+                    );
+
+                    ?>
                    
                     <input type="text" class="lii-input-text" value="" placeholder="City" name="calc_shipping_city" id="calc_shipping_city">
                     <input type="text" class="lii-input-text" value="" placeholder="Postcode / ZIP" name="calc_shipping_postcode" id="calc_shipping_postcode">
