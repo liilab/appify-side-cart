@@ -18,6 +18,8 @@
 
         <?php require_once LII_AJAXCART_DIR_PATH . 'templates/main-contents.php'; ?>
         <?php require_once LII_AJAXCART_DIR_PATH . 'templates/footer.php'; ?>
+        <?php global $woocommerce;
+         ?>
         <div id="lii-shipping-area" class="lii-shipping-area">
             <div class="lii-ship-header">
                 <i class="bx bx-arrow-back lii-left-arrow"></i>
@@ -25,7 +27,7 @@
             </div>
             <div class="lii-ship-body">
                 <div class="lii-ship-destination">
-                    <span>Shipping to:</span><span>Bangladesh</span>
+                    <span>Shipping to:</span><span><?php echo WC()->customer->get_shipping_country();?></span>
                 </div>
                 <form action="" class="lii-ship-form">
                     <!-- <select class="form-select form-select-sm lii-form-select" aria-label=".form-select-sm example">
@@ -34,7 +36,7 @@
                         <option value="2">Pakistan</option>
                         <option value="3">England</option>
                     </select> -->
-                    <?php global $woocommerce;    
+                    <?php     
                     woocommerce_form_field( 'billing_country', array( 
                         'type' => 'country',
                         'input_class'=>array('form-select form-select-sm lii-form-select example')
