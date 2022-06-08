@@ -251,6 +251,7 @@
 
 #lii-ajax-cart .lii-content-start #lii-shipping-area {
   color: #6d6d6d;
+  display: none;
 }
 
 #lii-ajax-cart .lii-content-start #lii-shipping-area .lii-ship-header {
