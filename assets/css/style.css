@@ -88,7 +88,7 @@
 }
 
 #lii-ajax-cart .lii-content-start .lii-main-contents {
-  height: calc(100% - 511px);
+  height: calc(100% - 370px);
   overflow-y: scroll;
   background: white;
 }
