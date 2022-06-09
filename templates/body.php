@@ -50,9 +50,9 @@
                     );
 
                     ?>
-                   
-                    <input type="text" class="lii-input-text" value="" placeholder="City" name="calc_shipping_city" id="calc_shipping_city">
-                    <input type="text" class="lii-input-text" value="" placeholder="Postcode / ZIP" name="calc_shipping_postcode" id="calc_shipping_postcode">
+                    
+                    <input type="text" class="lii-input-text" value="<?php echo $woocommerce->customer->get_shipping_city();?>" placeholder="City" name="calc_shipping_city" id="calc_shipping_city">
+                    <input type="text" class="lii-input-text" value="<?php echo $woocommerce->customer->get_shipping_postcode(); ?>" placeholder="Postcode / ZIP" name="calc_shipping_postcode" id="calc_shipping_postcode">
                     <div class="lii-btn-area"><button type="submit" name="calc_shipping" value="1" class="lii-button">Update</button></div>
                 </form>
             </div>
