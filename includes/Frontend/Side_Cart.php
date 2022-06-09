@@ -83,18 +83,18 @@ class Side_Cart
 
     public function update_item_quantity()
     {
-        $cart_key     = sanitize_text_field($_POST['cart_key']);
+        $product_key     = sanitize_text_field($_POST['product_key']);
         $new_qty     = (float) $_POST['qty'];
 
-        if (!is_numeric($new_qty) || $new_qty < 0 || !$cart_key) {
+        if (!is_numeric($new_qty) || $new_qty < 0 || !$product_key) {
             //$this->set_notice( __( 'Something went wrong', 'side-cart-woocommerce' ) );
         }
 
-        $validated = apply_filters('lii_ajaxcart_update_quantity', true, $cart_key, $new_qty);
+        $validated = apply_filters('lii_ajaxcart_update_quantity', true, $product_key, $new_qty);
 
-        if ($validated && !empty(WC()->cart->get_cart_item($cart_key))) {
+        if ($validated && !empty(WC()->cart->get_cart_item($product_key))) {
 
-            $updated = $new_qty == 0 ? WC()->cart->remove_cart_item($cart_key) : WC()->cart->set_quantity($cart_key, $new_qty);
+            $updated = $new_qty == 0 ? WC()->cart->remove_cart_item($product_key) : WC()->cart->set_quantity($product_key, $new_qty);
 
             if ($updated) {
 
@@ -102,7 +102,7 @@ class Side_Cart
 
                     $notice = __('Item removed', 'side-cart-woocommerce');
 
-                    $notice .= '<span class="xoo-wsc-undo-item" data-key="' . $cart_key . '">' . __('Undo?', 'side-cart-woocommerce') . '</span>';
+                    $notice .= '<span class="xoo-wsc-undo-item" data-key="' . $product_key . '">' . __('Undo?', 'side-cart-woocommerce') . '</span>';
                 } else {
                     $notice = __('Item updated', 'side-cart-woocommerce');
                 }
