@@ -104,7 +104,7 @@ var updateFragments = function (response) {
 
 //=== On change event on product item Input Area ===//
 
-$(document).on('change', 'input', function (e) {
+$(document).on('change', 'input.lii-input-text', function (e) {
     e.preventDefault();
 
     product_key = $(this).attr('data-key');
@@ -113,7 +113,7 @@ $(document).on('change', 'input', function (e) {
     console.log(product_key);
     var data = {
         action: 'update_item_quantity',
-        cart_key: product_key,
+        product_key: product_key,
         qty: quantity,
     };
 
@@ -140,7 +140,7 @@ $(document).on('click', '.lii-minus', function (e) {
 
     var data = {
         action: 'update_item_quantity',
-        cart_key: product_key,
+        product_key: product_key,
         qty: quantity,
     };
 
@@ -168,7 +168,7 @@ $(document).on('click', '.lii-plus', function (e) {
 
     var data = {
         action: 'update_item_quantity',
-        cart_key: product_key,
+        product_key: product_key,
         qty: quantity,
     };
 
@@ -193,7 +193,7 @@ $(document).on('click', '.lii-trash', function (e) {
 
     var data = {
         action: 'update_item_quantity',
-        cart_key: product_key,
+        product_key: product_key,
         qty: quantity,
     };
 
