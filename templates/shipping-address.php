@@ -19,7 +19,7 @@
             <!-- Billing Country -->
             <?php
             woocommerce_form_field(
-                'billing_country',
+                'shipping_country',
                 array(
                     'type' => 'country',
                     'input_class' => array('form-select form-select-sm lii-form-select example')
@@ -27,13 +27,22 @@
             );
             // Billing State
             woocommerce_form_field(
-                'billing_state',
+                'shipping_state',
                 array(
                     'type' => 'state',
                     'placeholder' => 'State/County',
                     'input_class' => array('form-select form-select-sm lii-form-select example')
                 )
             );
+             // text form
+            //  woocommerce_form_field(
+            //     'shipping_city',
+            //     array(
+            //         'type' => 'text',
+            //         'placeholder' => 'Others',
+            //         'input_class' => array('lii-input-text')
+            //     )
+            // );
 
             ?>
             <!-- Shipping City -->
