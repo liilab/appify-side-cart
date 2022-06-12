@@ -8,6 +8,7 @@ if (!defined('ABSPATH')) {
 
 class Side_Cart
 {
+    public $product_key;
 
     /**
      * Initializes a singleton instance
@@ -41,19 +42,40 @@ class Side_Cart
 
     public function hooks()
     {
-        add_action('wc_ajax_lii_ajaxcart_add_to_cart', [$this, 'update_item_quantity']);
+        add_action('wc_ajax_lii_ajaxcart_add_to_cart', [$this, 'lii_ajaxcart_add_to_cart']);
+        add_action('wc_ajax_lii_ajaxcart_update_item_quantity', [$this, 'update_item_quantity']);
         add_filter('woocommerce_add_to_cart_fragments', [$this, 'set_ajax_fragments']);
-        // add_action('wp_print_scripts', function(){
-        //     wp_dequeue_script( 'wc-cart-fragments' );
-        //     return true;
-        // });
-        // add_action('wp_enqueue_scripts', function () {
-        //     global $woocommerce;
+    }
 
-        //     $suffix = defined('SCRIPT_DEBUG') ?: '.min';
-        //     wp_deregister_script('jquery-cookie');
-        //     wp_register_script('jquery-cookie', $woocommerce->plugin_url() . '/assets/js/jquery-cookie/jquery_cookie' . $suffix . '.js', array('jquery'), '1.3.1', true);
-        // });
+
+    /**
+     * Create Ajax Add To cart product add
+     *
+     */
+
+    public function lii_ajaxcart_add_to_cart()
+    {
+        $product_id = apply_filters('lii_ajaxcart_woocommerce_add_to_cart_product_id', absint($_POST['product_id']));
+        $quantity = empty($_POST['quantity']) ? 1 : wc_stock_amount($_POST['quantity']);
+        $variation_id = absint($_POST['variation_id']);
+        $passed_validation = apply_filters('lii_ajaxcart_woocommerce_add_to_cart_validation', true, $product_id, $quantity);
+        $product_status = get_post_status($product_id);
+        if ($passed_validation && WC()->cart->add_to_cart($product_id, $quantity, $variation_id) && 'publish' === $product_status) {
+            do_action('lii_ajaxcart_woocommerce_ajax_added_to_cart', $product_id);
+            if ('yes' === get_option('lii_ajaxcart_woocommerce_cart_redirect_after_add')) {
+                wc_add_to_cart_message(array($product_id => $quantity), true);
+            }
+
+            \WC_AJAX::get_refreshed_fragments();
+        } else {
+            $data = array(
+                'error' => true,
+                'product_url' => apply_filters('lii_ajaxcart_woocommerce_cart_redirect_after_error', get_permalink($product_id), $product_id)
+            );
+            echo wp_send_json($data);
+        }
+
+        wp_die();
     }
 
 
