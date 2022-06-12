@@ -62,29 +62,26 @@ jQuery(document).mouseup(function (e) {
 });
 
 
-//=== Endpoint Create ===//
+
+
+
+
+
+
+
+//=== AJAX Area Start ===//
+
+
+
+
+
+//=== Endpoint Create Function ===//
 
 var get_wcurl = function (endpoint_var) {
     return script_handle.wc_ajax_url.toString().replace('endpoint_variable', endpoint_var);
 };
 
-//=== AJAX Area ===//
-
-//=== Update Fragment By Ajax ===//
-
-var updateFragments = function (response) {
-
-    console.log('lii-updated');
-
-    if (response.fragments) {
-
-        $.each(response.fragments, function (key, value) {
-            $(key).replaceWith(value);
-        });
-    }
-}
-
-//===Single product page load off===//
+//===Single product page load off area start===//
 
 $(document).on('click', '.single_add_to_cart_button', function (e) {
     e.preventDefault();
@@ -147,6 +144,15 @@ var add_to_cart = function (productID, product_qty, variation_id) {
         },
     });
 }
+//===Single product page load off area end===//
+
+
+
+
+
+
+
+//===update quantity area Start===//
 
 //=== Product Delete By Ajax ===//
 
@@ -189,6 +195,21 @@ var update_item_quantity = function (product_key, quantity) {
         },
     });
 }
+
+//=== Update Fragment By Ajax ===//
+
+var updateFragments = function (response) {
+
+    console.log('lii-updated');
+
+    if (response.fragments) {
+
+        $.each(response.fragments, function (key, value) {
+            $(key).replaceWith(value);
+        });
+    }
+}
+//===update quantity area end===//
 
 
 
