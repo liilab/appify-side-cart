@@ -19,11 +19,24 @@ jQuery(document).ready(function ($) {
         $(".lii-shipping-area").css("display","block");
 
     });
+    $("#lii-coupon").click(function(){
+        $(".lii-header").css("display","none");
+        $(".lii-main-contents").css("display","none");
+        $(".lii-footer").css("display","none");
+        $(".lii-coupon-area").css("display","block");
+
+    });
     $(".lii-left-arrow").click(function(){
         $(".lii-header").css("display","block");
         $(".lii-main-contents").css("display","block");
         $(".lii-footer").css("display","block");
         $(".lii-shipping-area").css("display","none");
+    });
+    $(".lii-coupon-arrow").click(function(){
+        $(".lii-header").css("display","block");
+        $(".lii-main-contents").css("display","block");
+        $(".lii-footer").css("display","block");
+        $(".lii-coupon-area").css("display","none");
     });
 
 });
