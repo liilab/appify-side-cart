@@ -364,6 +364,20 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+#lii-ajax-cart .lii-content-start #lii-coupon-area .lii-coupon-body {
+  height: 500px;
+  overflow-y: scroll;
+  padding: 10px 9px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  overflow: auto;
+}
+
+#lii-ajax-cart .lii-content-start #lii-coupon-area .lii-coupon-body::-webkit-scrollbar {
+  display: none;
+}
+
 #lii-ajax-cart .lii-content-start #lii-coupon-area .lii-coupon-body .lii-apply-coupon {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -483,6 +497,12 @@
 #lii-ajax-cart .lii-content-start #lii-coupon-area .lii-coupon-body .lii-coupon-items .lii-coupons .lii-coupon-row > span {
   display: block;
   margin-bottom: 9px;
+}
+
+@media (max-width: 577px) {
+  #lii-ajax-cart .lii-content-start #lii-coupon-area .lii-coupon-body {
+    padding: 5px 4px;
+  }
 }
 
 .select2-container--default .select2-selection--single {
