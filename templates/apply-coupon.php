@@ -6,8 +6,9 @@
         <div class="lii-coupon-title">Apply Coupon</div>
     </div>
     <div class="lii-coupon-body">
-        <div class="lii-coupon-destination">
-            <span>Shipping to:</span><span><?php echo WC()->customer->get_shipping_country(); ?></span>
-        </div>
+        <form class="lii-apply-coupon">
+            <input type="text" class="lii-input-text" name="lii-coupon-input" placeholder="Enter Promo Code">
+            <button class="lii-button" type="submit">Submit</button>
+        </form>
     </div>
 </div>
