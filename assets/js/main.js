@@ -3,6 +3,16 @@ $ = jQuery;
 //=== Cart Icon Modal Open ===//
 
 jQuery(document).ready(function ($) {
+    function showCartSidebar(){
+        $(".lii-header").css("display","block");
+        $(".lii-main-contents").css("display","block");
+        $(".lii-footer").css("display","block");
+    }
+    function hideCartSidebar(){
+        $(".lii-header").css("display","none");
+        $(".lii-main-contents").css("display","none");
+        $(".lii-footer").css("display","none");
+    }
 
     $(".lii-cart-icon").click(function () {
         $(".lii-content-start").toggleClass("lii-show-cart");
@@ -13,29 +23,21 @@ jQuery(document).ready(function ($) {
     });
 
     $("#lii-shipping").click(function(){
-        $(".lii-header").css("display","none");
-        $(".lii-main-contents").css("display","none");
-        $(".lii-footer").css("display","none");
+        hideCartSidebar();
         $(".lii-shipping-area").css("display","block");
 
     });
     $("#lii-coupon").click(function(){
-        $(".lii-header").css("display","none");
-        $(".lii-main-contents").css("display","none");
-        $(".lii-footer").css("display","none");
+        hideCartSidebar();
         $(".lii-coupon-area").css("display","block");
 
     });
     $(".lii-left-arrow").click(function(){
-        $(".lii-header").css("display","block");
-        $(".lii-main-contents").css("display","block");
-        $(".lii-footer").css("display","block");
+        showCartSidebar();
         $(".lii-shipping-area").css("display","none");
     });
     $(".lii-coupon-arrow").click(function(){
-        $(".lii-header").css("display","block");
-        $(".lii-main-contents").css("display","block");
-        $(".lii-footer").css("display","block");
+        showCartSidebar();
         $(".lii-coupon-area").css("display","none");
     });
 
