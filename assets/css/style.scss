@@ -454,6 +454,82 @@ $footer-bg: #f8f8f8;
                         color: #333333;
                     }
                 }
+
+                .lii-coupon-items {
+                    .lii-coupons {
+                        border: 1px solid #eee;
+                        margin-bottom: 35px;
+                        font-size: 13px;
+                        padding: 0 25px;
+
+                        .lii-coupon-label {
+
+                            text-transform: uppercase;
+                            color: #777;
+                            font-weight: bold;
+                            text-align: center;
+                            font-size: 12px;
+                            padding: 0 20px;
+                            display: inline-block;
+                            margin: 20px 0;
+                            text-align: center;
+
+                        }
+
+                        .lii-coupon-row:last-child {
+                            border-bottom: 0;
+                            margin-bottom: 0;
+                        }
+
+                        .lii-coupon-row {
+                            padding: 0 15px 30px;
+                            border-bottom: 1px dashed #afafaf;
+                            margin-bottom: 30px;
+
+                            span.lii-cr-code {
+                                display: inline-block;
+                                text-transform: uppercase;
+                                border: 1px solid;
+                                padding: 1px 20px;
+                            }
+
+                            span.lii-cr-off {
+                                color: #4CAF50;
+                                font-weight: 600;
+                                margin-bottom: 0;
+
+                            }
+
+                            .lii-button {
+                                border: 0;
+                                border-radius: 0;
+                                background: none;
+                                background-color: #000000;
+                                border-color: #eeeeee;
+                                color: #ffffff;
+                                cursor: pointer;
+                                padding: 0.6180469716em 1.41575em;
+                                text-decoration: none;
+                                font-weight: 600;
+                                text-shadow: none;
+                                display: inline-block;
+                                -webkit-appearance: none;
+                            }
+
+                            .lii-button:hover {
+                                background-color: #eeeeee;
+                                border-color: #eeeeee;
+                                color: #333333;
+                            }
+                        }
+
+                        .lii-coupon-row>span {
+                            display: block;
+                            margin-bottom: 9px;
+                        }
+                    }
+
+                }
             }
         }
     }
