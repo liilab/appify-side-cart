@@ -95,38 +95,45 @@ var get_wcurl = function (endpoint_var) {
 //===Single product page load off area start===//
 
 $(document).on('click', '.single_add_to_cart_button', function (e) {
-    e.preventDefault();
-    $(".lii-content-start").toggleClass("lii-show-cart");
+    if ($(".singlepage-load")[0]) {
+        e.preventDefault();
+        $(".lii-content-start").toggleClass("lii-show-cart");
 
-    $thisbutton = $(this),
-        $form = $thisbutton.closest('form.cart'),
-        id = $thisbutton.val(),
-        quantity = $form.find('input[name=quantity]').val() || 1,
-        productID = $form.find('input[name=product_id]').val() || id,
-        variation_id = $form.find('input[name=variation_id]').val() || 0;
-    add_to_cart(productID, quantity, variation_id);
+        $thisbutton = $(this),
+            $form = $thisbutton.closest('form.cart'),
+            id = $thisbutton.val(),
+            quantity = $form.find('input[name=quantity]').val() || 1,
+            productID = $form.find('input[name=product_id]').val() || id,
+            variation_id = $form.find('input[name=variation_id]').val() || 0;
+        add_to_cart(productID, quantity, variation_id);
+    }
 });
 
 //===Shop page load off===//
 
 $(document).on('submit', 'form.cart', function (e) {
-
     var $form = $(e.currentTarget);
-
-    $(".lii-content-start").toggleClass("lii-show-cart");
-
-    if ($form.closest('.product').hasClass('product-type-external')) return;
-
-    e.preventDefault();
-
     $thisbutton = $form.find('button[type="submit"]');
-    var is_url = $form.attr('action').match(/add-to-cart=([0-9]+)/),
-        productID = is_url ? is_url[1] : false;
+    var isVal = $form.find('button[name="add-to-cart"]');
+    var g=isVal[0];
+    console.log(g);
+    if (typeof g === "undefined") {
+        if ($(".shoppage-load")[0]) {
 
-    quantity = $form.find('input[name=quantity]').val() || 1,
-        variation_id = $form.find('input[name=variation_id]').val() || 0;
+            $(".lii-content-start").toggleClass("lii-show-cart");
 
-    add_to_cart(productID, quantity, variation_id);
+            if ($form.closest('.product').hasClass('product-type-external')) return;
+
+            e.preventDefault();
+            var is_url = $form.attr('action').match(/add-to-cart=([0-9]+)/),
+                productID = is_url ? is_url[1] : false;
+
+            quantity = $form.find('input[name=quantity]').val() || 1,
+                variation_id = $form.find('input[name=variation_id]').val() || 0;
+
+            add_to_cart(productID, quantity, variation_id);
+        }
+    }
 });
 
 //=== add to cart function ===//
