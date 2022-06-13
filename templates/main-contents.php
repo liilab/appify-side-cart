@@ -1,12 +1,22 @@
-<div class="lii-main-contents">
+<?php
+   $var1 = \Redux::get_option('redux_demo', 'shoppage-load');
+   $var2 = \Redux::get_option('redux_demo', 'singlepage-load');
+   $var3 = \Redux::get_option('redux_demo', 'product-quantity-box');
+   $hidden = " ";
+   $inlineStyle=" ";
+   if(!$var3){
+    $hidden = "d-none";
+    $inlineStyle = 'style="margin-left:0; padding: 0;"' ;
+   }
+?>
+<?php //echo $var1." ".$var2; die();?>
+<div class="lii-main-contents <?php if ($var1) { echo 'shoppage-load';}  if ($var2) { echo ' singlepage-load';} ?>">
     <!--Cart Products-->
     <?php
     global $woocommerce;
     $items = $woocommerce->cart;
-    $cc = 0;
 
     foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) :
-        $cc++;
         $product = $cart_item['data'];
         $thumbnail = $product->get_image();
         $product_permalink     = $product->get_permalink($cart_item);

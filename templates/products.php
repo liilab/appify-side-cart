@@ -11,10 +11,10 @@
                     <p>Price: <?php echo $product->get_price(); ?>X<?php echo $cart_item['quantity']; ?></p>
                 </div>
                 <div class="lii-quantity d-flex">
-                    <div class="lii-qty lii-buttons-added me-3">
+                    <div class="lii-qty lii-buttons-added me-3 <?php echo $hidden; ?>">
                         <input type="button" value="-" class="lii-minus" /><input data-key="<?php echo $cart_item_key; ?>" type="number" step="1" min="1" max="" name="quantity" value="<?php echo $cart_item['quantity']; ?>" title="Qty" class="lii-input-text lii-qty lii-text" size="4" pattern="" inputmode="" /><input type="button" value="+" class="lii-plus" />
                     </div>
-                    <div class="lii-total-price">
+                    <div class="lii-total-price" <?php echo $inlineStyle; ?>>
                         <p><?php echo $sub_total; ?></p>
                     </div>
                 </div>
