@@ -46,10 +46,13 @@ jQuery(document).ready(function ($) {
         if (isNaN(val)) {
             val = 0;
         }
-
+        if (val ==1){
+            $(this).addClass('bg-danger');
+            return;
+        }
         val = val - 1;
-        if (val < 0) {
-            val = 0;
+        if (val <= 0) {
+            val = 1;
         }
 
         elem.val(val).trigger('change');
