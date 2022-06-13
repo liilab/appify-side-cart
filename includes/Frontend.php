@@ -11,6 +11,7 @@ class Frontend {
      * Initialize the class
      */
     function __construct() {
-        new Frontend\CartMarkup();
+        new Frontend\Frontend_Cart();
+        new Frontend\Side_Cart();
     }
 }
