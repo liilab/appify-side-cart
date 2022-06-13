@@ -85,6 +85,8 @@ var get_wcurl = function (endpoint_var) {
 
 $(document).on('click', '.single_add_to_cart_button', function (e) {
     e.preventDefault();
+    $(".lii-content-start").toggleClass("lii-show-cart");
+    
     $thisbutton = $(this),
         $form = $thisbutton.closest('form.cart'),
         id = $thisbutton.val(),
@@ -99,6 +101,8 @@ $(document).on('click', '.single_add_to_cart_button', function (e) {
 $(document).on('submit', 'form.cart', function (e) {
 
     var $form = $(e.currentTarget);
+
+    $(".lii-content-start").toggleClass("lii-show-cart");
 
     if ($form.closest('.product').hasClass('product-type-external')) return;
 
