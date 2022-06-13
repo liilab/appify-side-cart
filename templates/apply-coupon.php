@@ -6,9 +6,9 @@
         <div class="lii-coupon-title">Apply Coupon</div>
     </div>
     <div class="lii-coupon-body">
-        <form class="lii-apply-coupon">
+        <form method="post" class="lii-apply-coupon">
             <input type="text" class="lii-input-text" name="lii-coupon-input" placeholder="Enter Promo Code">
-            <button class="lii-button" type="submit">Submit</button>
+            <button class="lii-button" type="submit" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?>" >Submit</button>
         </form>
         <div class="lii-coupon-items">
 
