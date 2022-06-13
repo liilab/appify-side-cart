@@ -12,6 +12,10 @@ jQuery(document).ready(function ($) {
         $(".lii-content-start").removeClass("lii-show-cart");
     });
 
+    $(".lii-keepshopping-button").click(function () {
+        $(".lii-content-start").toggleClass("lii-show-cart");
+    });
+
 });
 
 //=== Product Increment & Decrement ===//
@@ -86,7 +90,7 @@ var get_wcurl = function (endpoint_var) {
 $(document).on('click', '.single_add_to_cart_button', function (e) {
     e.preventDefault();
     $(".lii-content-start").toggleClass("lii-show-cart");
-    
+
     $thisbutton = $(this),
         $form = $thisbutton.closest('form.cart'),
         id = $thisbutton.val(),
