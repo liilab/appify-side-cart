@@ -46,16 +46,20 @@ jQuery(document).ready(function ($) {
         if (isNaN(val)) {
             val = 0;
         }
-        if (val ==1){
-            $(this).addClass('bg-danger');
-            return;
+        if (val == 1) {
+            $con = $(this).closest(".lii-details");
+            $con.find('.lii-trash').addClass("lii-shake-trash text-danger");
+            setTimeout(function () {
+                $con.find('.lii-trash').removeClass("lii-shake-trash text-danger");
+            }, 500);
         }
-        val = val - 1;
-        if (val <= 0) {
-            val = 1;
+        else {
+            val = val - 1;
+            if (val <= 0) {
+                val = 1;
+            }
+            elem.val(val).trigger('change');
         }
-
-        elem.val(val).trigger('change');
     });
 });
 
