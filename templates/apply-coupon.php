@@ -10,18 +10,18 @@
             <input type="text" class="lii-input-text" name="lii-coupon-input" placeholder="Enter Promo Code">
             <button class="lii-button" type="submit" name="apply_coupon" value="<?php esc_attr_e('Apply coupon', 'woocommerce'); ?>">Submit</button>
         </form>
-        <div class="lii-applied-coupon mb-3">
+        
             <?php $coupons = WC()->cart->get_coupons();
             if (!empty($coupons)) : ?>
 
-                <ul class="xoo-wsc-applied-coupons">
+                <ul class="lii-applied-coupons mb-3">
                     <?php foreach ($coupons as $code => $coupon) : ?>
-                        <li class="xoo-wsc-remove-coupon" data-coupon="<?php echo $code; ?>"><?php echo $code; ?></li>
+                        <li class="lii-remove-coupon" data-coupon="<?php echo $code; ?>"><?php echo $code; ?></li>
                     <?php endforeach; ?>
                 </ul>
 
             <?php endif; ?>
-        </div>
+        
         <div class="lii-coupon-items">
 
             <div class="lii-avail-coupons lii-coupons">

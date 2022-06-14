@@ -465,6 +465,34 @@ $footer-bg: #f8f8f8;
                     }
                 }
 
+                .lii-applied-coupons {
+                    list-style-type: none;
+                    margin: 3px 0;
+                    display: table;
+
+                    .lii-remove-coupon {
+                        display: table;
+                        float: left;
+                        padding: 2px 7px;
+                        background-color: #dff0d8;
+                        border-radius: 10%;
+                        margin-right: 10px;
+                        color: #3c763d;
+                        text-transform: uppercase;
+                        cursor: pointer;
+                        font-size: 12px;
+                    }
+
+                    .lii-remove-coupon::after {
+                        content: "\e909";
+                        margin-left: 6px;
+                        font-family: Woo-Side-Cart !important;
+                        font-size: 8px;
+                        vertical-align: middle;
+                        color: green;
+                    }
+                }
+
                 .lii-coupon-items {
                     .lii-coupons {
                         border: 1px solid #eee;
@@ -541,8 +569,9 @@ $footer-bg: #f8f8f8;
 
                 }
             }
-            @media(max-width:577px){
-                .lii-coupon-body{
+
+            @media(max-width:577px) {
+                .lii-coupon-body {
                     padding: 5px 4px;
                 }
             }

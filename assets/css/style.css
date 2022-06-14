@@ -217,6 +217,7 @@
 #lii-ajax-cart .lii-content-start .lii-footer {
   -webkit-box-shadow: -4px 2px 20px rgba(0, 0, 0, 0.25);
           box-shadow: -4px 2px 20px rgba(0, 0, 0, 0.25);
+  z-index: 1;
   background-color: #f8f8f8;
   color: black;
   padding: 10px 20px;
@@ -426,6 +427,34 @@
   background-color: #d5d5d5;
   border-color: #d5d5d5;
   color: #333333;
+}
+
+#lii-ajax-cart .lii-content-start #lii-coupon-area .lii-coupon-body .lii-applied-coupons {
+  list-style-type: none;
+  margin: 3px 0;
+  display: table;
+}
+
+#lii-ajax-cart .lii-content-start #lii-coupon-area .lii-coupon-body .lii-applied-coupons .lii-remove-coupon {
+  display: table;
+  float: left;
+  padding: 2px 7px;
+  background-color: #dff0d8;
+  border-radius: 10%;
+  margin-right: 10px;
+  color: #3c763d;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+#lii-ajax-cart .lii-content-start #lii-coupon-area .lii-coupon-body .lii-applied-coupons .lii-remove-coupon::after {
+  content: "\e909";
+  margin-left: 6px;
+  font-family: Woo-Side-Cart !important;
+  font-size: 8px;
+  vertical-align: middle;
+  color: green;
 }
 
 #lii-ajax-cart .lii-content-start #lii-coupon-area .lii-coupon-body .lii-coupon-items .lii-coupons {
