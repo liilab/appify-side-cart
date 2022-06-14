@@ -114,10 +114,9 @@ $(document).on('click', '.single_add_to_cart_button', function (e) {
 $(document).on('submit', 'form.cart', function (e) {
     var $form = $(e.currentTarget);
     $thisbutton = $form.find('button[type="submit"]');
-    var isVal = $form.find('button[name="add-to-cart"]');
-    var g=isVal[0];
-    console.log(g);
-    if (typeof g === "undefined") {
+    var isAddtocart = $form.find('button[name="add-to-cart"]');
+    var addtoCart=isAddtocart[0];
+    if (typeof addtoCart === "undefined") {
         if ($(".shoppage-load")[0]) {
 
             $(".lii-content-start").toggleClass("lii-show-cart");
