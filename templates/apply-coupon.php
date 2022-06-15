@@ -1,7 +1,7 @@
 <?php global $woocommerce;
 ?>
-<?php add_shortcode( 'coupon_field', 'display_coupon_field' );
-function display_coupon_field() {
+<?php add_shortcode( 'coupon_field', 'lii_display_coupon_field' );
+function lii_display_coupon_field() {
     if( isset($_GET['coupon']) && isset($_GET['redeem-coupon']) ){
         if( $coupon = esc_attr($_GET['coupon']) ) {
             $applied = WC()->cart->apply_coupon($coupon);
