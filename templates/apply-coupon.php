@@ -15,15 +15,14 @@ function display_coupon_field() {
         $message = isset($applied) && $applied ? $success : $error;
     }
 
-    $output  = '<div class="redeem-coupon"><form id="coupon-redeem">
-    <p><input type="text" name="coupon" id="coupon"/>
-    <input type="submit" name="redeem-coupon" value="'.__('Redeem Offer').'" /></p>';
+    $output  = '<form id="coupon-redeem" class="lii-apply-coupon">
+    <input type="text" class="lii-input-text" name="coupon" id="coupon"/>
+    <input type="submit" class="lii-button" name="redeem-coupon" value="'.__('Submit').'" />';
 
-    $output .= isset($coupon) ? '<p class="result">'.$message.'</p>' : '';
+    $output .= isset($coupon) ? '<p class="result mt-4">'.$message.'</p>' : '';
 
-    return $output . '</form></div>';
+    return $output . '</form>';
 }
-echo do_shortcode("[coupon_field]");
 ?>
 <div id="lii-coupon-area" class="lii-coupon-area">
     <div class="lii-coupon-header">
@@ -31,15 +30,17 @@ echo do_shortcode("[coupon_field]");
         <div class="lii-coupon-title">Apply Coupon</div>
     </div>
     <div class="lii-coupon-body">
-        <form method="post" class="lii-apply-coupon">
+        <!-- <form method="post" class="lii-apply-coupon">
             <input type="text" class="lii-input-text" name="lii-coupon-input" placeholder="Enter Promo Code">
-            <button class="lii-button" type="submit" name="apply_coupon" value="<?php esc_attr_e('Apply coupon', 'woocommerce'); ?>">Submit</button>
-        </form>
+            <button class="lii-button" type="submit" name="apply_coupon" value="<?php //esc_attr_e('Apply coupon', 'woocommerce'); ?>">Submit</button>
+        </form> -->
 
-        <?php $coupons = WC()->cart->get_coupons();
+        <?php 
+        echo do_shortcode("[coupon_field]");
+        $coupons = WC()->cart->get_coupons();
         if (!empty($coupons)) : ?>
 
-            <ul class="lii-applied-coupons mb-3">
+            <ul class="lii-applied-coupons mb-4">
                 <?php foreach ($coupons as $code => $coupon) : ?>
                     <li class="lii-remove-coupon" data-coupon="<?php echo $code; ?>"><?php echo $code; ?></li>
                 <?php endforeach; ?>
