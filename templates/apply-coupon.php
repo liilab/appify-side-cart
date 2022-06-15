@@ -1,29 +1,5 @@
 <?php global $woocommerce;
 ?>
-<?php add_shortcode( 'coupon_field', 'lii_display_coupon_field' );
-function lii_display_coupon_field() {
-    if( isset($_GET['coupon']) && isset($_GET['lii-get-coupon']) ){
-        if( $coupon = esc_attr($_GET['coupon']) ) {
-            $applied = WC()->cart->apply_coupon($coupon);
-        } else {
-            $coupon = false;
-        }
-
-        $success = sprintf( __('Coupon "%s" Applied successfully.'), $coupon );
-        $error   = __("This Coupon can't be applied");
-
-        $message = isset($applied) && $applied ? $success : $error;
-    }
-
-    $output  = '<form id="lii-apply-coupon" class="lii-apply-coupon">
-    <input type="text" class="lii-input-text" name="coupon" id="coupon"/>
-    <input type="submit" class="lii-button" name="lii-get-coupon" value="'.__('Submit').'" />';
-
-    $output .= isset($coupon) ? '<p class="result mt-4">'.$message.'</p>' : '';
-
-    return $output . '</form>';
-}
-?>
 <div id="lii-coupon-area" class="lii-coupon-area">
     <div class="lii-coupon-header">
         <i class="bx bx-arrow-back lii-coupon-arrow"></i>
