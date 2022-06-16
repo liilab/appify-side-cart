@@ -241,19 +241,13 @@ $(document).on('click', '.lii-trash', function (e) {
 //=== Add coupon By Ajax ===//
 $(document).on('click', '#liiSetCouponBtn', function (e) {
     console.log('liiset coupon btn clicked');
-    e.preventDefault();
-    // var data = {
+    //e.preventDefault();
+    var coupon = $('#liiCouponCode');
+    var coupon_code = (coupon.val()).trim();
+    console.log(coupon_code);
 
-    //     action: 'liiSetCoupon',
-
-    //     security: '<?php echo wp_create_nonce( "lii_set_coupon" ); ?>',
-
-    //     ms_relationship_id: $('#ms_relationship_id').val(),
-
-    //     coupon_code: $('#coupon_code').val(),
-
-    //     apply_coupon_code: true
-
-    // };
+    if (!coupon_code.length) {
+        return;
+    }
 
 });

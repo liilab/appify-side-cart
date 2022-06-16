@@ -67,8 +67,8 @@ class Frontend_Cart
         return $html;
     }
     public function lii_display_coupon_field() {
-        if( isset($_GET['coupon']) && isset($_GET['lii-set-coupon']) ){
-            if( $coupon = esc_attr($_GET['coupon']) ) {
+        if( isset($_GET['lii-coupon-code']) && isset($_GET['lii-set-coupon']) ){
+            if( $coupon = esc_attr($_GET['lii-coupon-code']) ) {
                 $applied = WC()->cart->apply_coupon($coupon);
             } else {
                 $coupon = false;
@@ -81,7 +81,7 @@ class Frontend_Cart
         }
     
         $output  = '<form id="lii-apply-coupon" class="lii-apply-coupon">
-        <input type="text" class="lii-input-text" name="coupon" id="coupon"/>
+        <input type="text" class="lii-input-text" name="lii-coupon-code" id="liiCouponCode"/>
         <input type="submit" id="liiSetCouponBtn" class="lii-button" name="lii-set-coupon" value="'.__('Submit').'" />';
     
         $output .= isset($coupon) ? '<p class="result mt-4">'.$message.'</p>' : '';
