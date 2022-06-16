@@ -32,7 +32,6 @@ class Frontend_Cart
     public function __construct()
     {
         $this->hooks();
-        $this->shortcodes();
     }
 
     /**
@@ -46,14 +45,7 @@ class Frontend_Cart
         add_action('wp_enqueue_scripts', [$this, 'enqueue_scripts']);
         add_action('wp_footer', [$this, 'frontend_markup']);
         add_filter('woocommerce_loop_add_to_cart_link', [$this, 'quantity_inputs_for_woocommerce_loop_add_to_cart_link'], 10, 2);
-    }
-    /**
-     * Initialize All Necessary Shortcodes
-     *
-     */
-    public function shortcodes(){
-        add_shortcode( 'coupon_field', [$this,'lii_display_coupon_field'] );
-    }
+    }   
 
     public function quantity_inputs_for_woocommerce_loop_add_to_cart_link($html, $product)
     {
@@ -66,28 +58,7 @@ class Frontend_Cart
         }
         return $html;
     }
-    public function lii_display_coupon_field() {
-        if( isset($_GET['lii-coupon-code']) && isset($_GET['lii-set-coupon']) ){
-            if( $coupon = esc_attr($_GET['lii-coupon-code']) ) {
-                $applied = WC()->cart->apply_coupon($coupon);
-            } else {
-                $coupon = false;
-            }
     
-            $success = sprintf( __('Coupon "%s" Applied successfully.'), $coupon );
-            $error   = __("This Coupon can't be applied");
-    
-            $message = isset($applied) && $applied ? $success : $error;
-        }
-    
-        $output  = '<form id="lii-apply-coupon" class="lii-apply-coupon">
-        <input type="text" class="lii-input-text" name="lii-coupon-code" id="liiCouponCode"/>
-        <input type="submit" id="liiSetCouponBtn" class="lii-button" name="lii-set-coupon" value="'.__('Submit').'" />';
-    
-        $output .= isset($coupon) ? '<p class="result mt-4">'.$message.'</p>' : '';
-    
-        return $output . '</form>';
-    }
 
     /**
      * Enqueue All CSS Stylesheet
