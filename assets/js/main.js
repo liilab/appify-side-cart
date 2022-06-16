@@ -3,15 +3,15 @@ $ = jQuery;
 //=== Cart Icon Modal Open ===//
 
 jQuery(document).ready(function ($) {
-    function showCartSidebar(){
-        $(".lii-header").css("display","block");
-        $(".lii-main-contents").css("display","block");
-        $(".lii-footer").css("display","block");
+    function showCartSidebar() {
+        $(".lii-header").css("display", "block");
+        $(".lii-main-contents").css("display", "block");
+        $(".lii-footer").css("display", "block");
     }
-    function hideCartSidebar(){
-        $(".lii-header").css("display","none");
-        $(".lii-main-contents").css("display","none");
-        $(".lii-footer").css("display","none");
+    function hideCartSidebar() {
+        $(".lii-header").css("display", "none");
+        $(".lii-main-contents").css("display", "none");
+        $(".lii-footer").css("display", "none");
     }
 
     $(".lii-cart-icon").click(function () {
@@ -22,23 +22,23 @@ jQuery(document).ready(function ($) {
         $(".lii-content-start").removeClass("lii-show-cart");
     });
 
-    $("#lii-shipping").click(function(){
+    $("#lii-shipping").click(function () {
         hideCartSidebar();
-        $(".lii-shipping-area").css("display","block");
+        $(".lii-shipping-area").css("display", "block");
 
     });
-    $("#lii-coupon").click(function(){
+    $("#lii-coupon").click(function () {
         hideCartSidebar();
-        $(".lii-coupon-area").css("display","block");
+        $(".lii-coupon-area").css("display", "block");
 
     });
-    $(".lii-left-arrow").click(function(){
+    $(".lii-left-arrow").click(function () {
         showCartSidebar();
-        $(".lii-shipping-area").css("display","none");
+        $(".lii-shipping-area").css("display", "none");
     });
-    $(".lii-coupon-arrow").click(function(){
+    $(".lii-coupon-arrow").click(function () {
         showCartSidebar();
-        $(".lii-coupon-area").css("display","none");
+        $(".lii-coupon-area").css("display", "none");
     });
 
 });
@@ -239,8 +239,21 @@ $(document).on('click', '.lii-trash', function (e) {
 });
 
 //=== Add coupon By Ajax ===//
+$(document).on('click', '#liiSetCouponBtn', function (e) {
+    console.log('liiset coupon btn clicked');
+    e.preventDefault();
+    // var data = {
 
+    //     action: 'liiSetCoupon',
 
+    //     security: '<?php echo wp_create_nonce( "lii_set_coupon" ); ?>',
 
+    //     ms_relationship_id: $('#ms_relationship_id').val(),
 
+    //     coupon_code: $('#coupon_code').val(),
 
+    //     apply_coupon_code: true
+
+    // };
+
+});
