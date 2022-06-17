@@ -42,9 +42,16 @@ class Side_Cart
 
     public function hooks()
     {
-        add_action('wc_ajax_lii_ajaxcart_add_to_cart', [$this, 'lii_ajaxcart_add_to_cart']);
-        add_action('wc_ajax_lii_ajaxcart_update_item_quantity', [$this, 'update_item_quantity']);
         add_filter('woocommerce_add_to_cart_fragments', [$this, 'set_ajax_fragments']);
+        add_action('wc_ajax_lii_ajaxcart_add_to_cart', [$this, 'add_to_cart']);
+        add_action('wc_ajax_lii_ajaxcart_number', [$this, 'number']);
+        add_action('wc_ajax_lii_ajaxcart_update_item_quantity', [$this, 'update_item_quantity']);
+    }
+    public function number(){
+        $n = $_POST['num'];
+        $n = $n*5;
+        echo $n;
+        die();
     }
 
 
@@ -53,7 +60,7 @@ class Side_Cart
      *
      */
 
-    public function lii_ajaxcart_add_to_cart()
+    public function add_to_cart()
     {
         $product_id = apply_filters('lii_ajaxcart_woocommerce_add_to_cart_product_id', absint($_POST['product_id']));
         $quantity = empty($_POST['quantity']) ? 1 : wc_stock_amount($_POST['quantity']);
@@ -78,29 +85,8 @@ class Side_Cart
         wp_die();
     }
 
-
-
     /**
-     * Create Fragment
-     *
-     */
-
-    public function set_ajax_fragments($fragments)
-    {
-        $fragments['span.lii-cart-count']     = '<span class="lii-cart-count">' . count(WC()->cart->get_cart()) . '</span>';
-        $fragments['span.lii-subtotal-price'] = '<span class="lii-subtotal-price">' . WC()->cart->get_cart_subtotal() . '</span>';
-        $fragments['span.lii-shipping-price'] = '<span class="lii-shipping-price">' . WC()->cart->get_shipping_total() . '</span>';
-        $fragments['span.lii-total-price']    = '<span class="lii-total-price">' . WC()->cart->get_total() . '</span>';
-
-        ob_start();
-        require LII_AJAXCART_DIR_PATH . 'templates/main-contents.php';
-        $fragments['div.lii-main-contents'] = ob_get_clean();
-
-        return $fragments;
-    }
-
-    /**
-     * Add to Cart Action
+     * Update Item Quantity Action
      */
 
     public function update_item_quantity()
@@ -136,6 +122,27 @@ class Side_Cart
 
         \WC_AJAX::get_refreshed_fragments();
         die();
+    }
+
+
+
+    /**
+     * Create Fragment
+     *
+     */
+
+    public function set_ajax_fragments($fragments)
+    {
+        $fragments['span.lii-cart-count']     = '<span class="lii-cart-count">' . count(WC()->cart->get_cart()) . '</span>';
+        $fragments['span.lii-subtotal-price'] = '<span class="lii-subtotal-price">' . WC()->cart->get_cart_subtotal() . '</span>';
+        $fragments['span.lii-shipping-price'] = '<span class="lii-shipping-price">' . WC()->cart->get_shipping_total() . '</span>';
+        $fragments['span.lii-total-price']    = '<span class="lii-total-price">' . WC()->cart->get_total() . '</span>';
+
+        ob_start();
+        require LII_AJAXCART_DIR_PATH . 'templates/main-contents.php';
+        $fragments['div.lii-main-contents'] = ob_get_clean();
+
+        return $fragments;
     }
 }
 
