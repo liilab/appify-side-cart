@@ -106,30 +106,10 @@ var updateFragments = function (response) {
     console.log('lii-updated');
 
     if (response.fragments) {
-
-        //Set fragments
-
         $.each(response.fragments, function (key, value) {
             $(key).replaceWith(value);
-            //console.log(value);
         });
-
-        if (typeof wc_cart_fragments_params !== 'undefined' && ('sessionStorage' in window && window.sessionStorage !== null)) {
-
-            sessionStorage.setItem(wc_cart_fragments_params.fragment_name, JSON.stringify(response.fragments));
-            localStorage.setItem(wc_cart_fragments_params.cart_hash_key, response.cart_hash);
-            sessionStorage.setItem(wc_cart_fragments_params.cart_hash_key, response.cart_hash);
-
-            if (response.cart_hash) {
-                sessionStorage.setItem('wc_cart_created', (new Date()).getTime());
-            }
-
-        }
-
-        $(document.body).trigger('wc_fragments_refreshed');
     }
-
-    $(document.body).trigger('wc_fragment_refresh');
 }
 
 //=== On change event on product item Input Area ===//
@@ -241,29 +221,27 @@ $(document).on('click', '.lii-trash', function (e) {
 //=== Add coupon By Ajax ===//
 $(document).on('click', '#liiSetCouponBtn', function (e) {
      console.log('liiset coupon btn clicked');
-    //e.preventDefault();
-    // var coupon = $('#liiCouponCode');
-    // var coupon_code = (coupon.val()).trim();
-    // console.log(coupon_code);
+    e.preventDefault();
+    var coupon = $('#liiCouponCode');
+    var coupon_code = (coupon.val()).trim();
+    console.log(coupon_code);
 
     // if (!coupon_code.length) {
     //     return;
     // }
-    // var data = {
-    //     action: 'update_item_quantity',
-    //     coupon_code: coupon_code
-    // }
+    var data = {
+        action: '',
+        coupon: coupon_code,
+    }
     // console.log(data);
-    // $.ajax({
-    //     url: xoo_wsc_localize.wc_ajax_url.toString().replace( '%%endpoint%%', 'apply_coupon' ),
-    //     type: 'POST',
-    //     data: data,
-    //     success: function(response){
-    //         show_notice('error',response);
-    //         $( document.body ).trigger( 'lii-remove-coupon', [ coupon_code ] );
-    //         $( document.body ).trigger( 'wc_fragment_refresh' );
-    //     }
-    // })
+    $.ajax({
+        url: get_wcurl('lii_ajaxcart_coupon'),
+        type: 'POST',
+        data: data,
+        success: function(response){
+            updateFragments(response);
+        }
+    })
     //$("#lii-apply-coupon").load(location.href + " .lii-apply-coupon");
 
 });

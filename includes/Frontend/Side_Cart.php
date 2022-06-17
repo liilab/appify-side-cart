@@ -43,6 +43,7 @@ class Side_Cart
     public function hooks()
     {
         add_action('wc_ajax_lii_ajaxcart_add_to_cart', [$this, 'update_item_quantity']);
+        add_action('wc_ajax_lii_ajaxcart_coupon', [$this, 'coupon']);
         add_filter('woocommerce_add_to_cart_fragments', [$this, 'set_ajax_fragments']);
         // add_action('wp_print_scripts', function(){
         //     wp_dequeue_script( 'wc-cart-fragments' );
@@ -150,6 +151,13 @@ class Side_Cart
         $output .= isset($coupon) ? '<p class="result mt-4">' . $message . '</p>' : '';
 
         return $output . '</form>';
+    }
+
+    public function coupon(){
+        $coupon = $_POST['coupon'];
+        WC()->cart->apply_coupon($coupon);
+        \WC_AJAX::get_refreshed_fragments();
+        die();
     }
 }
 
