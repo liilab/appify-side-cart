@@ -44,14 +44,7 @@ class Side_Cart
     {
         add_filter('woocommerce_add_to_cart_fragments', [$this, 'set_ajax_fragments']);
         add_action('wc_ajax_lii_ajaxcart_add_to_cart', [$this, 'add_to_cart']);
-        add_action('wc_ajax_lii_ajaxcart_number', [$this, 'number']);
         add_action('wc_ajax_lii_ajaxcart_update_item_quantity', [$this, 'update_item_quantity']);
-    }
-    public function number(){
-        $n = $_POST['num'];
-        $n = $n*5;
-        echo $n;
-        die();
     }
 
 
