@@ -45,6 +45,7 @@ class Side_Cart
         add_action('wc_ajax_lii_ajaxcart_add_to_cart', [$this, 'update_item_quantity']);
         add_action('wc_ajax_lii_ajaxcart_coupon', [$this, 'coupon']);
         add_filter('woocommerce_add_to_cart_fragments', [$this, 'set_ajax_fragments']);
+        //add_filter('woocommerce_add_to_cart_fragments', [$this, 'set_coupon_fragments']);
         // add_action('wp_print_scripts', function(){
         //     wp_dequeue_script( 'wc-cart-fragments' );
         //     return true;
@@ -82,9 +83,18 @@ class Side_Cart
         ob_start();
         require LII_AJAXCART_DIR_PATH . 'templates/main-contents.php';
         $fragments['div.lii-main-contents'] = ob_get_clean();
+        ob_start();
+        require LII_AJAXCART_DIR_PATH . 'templates/apply-coupon.php';
+        $fragments['div.lii-set-coupon'] = ob_get_clean();
 
         return $fragments;
     }
+    // public function set_coupon_fragments(){
+    //     ob_start();
+    //     require LII_AJAXCART_DIR_PATH . 'templates/apply-coupon.php';
+    //     $fragments['ul.lii-applied-coupons'] = ob_get_clean();
+
+    // }
 
     /**
      * Add to Cart Action
