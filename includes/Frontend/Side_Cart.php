@@ -84,7 +84,7 @@ class Side_Cart
         require LII_AJAXCART_DIR_PATH . 'templates/main-contents.php';
         $fragments['div.lii-main-contents'] = ob_get_clean();
         ob_start();
-        require LII_AJAXCART_DIR_PATH . 'templates/apply-coupon.php';
+        require LII_AJAXCART_DIR_PATH . 'templates/coupon-body.php';
         $fragments['div.lii-set-coupon'] = ob_get_clean();
 
         return $fragments;
