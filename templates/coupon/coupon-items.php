@@ -1,14 +1,31 @@
+ <pre>
+ <?php
+    $coupon_posts = get_posts( array(
+        'posts_per_page'   => -1,
+        'orderby'          => 'name',
+        'order'            => 'asc',
+        'post_type'        => 'shop_coupon',
+        'post_status'      => 'publish',
+    ) );
+    //print_r($coupon_posts);
+?>
+ </pre>
 <div class="lii-coupon-items">
 
     <div class="lii-avail-coupons lii-coupons">
 
         <span class="lii-coupon-label">Available Coupons</span>
+        <?php foreach($coupon_posts as $coupon_post): 
+              $coupon_code=$coupon_post->post_title;
+              $coupon_amount=$coupon_post->coupon_amount;
+        ?>
         <div class="lii-coupon-row">
-            <span class="lii-cr-code">off5</span>
-            <span class="lii-cr-off">Get 5% off</span>
-            <span class="lii-cr-desc">Use code OFF5 &amp; get 5% discount on orders above $15</span>
-            <button class="lii-button" value="off5">Apply Coupon</button>
+            <span class="lii-cr-code"><?php echo $coupon_code; ?></span>
+            <span class="lii-cr-off">Get <?php echo $coupon_amount;  ?> off</span>
+            <span class="lii-cr-desc">Use code <?php echo $coupon_code; ?> &amp; get <?php echo $coupon_amount; ?> discount on orders above <?php echo  $coupon_post->minimum_spend; ?></span>
+            <button class="lii-button" value="<?php echo $coupon_code; ?>">Apply Coupon</button>
         </div>
+        <?php endforeach; ?>
 
     </div>
 
