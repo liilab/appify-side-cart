@@ -91,8 +91,9 @@ class Side_Cart
     }
     // public function set_coupon_fragments(){
     //     ob_start();
-    //     require LII_AJAXCART_DIR_PATH . 'templates/apply-coupon.php';
-    //     $fragments['ul.lii-applied-coupons'] = ob_get_clean();
+    //     require LII_AJAXCART_DIR_PATH . 'templates/coupon/set-coupon.php';
+    //     $fragments['div.lii-set-coupon'] = ob_get_clean();
+    //     return $fragments;
 
     // }
 
