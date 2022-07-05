@@ -43,7 +43,8 @@ class Side_Cart
     public function hooks()
     {
         add_action('wc_ajax_lii_ajaxcart_add_to_cart', [$this, 'update_item_quantity']);
-        add_action('wc_ajax_lii_ajaxcart_coupon', [$this, 'coupon']);
+        add_action('wc_ajax_lii_ajaxcart_apply_coupon', [$this, 'lii_apply_coupon']);
+        add_action('wc_ajax_lii_ajaxcart_remove_coupon',[$this,'lii_remove_coupon']);
         add_filter('woocommerce_add_to_cart_fragments', [$this, 'set_ajax_fragments']);
         //add_filter('woocommerce_add_to_cart_fragments', [$this, 'set_coupon_fragments']);
         // add_action('wp_print_scripts', function(){
@@ -166,10 +167,16 @@ class Side_Cart
         return $output . '</form>';
     }
 
-    public function coupon()
+    public function lii_apply_coupon()
     {
         $coupon = $_POST['coupon'];
         WC()->cart->apply_coupon($coupon);
+        \WC_AJAX::get_refreshed_fragments();
+        die();
+    }
+    public function lii_remove_coupon(){
+        $coupon = $_POST['coupon_key'];
+        WC()->cart->remove_coupon($coupon);
         \WC_AJAX::get_refreshed_fragments();
         die();
     }

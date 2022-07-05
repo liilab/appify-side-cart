@@ -235,7 +235,7 @@ $(document).on('click', '#liiSetCouponBtn', function (e) {
     }
     // console.log(data);
     $.ajax({
-        url: get_wcurl('lii_ajaxcart_coupon'),
+        url: get_wcurl('lii_ajaxcart_apply_coupon'),
         type: 'POST',
         data: data,
         success: function(response){
@@ -243,5 +243,26 @@ $(document).on('click', '#liiSetCouponBtn', function (e) {
         }
     })
     //$("#lii-apply-coupon").load(location.href + " .lii-apply-coupon");
+
+});
+
+//=== Remove coupon By Ajax ===//
+
+$(document).on('click','.lii-remove-coupon', function (e) {
+    console.log("remove coupon");
+    e.preventDefault();
+    coupon_key= $(this).attr('data-coupon');
+    var data= {
+        action: '',
+        coupon_key:coupon_key
+    }
+    $.ajax({
+        url: get_wcurl('lii_ajaxcart_remove_coupon'),
+        type: 'POST',
+        data: data,
+        success: function(response){
+            updateFragments(response);
+        }
+    })
 
 });
