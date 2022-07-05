@@ -80,9 +80,11 @@ class Side_Cart
         $fragments['span.lii-shipping-price'] = '<span class="lii-shipping-price">' . WC()->cart->get_shipping_total() . '</span>';
         $fragments['span.lii-total-price']    = '<span class="lii-total-price">' . WC()->cart->get_total() . '</span>';
 
-        ob_start();
-        require LII_AJAXCART_DIR_PATH . 'templates/main-contents.php';
-        $fragments['div.lii-main-contents'] = ob_get_clean();
+        if(!isset($_POST['coupon'])):
+            ob_start();
+            require LII_AJAXCART_DIR_PATH . 'templates/main-contents.php';
+            $fragments['div.lii-main-contents'] = ob_get_clean();
+        endif;
         ob_start();
         require LII_AJAXCART_DIR_PATH . 'templates/coupon/set-coupon.php';
         $fragments['div.lii-set-coupon'] = ob_get_clean();
@@ -164,7 +166,8 @@ class Side_Cart
         return $output . '</form>';
     }
 
-    public function coupon(){
+    public function coupon()
+    {
         $coupon = $_POST['coupon'];
         WC()->cart->apply_coupon($coupon);
         \WC_AJAX::get_refreshed_fragments();
