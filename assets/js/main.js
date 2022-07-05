@@ -114,7 +114,7 @@ var updateFragments = function (response) {
 
 //=== On change event on product item Input Area ===//
 
-$(document).on('change', 'input', function (e) {
+$(document).on('change', 'input.lii-qty', function (e) {
     e.preventDefault();
 
     product_key = $(this).attr('data-key');
