@@ -476,7 +476,7 @@ $footer-bg: #f8f8f8;
                         padding: 2px 7px;
                         background-color: #dff0d8;
                         border-radius: 10%;
-                        margin-right: 10px;
+                        //margin-right: 10px;
                         color: #3c763d;
                         text-transform: uppercase;
                         cursor: pointer;
@@ -485,7 +485,7 @@ $footer-bg: #f8f8f8;
 
                     .lii-remove-coupon::after {
                         content: "\e909";
-                        margin-left: 6px;
+                        //margin-left: 6px;
                         font-family: Woo-Side-Cart !important;
                         font-size: 8px;
                         vertical-align: middle;

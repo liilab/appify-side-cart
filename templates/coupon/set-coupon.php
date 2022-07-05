@@ -14,7 +14,7 @@
 
         <ul class="lii-applied-coupons mb-4">
             <?php foreach ($coupons as $code => $coupon) : ?>
-                <li class="lii-remove-coupon" data-coupon="<?php echo $code; ?>"><?php echo $code; ?></li>
+                <li class="lii-remove-coupon" data-coupon="<?php echo $code; ?>"><?php echo $code; ?><i class="bi bi-backspace ms-2"></i></li>
             <?php endforeach; ?>
         </ul>
 
