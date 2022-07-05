@@ -42,10 +42,11 @@ class Side_Cart
 
     public function hooks()
     {
+        add_filter('woocommerce_add_to_cart_fragments', [$this, 'set_ajax_fragments']);
         add_action('wc_ajax_lii_ajaxcart_add_to_cart', [$this, 'update_item_quantity']);
         add_action('wc_ajax_lii_ajaxcart_apply_coupon', [$this, 'lii_apply_coupon']);
         add_action('wc_ajax_lii_ajaxcart_remove_coupon',[$this,'lii_remove_coupon']);
-        add_filter('woocommerce_add_to_cart_fragments', [$this, 'set_ajax_fragments']);
+        
         //add_filter('woocommerce_add_to_cart_fragments', [$this, 'set_coupon_fragments']);
         // add_action('wp_print_scripts', function(){
         //     wp_dequeue_script( 'wc-cart-fragments' );

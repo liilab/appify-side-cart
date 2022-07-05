@@ -252,10 +252,12 @@ $(document).on('click','.lii-remove-coupon', function (e) {
     console.log("remove coupon");
     e.preventDefault();
     coupon_key= $(this).attr('data-coupon');
+    console.log(coupon_key);
     var data= {
         action: '',
         coupon_key:coupon_key
     }
+    console.log(data);
     $.ajax({
         url: get_wcurl('lii_ajaxcart_remove_coupon'),
         type: 'POST',
