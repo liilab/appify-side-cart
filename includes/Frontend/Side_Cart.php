@@ -166,6 +166,7 @@ class Side_Cart
     public function lii_remove_coupon(){
         $coupon = $_POST['coupon_key'];
         WC()->cart->remove_coupon($coupon);
+        WC()->cart->calculate_totals();
         \WC_AJAX::get_refreshed_fragments();
         die();
     }
