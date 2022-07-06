@@ -160,6 +160,7 @@ class Side_Cart
     {
         $coupon = $_POST['coupon'];
         WC()->cart->apply_coupon($coupon);
+        WC()->cart->calculate_totals();
         \WC_AJAX::get_refreshed_fragments();
         die();
     }
@@ -179,7 +180,6 @@ class Side_Cart
 
     public function set_ajax_fragments($fragments)
     {
-        global $woocommerce;
         $discount_excl_tax_total = WC()->cart->get_cart_discount_total();
         $discount_tax_total = WC()->cart->get_cart_discount_tax_total();
         $discount_total = $discount_excl_tax_total + $discount_tax_total;
