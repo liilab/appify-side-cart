@@ -45,7 +45,7 @@ class Side_Cart
     {
         add_filter('woocommerce_add_to_cart_fragments', [$this, 'set_ajax_fragments']);
         add_action('wc_ajax_lii_ajaxcart_apply_coupon', [$this, 'lii_apply_coupon']);
-        add_action('wc_ajax_lii_ajaxcart_remove_coupon',[$this,'lii_remove_coupon']);
+        add_action('wc_ajax_lii_ajaxcart_remove_coupon', [$this, 'lii_remove_coupon']);
         add_action('wc_ajax_lii_ajaxcart_add_to_cart', [$this, 'add_to_cart']);
         add_action('wc_ajax_lii_ajaxcart_update_item_quantity', [$this, 'update_item_quantity']);
     }
@@ -76,7 +76,7 @@ class Side_Cart
                 wc_add_to_cart_message(array($product_id => $quantity), true);
             }
 
-        
+
             \WC_AJAX::get_refreshed_fragments();
         } else {
             $data = array(
@@ -163,7 +163,8 @@ class Side_Cart
         \WC_AJAX::get_refreshed_fragments();
         die();
     }
-    public function lii_remove_coupon(){
+    public function lii_remove_coupon()
+    {
         $coupon = $_POST['coupon_key'];
         WC()->cart->remove_coupon($coupon);
         WC()->cart->calculate_totals();
@@ -178,12 +179,18 @@ class Side_Cart
 
     public function set_ajax_fragments($fragments)
     {
+        global $woocommerce;
+        $discount_excl_tax_total = WC()->cart->get_cart_discount_total();
+        $discount_tax_total = WC()->cart->get_cart_discount_tax_total();
+        $discount_total = $discount_excl_tax_total + $discount_tax_total;
+
         $fragments['span.lii-cart-count']     = '<span class="lii-cart-count">' . count(WC()->cart->get_cart()) . '</span>';
         $fragments['span.lii-subtotal-price'] = '<span class="lii-subtotal-price">' . WC()->cart->get_cart_subtotal() . '</span>';
         $fragments['span.lii-shipping-price'] = '<span class="lii-shipping-price">' . WC()->cart->get_shipping_total() . '</span>';
+        $fragments['span.lii-discount-price'] = '<span class="lii-discount-price">' . $discount_total . '</span>';
         $fragments['span.lii-total-price']    = '<span class="lii-total-price">' . WC()->cart->get_total() . '</span>';
 
-        if(!isset($_POST['coupon'])):
+        if (!isset($_POST['coupon'])) :
             ob_start();
             require LII_AJAXCART_DIR_PATH . 'templates/main-contents.php';
             $fragments['div.lii-main-contents'] = ob_get_clean();
@@ -194,7 +201,6 @@ class Side_Cart
 
         return $fragments;
     }
-
 }
 
 /**
