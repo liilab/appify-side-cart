@@ -190,7 +190,7 @@ class Side_Cart
         $fragments['span.lii-discount-price'] = '<span class="lii-discount-price">' . $discount_total . '</span>';
         $fragments['span.lii-total-price']    = '<span class="lii-total-price">' . WC()->cart->get_total() . '</span>';
 
-        if (!isset($_POST['coupon'])) :
+        if (!isset($_POST['coupon']) && !isset($_POST['coupon_key'])) :
             ob_start();
             require LII_AJAXCART_DIR_PATH . 'templates/main-contents.php';
             $fragments['div.lii-main-contents'] = ob_get_clean();
