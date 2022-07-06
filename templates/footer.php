@@ -26,7 +26,7 @@
         </div>
     </div>
     <div class="lii-checkout d-flex justify-content-between">
-        <button>Keep Shopping</button>
-        <button>Checkout</button>
+        <button class="lii-keepshopping-button">Keep Shopping</button>
+        <button class="lii-checkout-button"  onclick="window.location.href = '<?php echo wc_get_checkout_url(); ?>'">Checkout</button>
     </div>
 </div>
