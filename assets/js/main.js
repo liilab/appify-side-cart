@@ -3,15 +3,15 @@ $ = jQuery;
 //=== Cart Icon Modal Open ===//
 
 jQuery(document).ready(function ($) {
-    function showCartSidebar(){
-        $(".lii-header").css("display","block");
-        $(".lii-main-contents").css("display","block");
-        $(".lii-footer").css("display","block");
+    function showCartSidebar() {
+        $(".lii-header").css("display", "block");
+        $(".lii-main-contents").css("display", "block");
+        $(".lii-footer").css("display", "block");
     }
-    function hideCartSidebar(){
-        $(".lii-header").css("display","none");
-        $(".lii-main-contents").css("display","none");
-        $(".lii-footer").css("display","none");
+    function hideCartSidebar() {
+        $(".lii-header").css("display", "none");
+        $(".lii-main-contents").css("display", "none");
+        $(".lii-footer").css("display", "none");
     }
 
     $(".lii-cart-icon").click(function () {
@@ -28,23 +28,23 @@ jQuery(document).ready(function ($) {
 
     //Product Number Increment & Decrement
 
-    $("#lii-shipping").click(function(){
+    $("#lii-shipping").click(function () {
         hideCartSidebar();
-        $(".lii-shipping-area").css("display","block");
+        $(".lii-shipping-area").css("display", "block");
 
     });
-    $("#lii-coupon").click(function(){
+    $("#lii-coupon").click(function () {
         hideCartSidebar();
-        $(".lii-coupon-area").css("display","block");
+        $(".lii-coupon-area").css("display", "block");
 
     });
-    $(".lii-left-arrow").click(function(){
+    $(".lii-left-arrow").click(function () {
         showCartSidebar();
-        $(".lii-shipping-area").css("display","none");
+        $(".lii-shipping-area").css("display", "none");
     });
-    $(".lii-coupon-arrow").click(function(){
+    $(".lii-coupon-arrow").click(function () {
         showCartSidebar();
-        $(".lii-coupon-area").css("display","none");
+        $(".lii-coupon-area").css("display", "none");
     });
 
 });
@@ -112,35 +112,15 @@ var updateFragments = function (response) {
     console.log('lii-updated');
 
     if (response.fragments) {
-
-        //Set fragments
-
         $.each(response.fragments, function (key, value) {
             $(key).replaceWith(value);
-            //console.log(value);
         });
-
-        if (typeof wc_cart_fragments_params !== 'undefined' && ('sessionStorage' in window && window.sessionStorage !== null)) {
-
-            sessionStorage.setItem(wc_cart_fragments_params.fragment_name, JSON.stringify(response.fragments));
-            localStorage.setItem(wc_cart_fragments_params.cart_hash_key, response.cart_hash);
-            sessionStorage.setItem(wc_cart_fragments_params.cart_hash_key, response.cart_hash);
-
-            if (response.cart_hash) {
-                sessionStorage.setItem('wc_cart_created', (new Date()).getTime());
-            }
-
-        }
-
-        $(document.body).trigger('wc_fragments_refreshed');
     }
-
-    $(document.body).trigger('wc_fragment_refresh');
 }
 
 //=== On change event on product item Input Area ===//
 
-$(document).on('change', 'input', function (e) {
+$(document).on('change', 'input.lii-qty', function (e) {
     e.preventDefault();
 
     product_key = $(this).attr('data-key');
@@ -244,7 +224,53 @@ $(document).on('click', '.lii-trash', function (e) {
 
 });
 
+//=== Add coupon By Ajax ===//
+$(document).on('click', '#liiSetCouponBtn', function (e) {
+     console.log('liiset coupon btn clicked');
+    e.preventDefault();
+    var coupon = $('#liiCouponCode');
+    var coupon_code = (coupon.val()).trim();
+    console.log(coupon_code);
 
+    // if (!coupon_code.length) {
+    //     return;
+    // }
+    var data = {
+        action: '',
+        coupon: coupon_code,
+    }
+    // console.log(data);
+    $.ajax({
+        url: get_wcurl('lii_ajaxcart_apply_coupon'),
+        type: 'POST',
+        data: data,
+        success: function(response){
+            updateFragments(response);
+        }
+    })
+    //$("#lii-apply-coupon").load(location.href + " .lii-apply-coupon");
 
+});
 
+//=== Remove coupon By Ajax ===//
 
+$(document).on('click','.lii-remove-coupon', function (e) {
+    console.log("remove coupon");
+    e.preventDefault();
+    coupon_key= $(this).attr('data-coupon');
+    console.log(coupon_key);
+    var data= {
+        action: '',
+        coupon_key:coupon_key
+    }
+    console.log(data);
+    $.ajax({
+        url: get_wcurl('lii_ajaxcart_remove_coupon'),
+        type: 'POST',
+        data: data,
+        success: function(response){
+            updateFragments(response);
+        }
+    })
+
+});

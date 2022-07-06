@@ -428,6 +428,31 @@
   color: #333333;
 }
 
+#lii-ajax-cart .lii-content-start #lii-coupon-area .lii-coupon-body .lii-applied-coupons {
+  list-style-type: none;
+  margin: 3px 0;
+  display: table;
+}
+
+#lii-ajax-cart .lii-content-start #lii-coupon-area .lii-coupon-body .lii-applied-coupons .lii-remove-coupon {
+  display: table;
+  float: left;
+  padding: 2px 7px;
+  background-color: #dff0d8;
+  border-radius: 10%;
+  margin: 10px 10px 0 0;
+  color: #3c763d;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+#lii-ajax-cart .lii-content-start #lii-coupon-area .lii-coupon-body .lii-applied-coupons .lii-remove-coupon::after {
+  font-size: 8px;
+  vertical-align: middle;
+  color: green;
+}
+
 #lii-ajax-cart .lii-content-start #lii-coupon-area .lii-coupon-body .lii-coupon-items .lii-coupons {
   border: 1px solid #eee;
   margin-bottom: 35px;

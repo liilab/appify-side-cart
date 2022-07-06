@@ -32,6 +32,7 @@ class Side_Cart
     public function __construct()
     {
         $this->hooks();
+        $this->shortcodes();
     }
 
     /**
@@ -41,8 +42,12 @@ class Side_Cart
 
     public function hooks()
     {
-        add_action('wc_ajax_lii_ajaxcart_add_to_cart', [$this, 'update_item_quantity']);
         add_filter('woocommerce_add_to_cart_fragments', [$this, 'set_ajax_fragments']);
+        add_action('wc_ajax_lii_ajaxcart_add_to_cart', [$this, 'update_item_quantity']);
+        add_action('wc_ajax_lii_ajaxcart_apply_coupon', [$this, 'lii_apply_coupon']);
+        add_action('wc_ajax_lii_ajaxcart_remove_coupon',[$this,'lii_remove_coupon']);
+        
+        //add_filter('woocommerce_add_to_cart_fragments', [$this, 'set_coupon_fragments']);
         // add_action('wp_print_scripts', function(){
         //     wp_dequeue_script( 'wc-cart-fragments' );
         //     return true;
@@ -55,7 +60,14 @@ class Side_Cart
         //     wp_register_script('jquery-cookie', $woocommerce->plugin_url() . '/assets/js/jquery-cookie/jquery_cookie' . $suffix . '.js', array('jquery'), '1.3.1', true);
         // });
     }
-
+    /**
+     * Initialize All Necessary Shortcodes
+     *
+     */
+    public function shortcodes()
+    {
+        add_shortcode('coupon_field', [$this, 'lii_display_coupon_field']);
+    }
 
 
     /**
@@ -70,12 +82,24 @@ class Side_Cart
         $fragments['span.lii-shipping-price'] = '<span class="lii-shipping-price">' . WC()->cart->get_shipping_total() . '</span>';
         $fragments['span.lii-total-price']    = '<span class="lii-total-price">' . WC()->cart->get_total() . '</span>';
 
+        if(!isset($_POST['coupon'])):
+            ob_start();
+            require LII_AJAXCART_DIR_PATH . 'templates/main-contents.php';
+            $fragments['div.lii-main-contents'] = ob_get_clean();
+        endif;
         ob_start();
-        require LII_AJAXCART_DIR_PATH . 'templates/main-contents.php';
-        $fragments['div.lii-main-contents'] = ob_get_clean();
+        require LII_AJAXCART_DIR_PATH . 'templates/coupon/set-coupon.php';
+        $fragments['div.lii-set-coupon'] = ob_get_clean();
 
         return $fragments;
     }
+    // public function set_coupon_fragments(){
+    //     ob_start();
+    //     require LII_AJAXCART_DIR_PATH . 'templates/coupon/set-coupon.php';
+    //     $fragments['div.lii-set-coupon'] = ob_get_clean();
+    //     return $fragments;
+
+    // }
 
     /**
      * Add to Cart Action
@@ -112,6 +136,48 @@ class Side_Cart
             }
         }
 
+        \WC_AJAX::get_refreshed_fragments();
+        die();
+    }
+
+    /**
+     * Display Coupon Field Action
+     */
+
+    public function lii_display_coupon_field()
+    {
+        if (isset($_GET['lii-coupon-code']) && isset($_GET['lii-set-coupon'])) {
+            if ($coupon = esc_attr($_GET['lii-coupon-code'])) {
+                $applied = WC()->cart->apply_coupon($coupon);
+            } else {
+                $coupon = false;
+            }
+
+            $success = sprintf(__('Coupon "%s" Applied successfully.'), $coupon);
+            $error   = __("This Coupon can't be applied");
+
+            $message = isset($applied) && $applied ? $success : $error;
+        }
+
+        $output  = '<form id="lii-apply-coupon" class="lii-apply-coupon">
+        <input type="text" class="lii-input-text" name="lii-coupon-code" id="liiCouponCode"/>
+        <input type="submit" id="liiSetCouponBtn" class="lii-button" name="lii-set-coupon" value="' . __('Submit') . '" />';
+
+        $output .= isset($coupon) ? '<p class="result mt-4">' . $message . '</p>' : '';
+
+        return $output . '</form>';
+    }
+
+    public function lii_apply_coupon()
+    {
+        $coupon = $_POST['coupon'];
+        WC()->cart->apply_coupon($coupon);
+        \WC_AJAX::get_refreshed_fragments();
+        die();
+    }
+    public function lii_remove_coupon(){
+        $coupon = $_POST['coupon_key'];
+        WC()->cart->remove_coupon($coupon);
         \WC_AJAX::get_refreshed_fragments();
         die();
     }
