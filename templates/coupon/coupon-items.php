@@ -23,7 +23,7 @@
         <div class="lii-coupon-row">
             <span class="lii-cr-code"><?php echo $coupon_code; ?></span>
             <span class="lii-cr-off">Get <?php echo $coupon_amount;  ?> off</span>
-            <span class="lii-cr-desc">Use code <?php echo $coupon_code; ?> &amp; get <?php echo $coupon_amount; ?> discount on orders above <?php echo  $coupon_post->minimum_spend; ?></span>
+            <span class="lii-cr-desc">Use code <?php echo $coupon_code; ?> &amp; get <?php echo $coupon_amount; ?> discount on orders above <?php echo 'minimum amount'; ?></span>
             <button class="lii-button liiApplyCouponBtn" id="liiApplyCouponBtn<?php echo $coupon_count; ?>" value="<?php echo $coupon_code; ?>">Apply Coupon</button>
         </div>
         <?php $coupon_count++; endforeach; ?>
