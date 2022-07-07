@@ -1,4 +1,9 @@
 <!--Footer-->
+<?php
+$discount_excl_tax_total = WC()->cart->get_cart_discount_total();
+$discount_tax_total = WC()->cart->get_cart_discount_tax_total();
+$discount_total = $discount_excl_tax_total + $discount_tax_total;
+?>
 <div class="lii-footer fixed-bottom">
     <div class="lii-promo-code d-flex">
         <a href="#" id="lii-coupon" class="d-flex">
@@ -19,6 +24,10 @@
             </a>
             <p class="lii-price"><span class="lii-shipping-price"><?php WC()->cart->get_shipping_total(); ?></span></p>
         </div>
+        <div class="lii-discount d-flex justify-content-between">
+            <p class="lii-title">Discount</p>
+            <p class="lii-price"><span class="lii-discount-price"><?php $discount_total; ?></span></p>
+        </div>
         <hr />
         <div class="lii-total d-flex justify-content-between">
             <p class="lii-title">Total</p>
@@ -27,6 +36,6 @@
     </div>
     <div class="lii-checkout d-flex justify-content-between">
         <button class="lii-keepshopping-button">Keep Shopping</button>
-        <button class="lii-checkout-button"  onclick="window.location.href = '<?php echo wc_get_checkout_url(); ?>'">Checkout</button>
+        <button class="lii-checkout-button" onclick="window.location.href = '<?php echo wc_get_checkout_url(); ?>'">Checkout</button>
     </div>
 </div>

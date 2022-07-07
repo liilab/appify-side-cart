@@ -2,7 +2,7 @@
 $var1 = 1;
 $var2 = 1;
 $var3 = 1;
-$inlineStyle="";
+$inlineStyle = "";
 if (class_exists('Redux')) :
     $var1 = \Redux::get_option('redux_demo', 'shoppage-load');
     $var2 = \Redux::get_option('redux_demo', 'singlepage-load');
