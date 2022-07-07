@@ -261,21 +261,29 @@ var updateFragments = function (response) {
 //===update quantity area end===//
 
 //=== Add coupon By Ajax ===//
-$(document).on('click', '#liiSetCouponBtn', function (e) {
-    console.log('liiset coupon btn clicked');
-    e.preventDefault();
-    var coupon = $('#liiCouponCode');
-    var coupon_code = (coupon.val()).trim();
-    console.log(coupon_code);
 
-    // if (!coupon_code.length) {
-    //     return;
-    // }
+$(document).on('click', '.lii-button', function (e) {
+    e.preventDefault();
+    let liiClickedBtnId = '#' + this.id;
+    console.log(liiClickedBtnId);
+    if (liiClickedBtnId == '#liiSetCouponBtn') {
+        var coupon = $('#liiCouponCode');
+        var coupon_code = (coupon.val()).trim();
+    }
+    else if ($(this).hasClass('liiApplyCouponBtn')) {
+        var coupon_code = $(this).attr("value");
+    }
+    else {
+        return;
+    }
+    if (!coupon_code.length) {
+        return;
+    }
     var data = {
         action: '',
         coupon: coupon_code,
     }
-    // console.log(data);
+
     $.ajax({
         url: get_wcurl('lii_ajaxcart_apply_coupon'),
         type: 'POST',
@@ -284,9 +292,9 @@ $(document).on('click', '#liiSetCouponBtn', function (e) {
             updateFragments(response);
         }
     })
-    //$("#lii-apply-coupon").load(location.href + " .lii-apply-coupon");
 
 });
+//liiClickedBtn='#liiApplyCouponBtn';
 
 //=== Remove coupon By Ajax ===//
 

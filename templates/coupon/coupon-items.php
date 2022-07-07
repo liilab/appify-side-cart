@@ -1,5 +1,6 @@
  <pre>
  <?php
+    $coupon_count=0;
     $coupon_posts = get_posts( array(
         'posts_per_page'   => -1,
         'orderby'          => 'name',
@@ -23,9 +24,9 @@
             <span class="lii-cr-code"><?php echo $coupon_code; ?></span>
             <span class="lii-cr-off">Get <?php echo $coupon_amount;  ?> off</span>
             <span class="lii-cr-desc">Use code <?php echo $coupon_code; ?> &amp; get <?php echo $coupon_amount; ?> discount on orders above <?php echo  $coupon_post->minimum_spend; ?></span>
-            <button class="lii-button" value="<?php echo $coupon_code; ?>">Apply Coupon</button>
+            <button class="lii-button liiApplyCouponBtn" id="liiApplyCouponBtn<?php echo $coupon_count; ?>" value="<?php echo $coupon_code; ?>">Apply Coupon</button>
         </div>
-        <?php endforeach; ?>
+        <?php $coupon_count++; endforeach; ?>
 
     </div>
 
