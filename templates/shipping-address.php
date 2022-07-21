@@ -13,7 +13,7 @@
         <?php // woocommerce_shipping_calculator(); ?>
         <form class="woocommerce-shipping-calculator lii-ship-form" action="<?php echo esc_url(wc_get_cart_url()); ?>" method="post">
 
-                 <!-- Billing Country -->
+                 <!-- Shipping Country -->
 
                 <?php if (apply_filters('woocommerce_shipping_calculator_enable_country', true)) : ?>
                     <p class="form-row form-row-wide" id="calc_shipping_country_field">
@@ -27,6 +27,8 @@
                         </select>
                     </p>
                 <?php endif; ?>
+
+                <!-- Shipping State -->
 
                 <?php if (apply_filters('woocommerce_shipping_calculator_enable_state', true)) : ?>
                     <p class="form-row form-row-wide" id="calc_shipping_state_field">
@@ -61,17 +63,23 @@
                     </p>
                 <?php endif; ?>
 
+                <!-- Shipping City -->
+
                 <?php if (apply_filters('woocommerce_shipping_calculator_enable_city', true)) : ?>
                     <p class="form-row form-row-wide" id="calc_shipping_city_field">
                         <input type="text" class="input-text lii-input-text" value="<?php echo esc_attr(WC()->customer->get_shipping_city()); ?>" placeholder="<?php esc_attr_e('City', 'woocommerce'); ?>" name="calc_shipping_city" id="calc_shipping_city" />
                     </p>
                 <?php endif; ?>
 
+                <!-- Shipping Post Code -->
+
                 <?php if (apply_filters('woocommerce_shipping_calculator_enable_postcode', true)) : ?>
                     <p class="form-row form-row-wide" id="calc_shipping_postcode_field">
                         <input type="text" class="input-text lii-input-text" value="<?php echo esc_attr(WC()->customer->get_shipping_postcode()); ?>" placeholder="<?php esc_attr_e('Postcode / ZIP', 'woocommerce'); ?>" name="calc_shipping_postcode" id="calc_shipping_postcode" />
                     </p>
                 <?php endif; ?>
+
+                <!-- Shipping Button -->
 
                 <p class="lii-btn-area"><button type="submit" name="calc_shipping" value="1" class="button"><?php esc_html_e('Update', 'woocommerce'); ?></button></p>
                 <?php wp_nonce_field('woocommerce-shipping-calculator', 'woocommerce-shipping-calculator-nonce'); ?>
