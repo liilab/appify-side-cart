@@ -116,7 +116,6 @@
   -webkit-transition: all 0.3s linear;
   transition: all 0.3s linear;
   position: fixed;
-  z-index: 9999999999;
   top: 0;
   right: 0;
   width: 100%;
