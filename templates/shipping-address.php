@@ -13,6 +13,8 @@
         <?php // woocommerce_shipping_calculator(); ?>
         <form class="woocommerce-shipping-calculator lii-ship-form" action="<?php echo esc_url(wc_get_cart_url()); ?>" method="post">
 
+                 <!-- Billing Country -->
+
                 <?php if (apply_filters('woocommerce_shipping_calculator_enable_country', true)) : ?>
                     <p class="form-row form-row-wide" id="calc_shipping_country_field">
                         <select name="calc_shipping_country" id="calc_shipping_country" class="country_to_state country_select form-select form-select-sm lii-form-select example" rel="calc_shipping_state">
@@ -35,7 +37,7 @@
 
                         if (is_array($states) && empty($states)) {
                         ?>
-                            <input type="hidden" name="calc_shipping_state" id="calc_shipping_state" placeholder="<?php esc_attr_e('State / County', 'woocommerce'); ?>" />
+                            <input type="hidden" name="calc_shipping_state" class="lii-input-text" id="calc_shipping_state" placeholder="<?php esc_attr_e('State / County', 'woocommerce'); ?>" />
                         <?php
                         } elseif (is_array($states)) {
                         ?>
@@ -52,7 +54,7 @@
                         <?php
                         } else {
                         ?>
-                            <input type="text" class="input-text" value="<?php echo esc_attr($current_r); ?>" placeholder="<?php esc_attr_e('State / County', 'woocommerce'); ?>" name="calc_shipping_state" id="calc_shipping_state" />
+                            <input type="text" class="input-text lii-input-text" value="<?php echo esc_attr($current_r); ?>" placeholder="<?php esc_attr_e('State / County', 'woocommerce'); ?>" name="calc_shipping_state" id="calc_shipping_state" />
                         <?php
                         }
                         ?>
