@@ -407,7 +407,7 @@ $footer-bg: #f8f8f8;
                     .lii-btn-area {
                         margin-top: 30px;
 
-                        .lii-button {
+                        .lii-button,.button {
                             background-color: #000000;
                             border: 0;
                             color: #ffffff;
@@ -656,3 +656,7 @@ $footer-bg: #f8f8f8;
 //     right: 1px;
 //     width: 20px;
 // }
+//  .shipping-calculator-form{
+//     display: block !important;
+//  }
+    

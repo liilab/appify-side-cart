@@ -422,7 +422,7 @@
   margin-top: 30px;
 }
 
-#lii-ajax-cart .lii-content-start #lii-shipping-area .lii-ship-body .lii-ship-form .lii-btn-area .lii-button {
+#lii-ajax-cart .lii-content-start #lii-shipping-area .lii-ship-body .lii-ship-form .lii-btn-area .lii-button, #lii-ajax-cart .lii-content-start #lii-shipping-area .lii-ship-body .lii-ship-form .lii-btn-area .button {
   background-color: #000000;
   border: 0;
   color: #ffffff;
