@@ -13,8 +13,9 @@
                 <i class="bi bi-x lii-cross"></i>
             </div>
         </div>
-
+        <div class="lii-product-items">
         <?php require_once LII_AJAXCART_DIR_PATH . 'templates/main-contents.php'; ?>
+</div>
         <?php require_once LII_AJAXCART_DIR_PATH . 'templates/footer.php'; ?>
 
     </div>

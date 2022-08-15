@@ -39,6 +39,11 @@ class Menu
                 'slug'               => 'redux-framework', // The plugin slug (typically the folder name).
                 'required'           => true, // If false, the plugin is only 'recommended' instead of required.
             ),
+            array(
+                'name'               => 'Woocommerce', // The plugin name.
+                'slug'               => 'woocommerce', // The plugin slug (typically the folder name).
+                'required'           => true, // If false, the plugin is only 'recommended' instead of required.
+            ),
 
 
             // <snip />

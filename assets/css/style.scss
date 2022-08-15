@@ -126,14 +126,20 @@ $footer-bg: #f8f8f8;
                 padding: 5px;
             }
         }
-
-        .lii-main-contents {
-            height: calc(100% - 511px);
+        .lii-product-items{
             overflow-y: scroll;
             background: white;
             &::-webkit-scrollbar {
-                display: none;
-            }
+                    display: none;
+                }
+        }
+
+        .lii-main-contents {
+            // overflow-y: scroll;
+            // background: white;
+            // &::-webkit-scrollbar {
+            //     display: none;
+            // }
 
             .lii-cart-products {
                 overflow-x: hidden;

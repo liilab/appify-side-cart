@@ -187,13 +187,12 @@
   padding: 5px;
 }
 
-#lii-ajax-cart .lii-content-start .lii-main-contents {
-  height: calc(100% - 511px);
+#lii-ajax-cart .lii-content-start .lii-product-items {
   overflow-y: scroll;
   background: white;
 }
 
-#lii-ajax-cart .lii-content-start .lii-main-contents::-webkit-scrollbar {
+#lii-ajax-cart .lii-content-start .lii-product-items::-webkit-scrollbar {
   display: none;
 }
 

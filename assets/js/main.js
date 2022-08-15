@@ -1,5 +1,15 @@
 $ = jQuery;
 
+//=== Main Product Area Responsive Height Fixing
+
+var header = $(".lii-header").height();
+var footer = $(".lii-footer").height();
+var total = header + footer + 20;
+
+$(document).ready(function () {
+    $('.lii-product-items').css({ height: 'calc(100% - ' + total + 'px)' });
+});
+
 //=== Cart Icon Modal Open ===//
 
 jQuery(document).ready(function ($) {
@@ -15,6 +25,7 @@ jQuery(document).ready(function ($) {
     $(".lii-keepshopping-button").click(function () {
         $(".lii-content-start").toggleClass("lii-show-cart");
     });
+
 
 });
 
@@ -115,7 +126,7 @@ $(document).on('submit', 'form.cart', function (e) {
     var $form = $(e.currentTarget);
     $thisbutton = $form.find('button[type="submit"]');
     var isAddtocart = $form.find('button[name="add-to-cart"]');
-    var addtoCart=isAddtocart[0];
+    var addtoCart = isAddtocart[0];
     if (typeof addtoCart === "undefined") {
         if ($(".shoppage-load")[0]) {
 
