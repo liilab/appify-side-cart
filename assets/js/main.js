@@ -224,6 +224,12 @@ var update_item_quantity = function (product_key, quantity) {
         data: data,
         success: function (response) {
             updateFragments(response);
+            $(function() {
+                $.bootstrapGrowl(response.notice.name,{
+                    align: "right",
+                    type: response.notice.status,
+                });
+            });
         },
     });
 }

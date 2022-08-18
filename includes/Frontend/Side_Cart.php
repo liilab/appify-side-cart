@@ -29,9 +29,13 @@ class Side_Cart
     /**
      * Construct Methods
      */
-
+    public $notice;
+    public $response_status;
     public function __construct()
     {
+        $notice = $this->notice;
+        $status = $this->response_status;
+        $this->set_notice($notice, $status);
         $this->hooks();
     }
 
@@ -87,8 +91,9 @@ class Side_Cart
         $product_key     = sanitize_text_field($_POST['product_key']);
         $new_qty     = (float) $_POST['qty'];
 
+
         if (!is_numeric($new_qty) || $new_qty < 0 || !$product_key) {
-            //$this->set_notice( __( 'Something went wrong', 'side-cart-woocommerce' ) );
+            $this->set_notice(__('Something went wrong', 'side-cart-woocommerce'), 'error');
         }
 
         $validated = apply_filters('lii_ajaxcart_update_quantity', true, $product_key, $new_qty);
@@ -101,20 +106,53 @@ class Side_Cart
 
                 if ($new_qty == 0) {
 
-                    $notice = __('Item removed', 'side-cart-woocommerce');
+                    $notice = __('Cart item removed successfully', 'side-cart-woocommerce');
+                    $this->set_notice($notice, 'danger');
 
                     $notice .= '<span class="xoo-wsc-undo-item" data-key="' . $product_key . '">' . __('Undo?', 'side-cart-woocommerce') . '</span>';
+
                 } else {
-                    $notice = __('Item updated', 'side-cart-woocommerce');
+                    $notice = __('Cart item updated successfully', 'side-cart-woocommerce');
+                    $this->set_notice($notice, 'success');
                 }
-
-                //$this->set_notice( $notice, 'success' );
-
+            } else {
+                $notice = __('Sorry, something went wrong!', 'side-cart-woocommerce');
+                $this->set_notice($notice, 'danger');
             }
         }
 
-        \WC_AJAX::get_refreshed_fragments();
+
+        ob_start();
+        woocommerce_mini_cart();
+
+        $mini_cart = ob_get_clean();
+
+        $total_item = count(WC()->cart->get_cart());
+
+        if($total_item==0){
+            $mini_cart = "NO product found";
+        }
+
+
+        $data = array(
+            'notice' => ['name' => $this->notice, 'status' => $this->response_status,],
+            'fragments' => apply_filters(
+                'woocommerce_add_to_cart_fragments',
+                array(
+                    'div.widget_shopping_cart_content' => '<div class="widget_shopping_cart_content">' . $mini_cart . '</div>',
+                )
+            ),
+            'cart_hash' => WC()->cart->get_cart_hash(),
+        );
+
+        wp_send_json($data);
         die();
+    }
+
+    public function set_notice($notice, $status)
+    {
+        $this->notice = $notice;
+        $this->response_status = $status;
     }
 
 

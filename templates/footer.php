@@ -31,3 +31,4 @@
         <button class="lii-checkout-button"  onclick="window.location.href = '<?php echo wc_get_checkout_url(); ?>'">Checkout</button>
     </div>
 </div>
+</div>

@@ -66,6 +66,7 @@ public function quantity_inputs_for_woocommerce_loop_add_to_cart_link( $html, $p
 
     public function enqueue_styles()
     {
+        wp_enqueue_style( 'bootstrap-old-css', '//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css' );
         wp_enqueue_style( 'bootstrap-css', '//cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' );
         wp_enqueue_style( 'main-css', LII_AJAXCART_ASSETS . '/css/style.css' );
         wp_enqueue_style( 'bootstrap-icon-css', '//cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css' );
@@ -77,9 +78,12 @@ public function quantity_inputs_for_woocommerce_loop_add_to_cart_link( $html, $p
      * Action Hook: wp_enqueue_scripts
      */
 
+
     public function enqueue_scripts()
     {
-        wp_enqueue_script( 'main-js', LII_AJAXCART_ASSETS . '/js/main.js', array( 'jquery' ) );
+        wp_enqueue_script( 'bootstrap-old-js', '//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js','1.0',true );
+        wp_enqueue_script( 'notify-js', LII_AJAXCART_ASSETS . '/js/notify.js', array( 'jquery' ),'1.0',true );
+        wp_enqueue_script( 'main-js', LII_AJAXCART_ASSETS . '/js/main.js', array( 'jquery' ),'1.0',true );
         wp_enqueue_script( 'bootstrap-js', '//cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js', true );
         wp_localize_script(
             'main-js',

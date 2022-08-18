@@ -1,5 +1,6 @@
 <section id="lii-ajax-cart">
     <div class="lii-content-start">
+
         <!--Cart Icon-->
         <div class="lii-cart-icon">
             <span class="lii-cart-count"><?php echo count(WC()->cart->get_cart()); ?></span>
@@ -14,8 +15,8 @@
             </div>
         </div>
         <div class="lii-product-items">
-        <?php require_once LII_AJAXCART_DIR_PATH . 'templates/main-contents.php'; ?>
-</div>
+            <?php require_once LII_AJAXCART_DIR_PATH . 'templates/main-contents.php'; ?>
+        </div>
         <?php require_once LII_AJAXCART_DIR_PATH . 'templates/footer.php'; ?>
 
     </div>
