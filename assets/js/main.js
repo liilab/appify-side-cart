@@ -224,12 +224,23 @@ var update_item_quantity = function (product_key, quantity) {
         data: data,
         success: function (response) {
             updateFragments(response);
-            $(function() {
-                $.bootstrapGrowl(response.notice.name,{
-                    align: "right",
-                    type: response.notice.status,
+            if (response.notice.status != 'empty') {
+                $(function () {
+                    $.bootstrapGrowl(response.notice.name, {
+                        align: "right",
+                        type: response.notice.status,
+                    });
                 });
-            });
+            }
+            else{
+                $(function () {
+                    $.bootstrapGrowl('All items deleted', {
+                        align: "right",
+                        type: 'danger',
+                    });
+                });
+               // $("div.lii-suggested-items").addText('<p>HI km aso</p>');
+            }
         },
     });
 }

@@ -110,7 +110,6 @@ class Side_Cart
                     $this->set_notice($notice, 'danger');
 
                     $notice .= '<span class="xoo-wsc-undo-item" data-key="' . $product_key . '">' . __('Undo?', 'side-cart-woocommerce') . '</span>';
-
                 } else {
                     $notice = __('Cart item updated successfully', 'side-cart-woocommerce');
                     $this->set_notice($notice, 'success');
@@ -128,19 +127,15 @@ class Side_Cart
         $mini_cart = ob_get_clean();
 
         $total_item = count(WC()->cart->get_cart());
-
-        if($total_item==0){
-            $mini_cart = "NO product found";
+        if(!$total_item){
+            $this->response_status = "empty";
         }
-
 
         $data = array(
             'notice' => ['name' => $this->notice, 'status' => $this->response_status,],
             'fragments' => apply_filters(
                 'woocommerce_add_to_cart_fragments',
-                array(
-                    'div.widget_shopping_cart_content' => '<div class="widget_shopping_cart_content">' . $mini_cart . '</div>',
-                )
+                ['div.widget_shopping_cart_content' => '<div class="widget_shopping_cart_content">' . $mini_cart . '</div>']
             ),
             'cart_hash' => WC()->cart->get_cart_hash(),
         );
