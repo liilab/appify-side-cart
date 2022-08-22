@@ -8,13 +8,13 @@
     </div> -->
     <div class="lii-price-summery">
         <div class="lii-subtotal d-flex justify-content-between">
-            <p class="lii-title">Subtotal</p>
+            <p class="lii-title"> <?php __('Subtotal','lii-ajax-cart'); ?> </p>
             <p class="lii-price"><span class="lii-subtotal-price"><?php WC()->cart->get_cart_subtotal(); ?></span></p>
         </div>
         <div class="lii-shipping d-flex justify-content-between">
             <a href="#">
                 <p id="lii-shipping" class="lii-title">
-                    Shipping 
+                    <?php __('Shipping','lii-ajax-cart'); ?> 
                     <!-- <i class="bi bi-pen"></i> -->
                 </p>
             </a>
@@ -22,12 +22,12 @@
         </div>
         <hr />
         <div class="lii-total d-flex justify-content-between">
-            <p class="lii-title">Total</p>
+            <p class="lii-title"> <?php __('Total','lii-ajax-cart'); ?> </p>
             <p class="lii-price"><span class="lii-total-price"><?php WC()->cart->get_total(); ?></span></p>
         </div>
     </div>
     <div class="lii-checkout d-flex justify-content-between">
-        <button class="lii-keepshopping-button">Keep Shopping</button>
+        <button class="lii-keepshopping-button"> <?php __('Keep Shopping','lii-ajax-cart'); ?> </button>
         <button class="lii-checkout-button"  onclick="window.location.href = '<?php echo wc_get_checkout_url(); ?>'">Checkout</button>
     </div>
 </div>

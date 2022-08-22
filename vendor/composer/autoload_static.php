@@ -7,14 +7,14 @@ namespace Composer\Autoload;
 class ComposerStaticInitfa6a91414340722a313b89efcc0b69ed
 {
     public static $prefixLengthsPsr4 = array (
-        'a' => 
+        'l' => 
         array (
-            'ajax\\cart\\' => 10,
+            'lii\\ajax\\cart\\' => 14,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'ajax\\cart\\' => 
+        'lii\\ajax\\cart\\' => 
         array (
             0 => __DIR__ . '/../..' . '/includes',
         ),
@@ -22,11 +22,11 @@ class ComposerStaticInitfa6a91414340722a313b89efcc0b69ed
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'ajax\\cart\\Admin' => __DIR__ . '/../..' . '/includes/Admin.php',
-        'ajax\\cart\\Admin\\Menu' => __DIR__ . '/../..' . '/includes/Admin/Menu.php',
-        'ajax\\cart\\Frontend' => __DIR__ . '/../..' . '/includes/Frontend.php',
-        'ajax\\cart\\Frontend\\Frontend_Cart' => __DIR__ . '/../..' . '/includes/Frontend/Frontend_Cart.php',
-        'ajax\\cart\\Frontend\\Side_Cart' => __DIR__ . '/../..' . '/includes/Frontend/Side_Cart.php',
+        'lii\\ajax\\cart\\Admin' => __DIR__ . '/../..' . '/includes/Admin.php',
+        'lii\\ajax\\cart\\Admin\\Menu' => __DIR__ . '/../..' . '/includes/Admin/Menu.php',
+        'lii\\ajax\\cart\\Subscriber' => __DIR__ . '/../..' . '/includes/Subscriber.php',
+        'lii\\ajax\\cart\\Subscriber\\Backend' => __DIR__ . '/../..' . '/includes/Subscriber/Backend.php',
+        'lii\\ajax\\cart\\Subscriber\\Frontend' => __DIR__ . '/../..' . '/includes/Subscriber/Frontend.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

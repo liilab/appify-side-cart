@@ -1,17 +1,17 @@
 <?php
-namespace ajax\cart\Frontend;
+namespace lii\ajax\cart\Subscriber;
 
 if ( !defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly
 }
 
-class Frontend_Cart
+class Frontend
 {
 
     /**
      * Initializes a singleton instance
      *
-     * @return \Frontend_Cart
+     * @return \Frontend
      */
     public static function init()
     {
@@ -103,11 +103,11 @@ public function quantity_inputs_for_woocommerce_loop_add_to_cart_link( $html, $p
 /**
  * Initializes the class
  *
- * @return \Frontend_Cart
+ * @return \Frontend
  */
 function lii_ajaxcart_frontend()
 {
-    return Frontend_Cart::init();
+    return Frontend::init();
 }
 
 /**

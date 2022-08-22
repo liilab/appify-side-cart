@@ -7,9 +7,9 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
-    'ajax\\cart\\Admin' => $baseDir . '/includes/Admin.php',
-    'ajax\\cart\\Admin\\Menu' => $baseDir . '/includes/Admin/Menu.php',
-    'ajax\\cart\\Frontend' => $baseDir . '/includes/Frontend.php',
-    'ajax\\cart\\Frontend\\Frontend_Cart' => $baseDir . '/includes/Frontend/Frontend_Cart.php',
-    'ajax\\cart\\Frontend\\Side_Cart' => $baseDir . '/includes/Frontend/Side_Cart.php',
+    'lii\\ajax\\cart\\Admin' => $baseDir . '/includes/Admin.php',
+    'lii\\ajax\\cart\\Admin\\Menu' => $baseDir . '/includes/Admin/Menu.php',
+    'lii\\ajax\\cart\\Subscriber' => $baseDir . '/includes/Subscriber.php',
+    'lii\\ajax\\cart\\Subscriber\\Backend' => $baseDir . '/includes/Subscriber/Backend.php',
+    'lii\\ajax\\cart\\Subscriber\\Frontend' => $baseDir . '/includes/Subscriber/Frontend.php',
 );

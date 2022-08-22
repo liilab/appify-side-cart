@@ -1,19 +1,19 @@
 <?php
 
-namespace ajax\cart\Frontend;
+namespace lii\ajax\cart\Subscriber;
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
 
-class Side_Cart
+class Backend
 {
     public $product_key;
 
     /**
      * Initializes a singleton instance
      *
-     * @return \Side_Cart
+     * @return \Backend
      */
     public static function init()
     {
@@ -127,7 +127,7 @@ class Side_Cart
         $mini_cart = ob_get_clean();
 
         $total_item = count(WC()->cart->get_cart());
-        if(!$total_item){
+        if (!$total_item) {
             $this->response_status = "empty";
         }
 
@@ -175,15 +175,15 @@ class Side_Cart
 /**
  * Initializes the class
  *
- * @return \Side_Cart
+ * @return \Backend
  */
 
-function lii_ajaxcart_side_cart()
+function lii_ajaxcart_backend()
 {
-    return Side_Cart::init();
+    return Backend::init();
 }
 
 /**
  * Let's Go
  */
-lii_ajaxcart_side_cart();
+lii_ajaxcart_backend();

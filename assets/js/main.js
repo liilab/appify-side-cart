@@ -239,7 +239,6 @@ var update_item_quantity = function (product_key, quantity) {
                         type: 'danger',
                     });
                 });
-               // $("div.lii-suggested-items").addText('<p>HI km aso</p>');
             }
         },
     });

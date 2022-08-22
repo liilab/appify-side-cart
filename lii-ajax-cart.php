@@ -13,19 +13,19 @@
  * @package           lii-ajaxcart
  *
  * @wordpress-plugin
- * Plugin Name:       Ajax Cart
+ * Plugin Name:       Woocommerce Ajax Side Cart
  * Plugin URI:        liilab.com
- * Description:       A plugin for woocommerce Ajax Site cart.
+ * Description:       A plugin for woocommerce Ajax Side cart.
  * Version:           1.0
  * Author:            LIILab
  * Author URI:        liilab.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       lii-ajaxcart
+ * Text Domain:       lii-ajax-cart
  * Domain Path:       /languages
  */
 
-if ( !defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
     exit;
 }
 
@@ -34,7 +34,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 /**
  * The main plugin class
  */
-final class Ajax_Cart
+final class Lii_Ajax_Cart
 {
 
     /**
@@ -51,9 +51,9 @@ final class Ajax_Cart
     {
         $this->define_constants();
 
-        register_activation_hook( __FILE__, [$this, 'activate'] );
+        register_activation_hook(__FILE__, [$this, 'activate']);
 
-        add_action( 'plugins_loaded', [$this, 'init_plugin'] );
+        add_action('plugins_loaded', [$this, 'init_plugin']);
     }
 
     /**
@@ -65,7 +65,7 @@ final class Ajax_Cart
     {
         static $instance = false;
 
-        if ( !$instance ) {
+        if (!$instance) {
             $instance = new self();
         }
 
@@ -79,12 +79,12 @@ final class Ajax_Cart
      */
     public function define_constants()
     {
-        define( 'LII_AJAXCART_VERSION', self::version );
-        define( 'LII_AJAXCART_FILE', __FILE__ );
-        define( 'LII_AJAXCART_DIR', __DIR__ );
-        define( 'LII_AJAXCART_URL', plugins_url( '', LII_AJAXCART_FILE ) );
-        define( 'LII_AJAXCART_ASSETS', LII_AJAXCART_URL . '/assets' );
-        define( 'LII_AJAXCART_DIR_PATH', plugin_dir_path( __FILE__ ) );
+        define('LII_AJAXCART_VERSION', self::version);
+        define('LII_AJAXCART_FILE', __FILE__);
+        define('LII_AJAXCART_DIR', __DIR__);
+        define('LII_AJAXCART_URL', plugins_url('', LII_AJAXCART_FILE));
+        define('LII_AJAXCART_ASSETS', LII_AJAXCART_URL . '/assets');
+        define('LII_AJAXCART_DIR_PATH', plugin_dir_path(__FILE__));
     }
 
     /**
@@ -94,16 +94,15 @@ final class Ajax_Cart
      */
     public function init_plugin()
     {
-        if ( !(class_exists( 'woocommerce' )) ){
-            deactivate_plugins( __DIR__.'/ajax-cart.php', true );
+        if (!(class_exists('woocommerce'))) {
+            deactivate_plugins(__DIR__ . '/ajax-cart.php', true);
         }
 
-        if ( is_admin() ) {
-            new ajax\cart\Admin();
+        if (is_admin()) {
+            new lii\ajax\cart\Admin();
         } else {
-            new ajax\cart\Frontend();
+            new lii\ajax\cart\Subscriber();
         }
-
     }
 
     /**
@@ -113,13 +112,13 @@ final class Ajax_Cart
      */
     public function activate()
     {
-        $installed = get_option( 'lii-ajaxcart_installed' );
+        $installed = get_option('lii-ajaxcart_installed');
 
-        if ( !$installed ) {
-            update_option( 'lii-ajaxcart_installed', time() );
+        if (!$installed) {
+            update_option('lii-ajaxcart_installed', time());
         }
 
-        update_option( 'lii-ajaxcart_version', LII_AJAXCART_VERSION );
+        update_option('lii-ajaxcart_version', LII_AJAXCART_VERSION);
     }
 }
 
@@ -128,10 +127,10 @@ final class Ajax_Cart
  *
  * @return \ajax-cart
  */
-function Ajax_Cart()
+function Lii_Ajax_Cart()
 {
-    return Ajax_Cart::init();
+    return Lii_Ajax_Cart::init();
 }
 
 // kick-off the plugin
-Ajax_Cart();
+Lii_Ajax_Cart();

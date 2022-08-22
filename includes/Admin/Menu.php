@@ -1,6 +1,6 @@
 <?php
 
-namespace ajax\cart\Admin;
+namespace lii\ajax\cart\Admin;
 
 require_once LII_AJAXCART_DIR . '/libs/tgm/tgm.php';
 require_once LII_AJAXCART_DIR . '/libs/redux/options.php';

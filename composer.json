@@ -7,7 +7,7 @@
   "require": {},
   "autoload": {
     "psr-4": {
-      "ajax\\cart\\": "includes/"
+      "lii\\ajax\\cart\\": "includes/"
     },
     "files": []
   }

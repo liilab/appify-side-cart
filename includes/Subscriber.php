@@ -3,9 +3,9 @@
 namespace lii\ajax\cart;
 
 /**
- * The admin class
+ * Subscriber handler class
  */
-class Admin
+class Subscriber
 {
 
     /**
@@ -13,6 +13,7 @@ class Admin
      */
     function __construct()
     {
-        new Admin\Menu();
+        new Subscriber\Frontend();
+        new Subscriber\Backend();
     }
 }
