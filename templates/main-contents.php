@@ -39,24 +39,6 @@ endif;
     if ($ii == 0) {
         $shop_url = get_permalink( wc_get_page_id( 'shop' ));
     ?>
-        <!--Suggested Items-->
-        <!-- <div class="lii-suggested-items">
-        <p class="lii-text-center fw-bold">Products you might like</p>
-        <div class="lii-products">
-            <div class="lii-single-product">
-                <div class="lii-main-content d-flex">
-                    <img src="/assets/img/product-2.jpg" alt="" />
-                    <div class="lii-details">
-                        <p class="lii-title">Variable Product- XXL, RED</p>
-                        <div class="lii-lower-data d-flex">
-                            <p>$15.00</p>
-                            <button>+ ADD</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
         <div>
             <img src="<?php echo LII_AJAXCART_ASSETS . '/img/empty_cart1.png' ?>" alt="" style="
             width: 250px;

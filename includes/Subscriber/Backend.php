@@ -144,6 +144,8 @@ class Backend
         die();
     }
 
+    //Create Notice
+
     public function set_notice($notice, $status)
     {
         $this->notice = $notice;

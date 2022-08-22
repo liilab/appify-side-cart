@@ -1,11 +1,5 @@
 <!--Footer-->
 <div class="lii-footer fixed-bottom">
-    <!-- <div class="lii-promo-code d-flex">
-        <a href="#" class="d-flex">
-            <i class="bi bi-pen me-2"></i>
-            <p>Have you any coupon?</p>
-        </a>
-    </div> -->
     <div class="lii-price-summery">
         <div class="lii-subtotal d-flex justify-content-between">
             <p class="lii-title"><?php _e('Subtotal','lii-ajax-cart'); ?></p>
@@ -15,7 +9,6 @@
             <a href="#">
                 <p id="lii-shipping" class="lii-title">
                 <?php _e('Shipping','lii-ajax-cart'); ?>
-                    <!-- <i class="bi bi-pen"></i> -->
                 </p>
             </a>
             <p class="lii-price"><span class="lii-shipping-price"><?php WC()->cart->get_shipping_total(); ?></span></p>

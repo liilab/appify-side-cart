@@ -121,6 +121,8 @@
   width: 100%;
   max-width: 390px;
   height: 100%;
+  -webkit-box-shadow: -4px 2px 20px rgba(0, 0, 0, 0.25);
+          box-shadow: -4px 2px 20px rgba(0, 0, 0, 0.25);
 }
 
 #lii-ajax-cart .lii-content-start .lii-cart-icon {
@@ -318,8 +320,6 @@
 }
 
 #lii-ajax-cart .lii-content-start .lii-footer {
-  -webkit-box-shadow: -4px 2px 20px rgba(0, 0, 0, 0.25);
-          box-shadow: -4px 2px 20px rgba(0, 0, 0, 0.25);
   z-index: 1;
   background-color: #f8f8f8;
   color: black;
