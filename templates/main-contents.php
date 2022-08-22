@@ -64,13 +64,13 @@ endif;
             margin-left: 65px;
     ">
     <div class="text-center">
-            <h3 class="fw-bold"><?php __('Your cart is empty!','lii-ajax-cart'); ?></h3>
+            <h3 class="fw-bold"><?php _e('Your cart is empty!','lii-ajax-cart'); ?></h3>
             <button onclick="window.location.href='<?php echo $shop_url; ?>';" class="mt-2" style="    margin-left: 5px;
     background-color: black;
     color: white;
     padding: 10px 42px;
     border: none;
-    font-weight: 600;"><?php __('Go to Shop','lii-ajax-cart'); ?></button>
+    font-weight: 600;"><?php _e('Go to Shop','lii-ajax-cart'); ?></button>
         </div>
         </div>
     <?php } ?>

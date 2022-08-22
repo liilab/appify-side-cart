@@ -8,7 +8,7 @@
                     <i class="bi bi-trash lii-trash" data-key="<?php echo $cart_item_key; ?>"></i>
                 </div>
                 <div class="lii-per-price">
-                    <p><?php __('Price: ','lii-ajax-cart'); echo $product->get_price(); ?>X<?php echo $cart_item['quantity']; ?></p>
+                    <p><?php _e('Price: ','lii-ajax-cart'); ?><?php echo $product->get_price(); ?>X<?php echo $cart_item['quantity']; ?></p>
                 </div>
                 <div class="lii-quantity d-flex">
                     <div class="lii-qty lii-buttons-added me-3 <?php echo $hidden; ?>">
