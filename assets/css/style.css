@@ -204,6 +204,7 @@
 #lii-ajax-cart .lii-content-start .lii-main-contents .lii-cart-products .lii-single-product .lii-main-content img {
   height: 32%;
   width: 32%;
+  padding-left: 10px;
 }
 
 #lii-ajax-cart .lii-content-start .lii-main-contents .lii-cart-products .lii-single-product .lii-main-content .lii-details {
@@ -225,12 +226,15 @@
 }
 
 #lii-ajax-cart .lii-content-start .lii-main-contents .lii-cart-products .lii-single-product .lii-main-content .lii-details .lii-quantity .lii-qty .lii-input-text.lii-qty {
+  color: black;
   width: 40px;
   min-height: 41px !important;
   padding: 0 5px;
   text-align: center;
   background-color: transparent;
   border: 1px solid black;
+  max-height: 40px;
+  border-radius: 0px !important;
 }
 
 #lii-ajax-cart .lii-content-start .lii-main-contents .lii-cart-products .lii-single-product .lii-main-content .lii-details .lii-quantity .lii-qty input::-webkit-outer-spin-button {
