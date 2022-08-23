@@ -84,9 +84,9 @@ class Frontend
 
     public function enqueue_styles()
     {
-        wp_enqueue_style(LII_AJAXCART_TEXT_DOMAIN.'bootstrap', LII_AJAXCART_ASSETS . '/css/vendor/bootstrap-5.0.2.min.css');
-        wp_enqueue_style(LII_AJAXCART_TEXT_DOMAIN.'main', LII_AJAXCART_ASSETS . '/css/style.css');
-        wp_enqueue_style(LII_AJAXCART_TEXT_DOMAIN.'bootstrap-icon', LII_AJAXCART_ASSETS . '/css/vendor/bootstrap-icon-1.5.0.css');
+        wp_enqueue_style(LII_AJAXCART_TEXT_DOMAIN.'-bootstrap', LII_AJAXCART_ASSETS . '/css/vendor/bootstrap-5.0.2.min.css');
+        wp_enqueue_style(LII_AJAXCART_TEXT_DOMAIN.'-bootstrap-icon', '//cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css');
+        wp_enqueue_style(LII_AJAXCART_TEXT_DOMAIN.'-main', LII_AJAXCART_ASSETS . '/css/style.css');
     }
 
     /**
@@ -98,11 +98,11 @@ class Frontend
 
     public function enqueue_scripts()
     {
-        wp_enqueue_script(LII_AJAXCART_TEXT_DOMAIN.'notify', LII_AJAXCART_ASSETS . '/js/notify.js', array('jquery'), LII_AJAXCART_VERSION, true);
-        wp_enqueue_script(LII_AJAXCART_TEXT_DOMAIN.'main', LII_AJAXCART_ASSETS . '/js/main.js', array('jquery'),LII_AJAXCART_VERSION, true);
-        wp_enqueue_script(LII_AJAXCART_TEXT_DOMAIN.'bootstrap', LII_AJAXCART_ASSETS . '/js/vendor/bootstrap-5.0.2.min.js','5.0.2', true);
+        wp_enqueue_script(LII_AJAXCART_TEXT_DOMAIN.'-notify', LII_AJAXCART_ASSETS . '/js/notify.js', array('jquery'), LII_AJAXCART_VERSION, true);
+        wp_enqueue_script(LII_AJAXCART_TEXT_DOMAIN.'-bootstrap', LII_AJAXCART_ASSETS . '/js/vendor/bootstrap-5.0.2.min.js','5.0.2', true);
+        wp_enqueue_script(LII_AJAXCART_TEXT_DOMAIN.'-main', LII_AJAXCART_ASSETS . '/js/main.js', array('jquery'),LII_AJAXCART_VERSION, true);
         wp_localize_script(
-            LII_AJAXCART_TEXT_DOMAIN.'main',
+            LII_AJAXCART_TEXT_DOMAIN.'-main',
             'script_handle',
             [
                 'wc_ajax_url' => \WC_AJAX::get_endpoint('endpoint_variable'),

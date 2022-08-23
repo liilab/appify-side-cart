@@ -161,6 +161,7 @@ class Backend
 
     public function set_ajax_fragments($fragments)
     {
+        $fragments['p.lii-title-header']     = '<p class="lii-title-header"> My Cart ('.WC()->cart->get_cart_contents_count() . ') </p>';
         $fragments['span.lii-cart-count']     = '<span class="lii-cart-count">' . count(WC()->cart->get_cart()) . '</span>';
         $fragments['span.lii-subtotal-price'] = '<span class="lii-subtotal-price">' . WC()->cart->get_cart_subtotal() . '</span>';
         $fragments['span.lii-shipping-price'] = '<span class="lii-shipping-price">' . WC()->cart->get_shipping_total() . '</span>';

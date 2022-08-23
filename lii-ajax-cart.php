@@ -98,7 +98,7 @@ final class Lii_Ajax_Cart
     public function init_plugin()
     {
         if (!(class_exists('woocommerce'))) {
-            deactivate_plugins(__DIR__ . '/ajax-cart.php', true);
+            deactivate_plugins(__DIR__ . '/lii-ajax-cart.php', true);
         }
 
         if (is_admin()) {

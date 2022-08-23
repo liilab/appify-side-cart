@@ -168,21 +168,10 @@
   font-size: 50px;
 }
 
-#lii-ajax-cart .lii-content-start .lii-header span {
-  cursor: pointer;
-  position: absolute;
-  height: 20px;
-  width: 20px;
-  border-radius: 100%;
-  left: 146px;
-  top: 34px;
-  font-weight: 600;
-  font-size: 15px;
-}
-
-#lii-ajax-cart .lii-content-start .lii-header .lii-title {
+#lii-ajax-cart .lii-content-start .lii-header .lii-title-header {
   margin-top: 25px;
   font-size: 20px;
+  font-weight: bold;
 }
 
 #lii-ajax-cart .lii-content-start .lii-header .lii-cross {
@@ -204,7 +193,7 @@
 
 #lii-ajax-cart .lii-content-start .lii-main-contents .lii-cart-products {
   overflow-x: hidden;
-  padding: 10px 35px 0 0;
+  padding: 10px 60px 0 0;
 }
 
 #lii-ajax-cart .lii-content-start .lii-main-contents .lii-cart-products .lii-single-product .lii-main-content img {

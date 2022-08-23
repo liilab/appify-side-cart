@@ -20,7 +20,7 @@
         </div>
     </div>
     <div class="lii-checkout d-flex justify-content-between">
-        <button class="lii-keepshopping-button"><?php _e('Keep Shopping','lii-ajax-cart'); ?></button>
+        <button class="lii-checkout-button" onclick="window.location.href='<?php echo get_permalink( wc_get_page_id( 'shop' )); ?>'"><?php _e('Keep Shopping','lii-ajax-cart'); ?></button>
         <button class="lii-checkout-button"  onclick="window.location.href = '<?php echo wc_get_checkout_url(); ?>'"><?php _e('Checkout','lii-ajax-cart'); ?></button>
     </div>
 </div>
