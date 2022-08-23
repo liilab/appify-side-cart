@@ -8,6 +8,9 @@ $footer-bg: #f8f8f8;
 
 #lii-ajax-cart {
     //Common Style
+    hr {
+        width: 1000px !important;
+    }
     .lii-show-cart {
         transform: translate(0%) !important;
     }
@@ -138,7 +141,7 @@ $footer-bg: #f8f8f8;
         .lii-main-contents {
             .lii-cart-products {
                 overflow-x: hidden;
-                padding: 10px 20px 0 0;
+                padding: 10px 35px 0 0;
                 .lii-single-product {
                     .lii-main-content {
                         img {

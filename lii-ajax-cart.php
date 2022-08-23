@@ -80,11 +80,14 @@ final class Lii_Ajax_Cart
     public function define_constants()
     {
         define('LII_AJAXCART_VERSION', self::version);
+        define('LII_AJAXCART_TEXT_DOMAIN', 'lii-ajax-cart');
         define('LII_AJAXCART_FILE', __FILE__);
         define('LII_AJAXCART_DIR', __DIR__);
         define('LII_AJAXCART_URL', plugins_url('', LII_AJAXCART_FILE));
         define('LII_AJAXCART_ASSETS', LII_AJAXCART_URL . '/assets');
         define('LII_AJAXCART_DIR_PATH', plugin_dir_path(__FILE__));
+        define( "LII_AJAXCART_PLUGIN_BASENAME", plugin_basename(LII_AJAXCART_FILE));
+
     }
 
     /**
