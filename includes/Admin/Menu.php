@@ -3,7 +3,6 @@
 namespace lii\ajax\cart\Admin;
 
 require_once LII_AJAXCART_DIR . '/libs/tgm/tgm.php';
-//require_once LII_AJAXCART_DIR . '/libs/redux/options.php';
 
 /**
  * The Menu handler class
@@ -32,13 +31,6 @@ class Menu
          * If the source is NOT from the .org repo, then source is also required.
          */
         $plugins = array(
-
-            // This is an example of how to include a plugin bundled with a theme.
-            // array(
-            //     'name'               => 'Redux Framework', // The plugin name.
-            //     'slug'               => 'redux-framework', // The plugin slug (typically the folder name).
-            //     'required'           => true, // If false, the plugin is only 'recommended' instead of required.
-            // ),
             array(
                 'name'               => 'Woocommerce', // The plugin name.
                 'slug'               => 'woocommerce', // The plugin slug (typically the folder name).
