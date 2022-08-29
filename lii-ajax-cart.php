@@ -14,7 +14,7 @@
  *
  * @wordpress-plugin
  * Plugin Name:       E-commerce Ajax Side Cart
- * Plugin URI:        liilab.com
+ * Plugin URI:        liilab.com/ajax-side-cart
  * Description:       A woocommerce based plugin for ajax side cart.
  * Version:           1.0
  * Author:            LIILab
