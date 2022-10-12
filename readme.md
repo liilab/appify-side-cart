@@ -1,17 +1,26 @@
 === E-commerce Ajax Side Cart ===
+
 Contributors: liilab
+
 Tags: ajax,woocommerce,cart,side-cart,e-commerce,popup,floating cart,ajax-cart,slider
+
 Requires at least: 3.0.1
+
 Tested up to: 6.0
+
 Requires PHP: 5.0
+
 Stable tag: 1.0
+
 License: GPL-2.0+
+
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 
 Add your product and see your cart with a beautiful side cart. 
 
 
 == Description ==
+
 No need your woocommerce side cart. See your cart with ajax feature. Update your product, delete it with ajax feature. No shop page & single page load.
 
 ### Features And Options:
@@ -25,7 +34,9 @@ No need your woocommerce side cart. See your cart with ajax feature. Update your
 3. Click E-commerce Side Cart on the dashboard.
 
 == Frequently Asked Questions ==
+
 = How to setup? =
+
 Everything is already setup.Just activate the plugin & you are done.
 
 == Screenshots ==
