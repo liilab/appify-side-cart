@@ -13,6 +13,7 @@ class Admin
      */
     function __construct()
     {
-        new Admin\Menu();
+        new Admin\Package();
+		new Admin\Submenu_Page();
     }
 }
