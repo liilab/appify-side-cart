@@ -22,11 +22,6 @@ class ComposerStaticInitfa6a91414340722a313b89efcc0b69ed
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'lii\\ajax\\cart\\Admin' => __DIR__ . '/../..' . '/includes/Admin.php',
-        'lii\\ajax\\cart\\Admin\\Menu' => __DIR__ . '/../..' . '/includes/Admin/Menu.php',
-        'lii\\ajax\\cart\\Subscriber' => __DIR__ . '/../..' . '/includes/Subscriber.php',
-        'lii\\ajax\\cart\\Subscriber\\Backend' => __DIR__ . '/../..' . '/includes/Subscriber/Backend.php',
-        'lii\\ajax\\cart\\Subscriber\\Frontend' => __DIR__ . '/../..' . '/includes/Subscriber/Frontend.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
