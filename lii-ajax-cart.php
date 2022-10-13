@@ -42,7 +42,7 @@ final class Lii_Ajax_Cart
      *
      * @var string
      */
-    const version = '1.0';
+    const version = '1.1';
 
     /**
      * Class construcotr
