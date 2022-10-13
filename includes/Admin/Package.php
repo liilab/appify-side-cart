@@ -5,9 +5,12 @@ namespace lii\ajax\cart\Admin;
 require_once LII_AJAXCART_DIR . '/libs/tgm/tgm.php';
 
 /**
- * The Menu handler class
+ * The Package handler class
+ *
+ * @since 1.0
  */
-class Menu
+
+class Package
 {
 
     /**
