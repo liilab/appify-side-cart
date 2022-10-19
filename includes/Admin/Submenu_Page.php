@@ -80,7 +80,15 @@ class Submenu_Page {
 					'Recently added item at last (Asc)',
 					'Recently added item at top (Desc)'
 				)
-			)
+			),
+
+            array(
+                'section' => 'SideCart_section',
+                'label' => 'Cart Drag',
+                'id' => 'Lii-cart-order-drag',
+                'desc' => 'If you have bundle/composite products use Asc order',
+                'type' => 'drag',
+            )
 		);
 		foreach( $fields as $field ){
 			add_settings_field( $field['id'], $field['label'], array( $this, 'wph_field_callback' ), 'SideCart', $field['section'], $field );
@@ -129,6 +137,13 @@ class Submenu_Page {
 					$field['id']
 				);
 				break;
+
+            case 'drag':
+                $valu='<li>1</li><li>2</li><li>3</li>';
+                printf('<ul id="drag">%1$s</ul>',
+                    $valu
+                );
+                break;
 
 			default:
 				printf( '<input name="%1$s" id="%1$s" type="%2$s" placeholder="%3$s" value="%4$s" />',
