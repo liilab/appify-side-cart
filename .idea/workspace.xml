@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d885fe25-78c1-4c38-83f7-8ea21034c118" name="Changes" comment="Drag setting field create." />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/composer" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="2G2nnvKsgDeE4sWi5z5DDOexbIj" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="false" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Program Files/Ampps/www/wordpress1/wp-content/plugins/ajax-cart&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;web-ide.project.structure&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Program Files\Ampps\www\wordpress1\wp-content\plugins\ajax-cart\includes\Admin" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d885fe25-78c1-4c38-83f7-8ea21034c118" name="Changes" comment="" />
+      <created>1665595716576</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1665595716576</updated>
+      <workItem from="1665595718054" duration="2893000" />
+      <workItem from="1665634724670" duration="23977000" />
+      <workItem from="1666182593764" duration="842000" />
+      <workItem from="1666247150841" duration="2013000" />
+      <workItem from="1666396805430" duration="121000" />
+      <workItem from="1666454276232" duration="16000" />
+      <workItem from="1666455384209" duration="128000" />
+      <workItem from="1666528057607" duration="4080000" />
+    </task>
+    <task id="LOCAL-00001" summary="Some space add for clear design.">
+      <created>1665596973317</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1665596973317</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Call Submenu_Page class">
+      <created>1665668673245</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1665668673245</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Version change 1.0 to 1.1">
+      <created>1665668768428</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1665668768428</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Change option redux to wordpress option.">
+      <created>1665668805313</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1665668805313</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Class name change Menu to Package and release name update.">
+      <created>1665668877136</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1665668877136</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Submenu page create under woocommerce.">
+      <created>1665668920255</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1665668920255</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Composer update.">
+      <created>1665668973626</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1665668973626</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Another update.">
+      <created>1665669012810</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1665669012810</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Assets class enqueue.">
+      <created>1666182678340</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1666182678340</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Drag setting field create.">
+      <created>1666182830813</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1666182830813</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/dev2" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Some space add for clear design." />
+    <MESSAGE value="Call Submenu_Page class" />
+    <MESSAGE value="Version change 1.0 to 1.1" />
+    <MESSAGE value="Change option redux to wordpress option." />
+    <MESSAGE value="Class name change Menu to Package and release name update." />
+    <MESSAGE value="Submenu page create under woocommerce." />
+    <MESSAGE value="Composer update." />
+    <MESSAGE value="Another update." />
+    <MESSAGE value="Assets class enqueue." />
+    <MESSAGE value="Drag setting field create." />
+    <option name="LAST_COMMIT_MESSAGE" value="Drag setting field create." />
+  </component>
+  <component name="WordPressConfiguration" enabled="true">
+    <wordpressPath>C:\Program Files\Ampps\www\wordpress1</wordpressPath>
+  </component>
+</project>
