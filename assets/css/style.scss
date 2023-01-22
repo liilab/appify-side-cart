@@ -136,8 +136,8 @@ $footer-bg: #f8f8f8;
                 .lii-single-product {
                     .lii-main-content {
                         img {
-                            height: 32%;
-                            width: 32%;
+                            height: 32% !important;
+                            width: 32% !important;
                             padding-left: 10px;
                         }
                         .lii-details {

@@ -154,8 +154,8 @@
   padding: 10px 60px 0 0;
 }
 #lii-ajax-cart .lii-content-start .lii-main-contents .lii-cart-products .lii-single-product .lii-main-content img {
-  height: 32%;
-  width: 32%;
+  height: 32% !important;
+  width: 32% !important;
   padding-left: 10px;
 }
 #lii-ajax-cart .lii-content-start .lii-main-contents .lii-cart-products .lii-single-product .lii-main-content .lii-details {
