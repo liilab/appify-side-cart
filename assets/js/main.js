@@ -4,7 +4,7 @@ $ = jQuery;
 
 var header = $(".lii-header").height();
 var footer = $(".lii-footer").height();
-var total = header + footer + 20;
+var total = header + footer + 50;
 
 $(document).ready(function () {
     $('.lii-product-items').css({ height: 'calc(100% - ' + total + 'px)' });
@@ -59,9 +59,9 @@ jQuery(document).ready(function ($) {
         }
         if (val == 1) {
             $con = $(this).closest(".lii-details");
-            $con.find('.lii-trash').addClass("lii-shake-trash text-danger");
+            $con.find('.lii-trash').addClass("text-danger");
             setTimeout(function () {
-                $con.find('.lii-trash').removeClass("lii-shake-trash text-danger");
+                $con.find('.lii-trash').removeClass("text-danger");
             }, 500);
         }
         else {
