@@ -69,7 +69,7 @@
 	  },
 	  align: "right",
 	  width: 350,
-	  delay: 1000,
+	  delay: 500,
 	  allow_dismiss: true,
 	  stackup_spacing: 10
 	};
