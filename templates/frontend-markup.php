@@ -10,7 +10,7 @@
             <!--Header-->
             <div class="lii-header">
                 <div class="d-flex justify-content-center">
-                    <p class="lii-title-header"><?php _e('My Cart', 'lii-ajax-cart'); echo " (".WC()->cart->get_cart_contents_count().")"; ?></p>
+                    <p class="lii-title-header"><?php esc_html_e('My Cart (', 'lii-ajax-cart'); echo WC()->cart->get_cart_contents_count(); esc_html_e(')', 'lii-ajax-cart'); ?></p>
                     <i class="bi bi-x lii-cross"></i>
                 </div>
             </div>
