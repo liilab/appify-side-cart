@@ -42,7 +42,7 @@ final class Lii_Ajax_Cart
      *
      * @var string
      */
-    const version = '1.1';
+    const version = '1.0';
 
     /**
      * Class construcotr
@@ -54,7 +54,19 @@ final class Lii_Ajax_Cart
         register_activation_hook(__FILE__, [$this, 'activate']);
 
         add_action('plugins_loaded', [$this, 'init_plugin']);
+		add_action('admin_init', [$this, 'plugin_redirect']);
+
     }
+	
+	public function plugin_redirect() {
+    if (get_option('lii-ajaxcart_do_activation_redirect', false)) {
+        delete_option('lii-ajaxcart_do_activation_redirect');
+        if(!isset($_GET['activate-multi']))
+        {
+            wp_redirect("admin.php?page=e-commerce-ajax-side-cart-setting");
+        }
+    }
+}
 
     /**
      * Initializes a singleton instance
@@ -97,10 +109,6 @@ final class Lii_Ajax_Cart
      */
     public function init_plugin()
     {
-        if (!(class_exists('woocommerce'))) {
-            deactivate_plugins(__DIR__ . '/lii-ajax-cart.php', true);
-        }
-
         if (is_admin()) {
             new lii\ajax\cart\Admin();
         } else {
@@ -122,6 +130,7 @@ final class Lii_Ajax_Cart
         }
 
         update_option('lii-ajaxcart_version', LII_AJAXCART_VERSION);
+		add_option('lii-ajaxcart_do_activation_redirect', true);
     }
 }
 
