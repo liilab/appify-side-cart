@@ -31,7 +31,7 @@ class Submenu_Page
 	public function settings_content()
 	{ ?>
 		<div class="wrap">
-			<h1>Side Cart</h1>
+			<h1>Appify Side Cart</h1>
 			<?php settings_errors(); ?>
 			<form method="POST" action="options.php">
 				<?php
