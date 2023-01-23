@@ -1,11 +1,9 @@
 <?php
-$inlineStyle = '';
 
-$var1 = get_option('Lii-ajax-add-to-cart-option'); //shop-page-load
-$var2 = get_option('Lii-ajax-single-product-page-add-to-cart-option');  //single-product-page-load
-$var3 = get_option('Lii-showing-product-quantity-box-option');  //product-quantity-box
-
-$var4 = get_option('Lii-cart-order-option'); //cart-order
+$var1 = (bool)get_option('Lii-ajax-add-to-cart-option'); //shop-page-load
+$var2 = (bool)get_option('Lii-ajax-single-product-page-add-to-cart-option');  //single-product-page-load
+$var3 = (bool)get_option('Lii-showing-product-quantity-box-option');  //product-quantity-box
+$var4 = (bool)get_option('Lii-cart-order-option'); //cart-order
 
 $hidden      = ' ';
 $inlineStyle = ' ';
@@ -31,7 +29,6 @@ if ($var4) {
 
 foreach ($items as $cart_item_key => $cart_item) :
 	$product           = $cart_item['data'];
-	$thumbnail         = $product->get_image();
 	$product_permalink = $product->get_permalink($cart_item);
 	$sub_total         = WC()->cart->get_product_subtotal($cart_item['data'], $cart_item['quantity']);
 
@@ -43,7 +40,7 @@ endforeach;
 if ($index == 0) {
 ?>
 	<div>
-		<img src="<?php echo LII_AJAXCART_ASSETS . '/img/empty_cart.png' ?>" alt="empty-cart" style="
+		<img src="<?php echo LII_AJAXCART_ASSETS . '/build/img/empty_cart.png' ?>" alt="empty-cart" style="
             width: 250px;
             height: auto;
             margin-left: 65px;

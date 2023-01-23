@@ -1,28 +1,22 @@
 <?php
 
 /**
- * The plugin bootstrap file
+ * Appify Side Cart -  Use Woocommerce based cart without reloading page
  *
- * This file is read by WordPress to generate the plugin information in the plugin
- * admin area. This file also includes all of the dependencies used by the plugin,
- * registers the activation and deactivation functions, and defines a function
- * that starts the plugin.
- *
- * @link              liilab.com
  * @since             1.0
- * @package           lii-ajaxcart
+ * @package           lii-ajax-cart
  *
  * @wordpress-plugin
- * Plugin Name:       E-commerce Ajax Side Cart
- * Plugin URI:        liilab.com/ajax-side-cart
- * Description:       A woocommerce based plugin for ajax side cart.
+ * Plugin Name:       Appify Side Cart
+ * Description:       Manage your cart without reloading the page
  * Version:           1.0
  * Author:            LIILab
- * Author URI:        liilab.com
+ * Author URI:        https://www.liilab.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       lii-ajax-cart
  * Domain Path:       /languages
+ * Tags:              Woocommerce, Shopping Cart, Ajax, E-commerce, User-friendly
  */
 
 if (!defined('ABSPATH')) {
@@ -45,7 +39,7 @@ final class Lii_Ajax_Cart
     const version = '1.0';
 
     /**
-     * Class construcotr
+     * Class constructor
      */
     private function __construct()
     {
@@ -55,15 +49,40 @@ final class Lii_Ajax_Cart
 
         add_action('plugins_loaded', [$this, 'init_plugin']);
 		add_action('admin_init', [$this, 'plugin_redirect']);
-
+	    add_filter('plugin_action_links_' . plugin_basename(__FILE__), [$this, 'plugin_action_links']);
     }
+
+
+	/**
+	 * Plugin action links
+	 *
+	 * @param array $links
+	 *
+	 * @return array
+	 *@since  1.0.0
+	 *
+	 */
+	public function plugin_action_links(array $links): array
+	{
+
+		$links[] = '<a href="' . admin_url('admin.php?page=appify-side-cart') . '" class="fw-bold">' . __('Open tools', LII_AJAXCART_TEXT_DOMAIN) . '</a>';
+		return $links;
+	}
+
+	/**
+	 * Plugin redirect
+	 *
+	 * @return void
+	 *@since  1.0.0
+	 *
+	 */
 	
 	public function plugin_redirect() {
     if (get_option('lii-ajaxcart_do_activation_redirect', false)) {
         delete_option('lii-ajaxcart_do_activation_redirect');
         if(!isset($_GET['activate-multi']))
         {
-            wp_redirect("admin.php?page=e-commerce-ajax-side-cart-setting");
+            wp_redirect("admin.php?appify-side-cart");
         }
     }
 }
@@ -114,6 +133,10 @@ final class Lii_Ajax_Cart
         } else {
             new lii\ajax\cart\Subscriber();
         }
+
+	    if (!class_exists('WooCommerce')) {
+		    add_action('admin_notices', [$this, 'admin_notice'], 100);
+	    }
     }
 
     /**
@@ -132,6 +155,20 @@ final class Lii_Ajax_Cart
         update_option('lii-ajaxcart_version', LII_AJAXCART_VERSION);
 		add_option('lii-ajaxcart_do_activation_redirect', true);
     }
+
+	/**
+	 * Show warning if WooCommerce is not installed
+	 * @return void
+	 */
+
+	public function admin_notice()
+	{
+		?>
+		<div class="notice notice-error is-dismissible alert alert-danger" role="alert">
+			<span class="fw-bold">Appify Side Cart </span><?php _e('requires ',  LII_AJAXCART_TEXT_DOMAIN); ?><span class="fw-bold">WooCommerce </span><?php _e('to be installed and activated!',  LII_AJAXCART_TEXT_DOMAIN); ?>
+		</div>
+		<?php
+	}
 }
 
 /**

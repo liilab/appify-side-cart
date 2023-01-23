@@ -68,12 +68,8 @@ class Frontend
      * @return	array
      */
     public function add_action_links ( $links ) {
-        $mylinks = array(
-            '<a href="' . admin_url( 'options-general.php?page=mysettings' ) . '">Settings</a>',
-        );
-        var_dump($mylinks);
-        die();
-        return array_merge( $links, $mylinks );
+       $links[] = '<a href="'. esc_url( get_admin_url(null, 'admin.php?page=appify-side-cart') ) .'">Settings</a>';
+	   return $links;
     }
 
     /**
@@ -84,9 +80,9 @@ class Frontend
 
     public function enqueue_styles()
     {
-        wp_enqueue_style(LII_AJAXCART_TEXT_DOMAIN.'-bootstrap', LII_AJAXCART_ASSETS . '/css/vendor/bootstrap-5.0.2.min.css');
-        wp_enqueue_style(LII_AJAXCART_TEXT_DOMAIN.'-bootstrap-icon', '//cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css');
-        wp_enqueue_style(LII_AJAXCART_TEXT_DOMAIN.'-main', LII_AJAXCART_ASSETS . '/css/style.css');
+        wp_enqueue_style(LII_AJAXCART_TEXT_DOMAIN.'-bootstrap', LII_AJAXCART_ASSETS . '/build/css/bootstrap.min.css');
+        wp_enqueue_style(LII_AJAXCART_TEXT_DOMAIN.'-bootstrap-icon', LII_AJAXCART_ASSETS . '/build/css/bootstrap-icons.css');
+        wp_enqueue_style(LII_AJAXCART_TEXT_DOMAIN.'-main', LII_AJAXCART_ASSETS . '/build/css/style.css');
     }
 
     /**
@@ -98,9 +94,9 @@ class Frontend
 
     public function enqueue_scripts()
     {
-        wp_enqueue_script(LII_AJAXCART_TEXT_DOMAIN.'-notify', LII_AJAXCART_ASSETS . '/js/notify.js', array('jquery'), LII_AJAXCART_VERSION, true);
-        wp_enqueue_script(LII_AJAXCART_TEXT_DOMAIN.'-bootstrap', LII_AJAXCART_ASSETS . '/js/vendor/bootstrap-5.0.2.min.js','5.0.2', true);
-        wp_enqueue_script(LII_AJAXCART_TEXT_DOMAIN.'-main', LII_AJAXCART_ASSETS . '/js/main.js', array('jquery'),LII_AJAXCART_VERSION, true);
+        wp_enqueue_script(LII_AJAXCART_TEXT_DOMAIN.'-notify', LII_AJAXCART_ASSETS . '/build/js/notify.js', array('jquery'), LII_AJAXCART_VERSION, true);
+        wp_enqueue_script(LII_AJAXCART_TEXT_DOMAIN.'-bootstrap', LII_AJAXCART_ASSETS . '/build/js/bootstrap.min.js',array(), LII_AJAXCART_VERSION, true);
+        wp_enqueue_script(LII_AJAXCART_TEXT_DOMAIN.'-main', LII_AJAXCART_ASSETS . '/build/js/main.js', array('jquery'),LII_AJAXCART_VERSION, true);
         wp_localize_script(
             LII_AJAXCART_TEXT_DOMAIN.'-main',
             'script_handle',
@@ -112,6 +108,7 @@ class Frontend
 
     public function frontend_markup()
     {
+        wp_nonce_field('appify-cart-nonce-action', 'appify-cart-nonce-field');
         require_once LII_AJAXCART_DIR_PATH . 'templates/frontend-markup.php';
     }
 }

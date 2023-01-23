@@ -20,10 +20,10 @@ class Submenu_Page
 	public function create_settings()
 	{
 		$parent_slug = 'woocommerce';
-		$page_title = 'Side Cart Setting Page';
-		$menu_title = 'Side Cart';
+		$page_title = 'Appify Side Cart';
+		$menu_title = 'Appify Side Cart';
 		$capability = 'manage_options';
-		$slug = 'e-commerce-ajax-side-cart-setting';
+		$slug = 'appify-side-cart';
 		$callback = array($this, 'settings_content');
 		add_submenu_page($parent_slug, $page_title, $menu_title, $capability, $slug, $callback);
 	}
@@ -45,7 +45,7 @@ class Submenu_Page
 
 			public function setup_sections()
 			{
-				add_settings_section('SideCart_section', 'Add option for your side cart.', array(), 'SideCart');
+				add_settings_section('SideCart_section', '', array(), 'SideCart');
 			}
 
 			public function setup_fields()
@@ -53,7 +53,7 @@ class Submenu_Page
 				$fields = array(
 					array(
 						'section' => 'SideCart_section',
-						'label' => 'Ajax add to cart',
+						'label' => 'Ajax add to cart in shop page',
 						'id' => 'Lii-ajax-add-to-cart-option',
 						'desc' => 'Add to cart without refreshing shop page',
 						'type' => 'checkbox',
@@ -61,7 +61,7 @@ class Submenu_Page
 
 					array(
 						'section' => 'SideCart_section',
-						'label' => 'Ajax single product page add to cart',
+						'label' => 'Ajax add to cart in single product page',
 						'id' => 'Lii-ajax-single-product-page-add-to-cart-option',
 						'desc' => 'Add to cart without refreshing single product page',
 						'type' => 'checkbox',

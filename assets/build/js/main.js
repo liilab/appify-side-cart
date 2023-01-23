@@ -5,6 +5,7 @@ $ = jQuery;
 var header = $(".lii-header").height();
 var footer = $(".lii-footer").height();
 var total = header + footer + 50;
+var nonce = $("#appify-cart-nonce-field").val();
 
 $(document).ready(function () {
     $('.lii-product-items').css({ height: 'calc(100% - ' + total + 'px)' });
@@ -155,6 +156,7 @@ var add_to_cart = function (productID, product_qty, variation_id) {
         product_sku: '',
         quantity: product_qty,
         variation_id: variation_id,
+        appify_cart_nonce: nonce,
     };
     $.ajax({
         type: 'post',
@@ -216,10 +218,11 @@ var update_item_quantity = function (product_key, quantity) {
         action: '',
         product_key: product_key,
         qty: quantity,
+        appify_cart_nonce: nonce,
     };
 
     $.ajax({
-        type: 'POST',
+        type: 'post',
         url: get_wcurl('lii_ajaxcart_update_item_quantity'),
         data: data,
         success: function (response) {

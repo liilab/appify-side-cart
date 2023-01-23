@@ -59,13 +59,19 @@ class Backend
 
     public function add_to_cart()
     {
-        $product_id = apply_filters('lii_ajaxcart_woocommerce_add_to_cart_product_id', absint($_POST['product_id']));
-        $quantity = empty($_POST['quantity']) ? 1 : wc_stock_amount($_POST['quantity']);
-        $variation_id = absint($_POST['variation_id']);
+        $nonce = sanitize_text_field($_POST['appify_cart_nonce']);
+        if (!wp_verify_nonce($nonce, 'appify-cart-nonce-action')) {
+            die('Nonce invalid!');
+        }
+        $product_id = sanitize_text_field($_POST['product_id']);
+		$quantity = sanitize_text_field($_POST['quantity']);
+        $quantity = empty($quantity) ? 1 : wc_stock_amount($quantity);
+		$variation_id = sanitize_text_field($_POST['variation_id']);
+        $variation_id = absint($variation_id);
         $passed_validation = apply_filters('lii_ajaxcart_woocommerce_add_to_cart_validation', true, $product_id, $quantity);
         $product_status = get_post_status($product_id);
         if ($passed_validation && WC()->cart->add_to_cart($product_id, $quantity, $variation_id) && 'publish' === $product_status) {
-            do_action('lii_ajaxcart_woocommerce_ajax_added_to_cart', $product_id);
+
             if ('yes' === get_option('lii_ajaxcart_woocommerce_cart_redirect_after_add')) {
                 wc_add_to_cart_message(array($product_id => $quantity), true);
             }
@@ -74,7 +80,7 @@ class Backend
         } else {
             $data = array(
                 'error' => true,
-                'product_url' => apply_filters('lii_ajaxcart_woocommerce_cart_redirect_after_error', get_permalink($product_id), $product_id)
+                'product_url' => get_permalink($product_id),
             );
             echo wp_send_json($data);
         }
@@ -88,8 +94,13 @@ class Backend
 
     public function update_item_quantity()
     {
+        $nonce = sanitize_text_field($_POST['appify_cart_nonce']);
+        if (!wp_verify_nonce($nonce, 'appify-cart-nonce-action')) {
+            die('Nonce invalid!');
+        }
+
         $product_key     = sanitize_text_field($_POST['product_key']);
-        $new_qty     = (float) $_POST['qty'];
+        $new_qty     = sanitize_text_field($_POST['qty']);
 
 
         if (!is_numeric($new_qty) || $new_qty < 0 || !$product_key) {
