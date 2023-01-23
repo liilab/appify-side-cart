@@ -1,4 +1,4 @@
-=== Appify Side Cart -  Use Woocommerce based cart without reloading page ===
+=== Appify Side Cart -  Use Woocommerce based AJAX cart without reloading page ===
 Contributors: tsabbir007
 Tags: Woocommerce, Shopping Cart, Ajax, E-commerce, User-friendly
 Requires at least: 4.7
