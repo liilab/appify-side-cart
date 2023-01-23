@@ -11,7 +11,7 @@
  * Description:       Manage your cart without reloading the page
  * Version:           1.0
  * Author:            LIILab
- * Author URI:        https://www.liilab.com
+ * Author URI:        https://liilab.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       lii-ajax-cart
@@ -82,7 +82,7 @@ final class Appify_Side_Cart
         delete_option('lii-ajaxcart_do_activation_redirect');
         if(!isset($_GET['activate-multi']))
         {
-            wp_redirect("admin.php?appify-side-cart");
+            wp_redirect("admin.php?page=appify-side-cart");
         }
     }
 }
