@@ -34,7 +34,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 /**
  * The main plugin class
  */
-final class Ajax_Cart
+final class Appify_Side_Cart
 {
 
     /**
@@ -127,7 +127,7 @@ final class Ajax_Cart
  */
 function Ajax_Cart()
 {
-    return Ajax_Cart::init();
+    return Appify_Side_Cart::init();
 }
 
 // kick-off the plugin
