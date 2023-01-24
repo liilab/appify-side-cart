@@ -213,6 +213,7 @@
   border: 1px solid black;
   cursor: pointer;
   border-right: 0;
+  border-radius: 0px !important;
 }
 #lii-ajax-cart .lii-content-start .lii-main-contents .lii-cart-products .lii-single-product .lii-main-content .lii-details .lii-quantity .lii-qty.lii-buttons-added .lii-minus:focus {
   outline: none;
@@ -226,6 +227,7 @@
   border: 1px solid black;
   cursor: pointer;
   border-left: 0;
+  border-radius: 0px !important;
 }
 #lii-ajax-cart .lii-content-start .lii-main-contents .lii-cart-products .lii-single-product .lii-main-content .lii-details .lii-quantity .lii-qty.lii-buttons-added .lii-plus:focus {
   outline: none;
