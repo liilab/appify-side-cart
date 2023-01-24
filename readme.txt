@@ -10,11 +10,14 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Appify Side Cart is a WooCommerce plugin that allows you to add and remove products from your cart without reloading the page.
 
+
 == Description ==
 
 = APPIFY SIDE CART - USE WOOCOMMERCE BASED CART WITHOUT RELOADING PAGE =
 
 👉 See Our Official GitHub page: [Official Appify Side Cart GitHub](https://github.com/liilab/appify-side-cart)
+
+[vimeo https://vimeo.com/792213968]
 
 = POWERED BY WooCommerce =
 
@@ -83,8 +86,11 @@ You can contact us at mail.liilab@gmail.com if you have any problems with the pl
 
 == Screenshots ==
 
-1. Appify Side Cart UI
-2. Appify Side Cart Settings
+1. Appify Side Cart Frontpage UI
+2. Product Update
+3. Product Remove
+4. Empty Cart
+5. Setting Page Options
 
 == Changelog ==
 
