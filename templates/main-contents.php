@@ -14,7 +14,10 @@ if ($var3) {
 	$inlineStyle = 'margin-left:0; padding: 0;';
 }
 
-echo '<div class="lii-main-contents ', esc_attr($var1 ? 'shoppage-load' : ''), ' ', esc_attr($var2 ? 'singlepage-load' : ''), '">';
+$shop_page_load   = $var1 ? 'shoppage-load' : '';
+$single_page_load = $var2 ? 'singlepage-load' : '';
+
+echo '<div class="lii-main-contents ', esc_attr($shop_page_load.' '.$single_page_load), '">';
 
 ?>
 
@@ -30,7 +33,6 @@ if ($var4) {
 foreach ($items as $cart_item_key => $cart_item) :
 	$product           = $cart_item['data'];
 	$product_permalink = $product->get_permalink($cart_item);
-	$sub_total         = WC()->cart->get_product_subtotal($cart_item['data'], $cart_item['quantity']);
 
 	require LII_AJAXCART_DIR_PATH . 'templates/products.php';
 
