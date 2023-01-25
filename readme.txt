@@ -17,7 +17,7 @@ Appify Side Cart is a WooCommerce plugin that allows you to add and remove produ
 
 👉 See Our Official GitHub page: [Official Appify Side Cart GitHub](https://github.com/liilab/appify-side-cart)
 
-[vimeo https://vimeo.com/792213968]
+[vimeo https://vimeo.com/792487326]
 
 = POWERED BY WooCommerce =
 
