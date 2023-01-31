@@ -1,56 +1,64 @@
 <?php
-$var1 = 1;
-$var2 = 1;
-$var3 = 1;
-$inlineStyle = "";
-if (class_exists('Redux')) :
-    $var1 = \Redux::get_option('redux_demo', 'shoppage-load');
-    $var2 = \Redux::get_option('redux_demo', 'singlepage-load');
-    $var3 = \Redux::get_option('redux_demo', 'product-quantity-box');
-    $hidden = " ";
-    $inlineStyle = " ";
-    if (!$var3) {
-        $hidden = "d-none";
-        $inlineStyle = 'style="margin-left:0; padding: 0;"';
-    }
-endif;
+
+$var1 = (bool)get_option('Lii-ajax-add-to-cart-option'); //shop-page-load
+$var2 = (bool)get_option('Lii-ajax-single-product-page-add-to-cart-option');  //single-product-page-load
+$var3 = (bool)get_option('Lii-showing-product-quantity-box-option');  //product-quantity-box
+$var4 = (bool)get_option('Lii-cart-order-option'); //cart-order
+
+$hidden      = ' ';
+$inlineStyle = ' ';
+
+
+if ($var3) {
+	$hidden      = 'd-none';
+	$inlineStyle = 'margin-left:0; padding: 0;';
+}
+
+$shop_page_load   = $var1 ? 'shoppage-load' : '';
+$single_page_load = $var2 ? 'singlepage-load' : '';
+
+echo '<div class="lii-main-contents ', esc_attr($shop_page_load.' '.$single_page_load), '">';
+
 ?>
-<div class="lii-main-contents <?php if ($var1) {
-                                    echo 'shoppage-load';
-                                }
-                                if ($var2) {
-                                    echo ' singlepage-load';
-                                } ?>">
-    <!--Cart Products-->
-    <?php
-    global $woocommerce;
-    $items = $woocommerce->cart;
 
-    foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) :
-        $product = $cart_item['data'];
-        $thumbnail = $product->get_image();
-        $product_permalink     = $product->get_permalink($cart_item);
-        $sub_total = WC()->cart->get_product_subtotal($cart_item['data'], $cart_item['quantity']);
+<!--Cart Products-->
+<?php
+$index = 0;
 
-        require LII_AJAXCART_DIR_PATH . 'templates/products.php';
-    endforeach;
-    ?>
-    <!--Suggested Items-->
-    <div class="lii-suggested-items">
-        <p class="lii-text-center fw-bold">Products you might like</p>
-        <div class="lii-products">
-            <div class="lii-single-product">
-                <div class="lii-main-content d-flex">
-                    <img src="/assets/img/product-2.jpg" alt="" />
-                    <div class="lii-details">
-                        <p class="lii-title">Variable Product- XXL, RED</p>
-                        <div class="lii-lower-data d-flex">
-                            <p>$15.00</p>
-                            <button>+ ADD</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+$items = WC()->cart->get_cart();
+if ($var4) {
+	$items = array_reverse($items, true);
+}
+
+foreach ($items as $cart_item_key => $cart_item) :
+	$product           = $cart_item['data'];
+	$product_permalink = $product->get_permalink($cart_item);
+
+	require LII_AJAXCART_DIR_PATH . 'templates/products.php';
+
+	$index++;
+endforeach;
+
+if ($index == 0) {
+?>
+	<div>
+		<img src="<?php echo LII_AJAXCART_ASSETS . '/build/img/empty_cart.png' ?>" alt="empty-cart" style="
+            width: 250px;
+            height: auto;
+            margin-left: 65px;
+			">
+		<div class="text-center">
+			<h3 class="fw-bold"><?php esc_html_e('Your cart is empty!', 'lii-ajax-cart'); ?></h3>
+			<button onclick="window.location.href='<?php echo get_permalink(wc_get_page_id('shop')); ?>';" class="mt-2" style="
+				margin-left: 5px;
+                background-color: black;
+                color: white;
+                padding: 10px 42px;
+                border: none;
+                font-weight: 600;
+				">
+				<?php esc_html_e('Go to Shop', 'lii-ajax-cart'); ?></button>
+		</div>
+	</div>
+<?php } ?>
 </div>
