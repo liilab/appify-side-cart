@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Appify Side Cart -  Use Woocommerce based cart without reloading page
+ * Appify Side Cart -  WooCommerce based AJAX cart without reloading page
  *
  * @since             1.0
  * @package           lii-ajax-cart
@@ -10,7 +10,7 @@
  * Plugin Name:       Appify Side Cart
  * Description:       Manage your cart without reloading the page
  * Version:           1.0
- * Author:            LIILab
+ * Author:            LII Lab
  * Author URI:        https://liilab.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
