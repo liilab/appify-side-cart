@@ -1,8 +1,10 @@
-=== Appify Side Cart -  Use Woocommerce based AJAX cart without reloading page ===
+=== Appify Side Cart -  WooCommerce based AJAX cart without reloading page ===
 Contributors: tsabbir007
 Tags: Woocommerce, Shopping Cart, Ajax, E-commerce, User-friendly
-Requires at least: 4.7
-Tested up to: 6.1.1
+Requires at least: 5.4
+Tested up to: 6.2
+WC requires at least: 5.0.0
+WC tested up to: 7.5.1
 Stable tag: 1.0
 Requires PHP: 5.4 or later
 License: GPLv2 or later
@@ -13,7 +15,7 @@ Appify Side Cart is a WooCommerce plugin that allows you to add and remove produ
 
 == Description ==
 
-= APPIFY SIDE CART - USE WOOCOMMERCE BASED CART WITHOUT RELOADING PAGE =
+= APPIFY SIDE CART - WOOCOMMERCE BASED CART WITHOUT RELOADING PAGE =
 
 👉 See Our Official GitHub page: [Official Appify Side Cart GitHub](https://github.com/liilab/appify-side-cart)
 
